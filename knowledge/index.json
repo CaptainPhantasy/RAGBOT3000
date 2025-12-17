@@ -1,0 +1,42 @@
+{
+  "version": "1.0",
+  "productName": "OrbitWork",
+  "documents": [
+    {
+      "id": "doc_1",
+      "file": "docs/getting-started.md",
+      "title": "OrbitWork: Getting Started with Workspaces",
+      "productArea": "Setup",
+      "tags": ["workspace", "setup", "beginner"]
+    },
+    {
+      "id": "doc_2",
+      "file": "docs/api-keys.md",
+      "title": "OrbitWork: Configuring API Keys",
+      "productArea": "Developer",
+      "tags": ["api", "security", "configuration"]
+    },
+    {
+      "id": "doc_3",
+      "file": "docs/error-503.md",
+      "title": "Troubleshooting: Error 503 during Deployment",
+      "productArea": "Deployment",
+      "tags": ["error", "troubleshooting", "deployment"]
+    },
+    {
+      "id": "doc_4",
+      "file": "docs/permissions.md",
+      "title": "OrbitWork: Team Permissions and Roles",
+      "productArea": "Administration",
+      "tags": ["permissions", "roles", "admin"]
+    },
+    {
+      "id": "doc_5",
+      "file": "docs/database-relations.md",
+      "title": "Advanced: Database Relations",
+      "productArea": "Databases",
+      "tags": ["database", "advanced", "relations"]
+    }
+  ]
+}
+
