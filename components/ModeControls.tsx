@@ -1,4 +1,5 @@
 import type React from 'react';
+import { isScreenSharingSupported } from '../lib/deviceDetection';
 
 export type InteractionMode = 'voice' | 'screen' | 'live' | 'idle';
 
@@ -8,9 +9,16 @@ interface ModeControlsProps {
 }
 
 export const ModeControls: React.FC<ModeControlsProps> = ({ interactionMode, onModeChange }) => {
-  const modes: { id: InteractionMode; label: string }[] = [
+  const screenSharingSupported = isScreenSharingSupported();
+  
+  const modes: { id: InteractionMode; label: string; disabled?: boolean; title?: string }[] = [
     { id: 'voice', label: 'VOICE' },
-    { id: 'screen', label: 'SCREEN' },
+    { 
+      id: 'screen', 
+      label: 'SCREEN',
+      disabled: !screenSharingSupported,
+      title: !screenSharingSupported ? 'Screen sharing not supported on this device' : undefined
+    },
     { id: 'live', label: 'LIVE' },
   ];
 
@@ -21,18 +29,22 @@ export const ModeControls: React.FC<ModeControlsProps> = ({ interactionMode, onM
           <button
             key={mode.id}
             type="button"
-            className={`label ${interactionMode === mode.id ? 'checked' : ''}`}
+            className={`label ${interactionMode === mode.id ? 'checked' : ''} ${mode.disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
-              onModeChange(mode.id);
+              if (!mode.disabled) {
+                onModeChange(mode.id);
+              }
             }}
             onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
+              if ((e.key === 'Enter' || e.key === ' ') && !mode.disabled) {
                 onModeChange(mode.id);
               }
             }}
             aria-pressed={interactionMode === mode.id}
+            disabled={mode.disabled}
+            title={mode.title}
           >
             <span className="text">{mode.label}</span>
           </button>

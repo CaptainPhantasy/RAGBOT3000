@@ -5,6 +5,7 @@ import { VisionPreview } from './components/VisionPreview';
 import { WavyBackground } from './components/WavyBackground';
 import { useDragAndResize } from './hooks/useDragAndResize';
 import { useMediaStream } from './hooks/useMediaStream';
+import { isIOS, isScreenSharingSupported } from './lib/deviceDetection';
 import { buildUnifiedSystemPrompt } from './services/geminiService';
 import { LiveSession, type LiveSessionError } from './services/liveService';
 import { type DocChunk, Mode, type TaskFrame } from './types';
@@ -43,11 +44,19 @@ const App = () => {
 
   const handleSessionError = useCallback((error: LiveSessionError) => {
     let msg = '';
-    if (error.type === 'permission_denied') msg = `Permission denied for ${error.device}.`;
-    else if (error.type === 'network_error') msg = error.message || 'Connection lost.';
-    else msg = `Error: ${error.message}`;
+    if (error.type === 'permission_denied') {
+      if (isIOS()) {
+        msg = `Microphone access denied. On iOS, please allow microphone access in Settings > Safari > Microphone, then tap the button again.`;
+      } else {
+        msg = `Permission denied for ${error.device}. Please allow microphone access and try again.`;
+      }
+    } else if (error.type === 'network_error') {
+      msg = error.message || 'Connection lost.';
+    } else {
+      msg = `Error: ${error.message}`;
+    }
     setLastError(msg);
-    setTimeout(() => setLastError(null), 5000);
+    setTimeout(() => setLastError(null), 8000);
   }, []);
 
   const handleModeChange = useCallback(
@@ -72,13 +81,30 @@ const App = () => {
         (text) => console.log('T:', text),
         (base64) => console.log('A:', base64.length),
         handleSessionError,
-        (status) => {
+        async (status) => {
           // Ignore status updates from sessions that are no longer the active one.
           if (liveSessionRef.current !== session) return;
 
           if (status === 'connected') {
-            if (mode === 'screen') startVideoSource('screen');
-            else if (mode === 'live') startVideoSource('camera');
+            if (mode === 'screen') {
+              const result = await startVideoSource('screen');
+              if (!result.success) {
+                setLastError(result.error || 'Screen sharing failed.');
+                setInteractionMode('idle');
+                liveSessionRef.current = null;
+                stopVideoSource(session);
+                session.disconnect();
+              }
+            } else if (mode === 'live') {
+              const result = await startVideoSource('camera');
+              if (!result.success) {
+                setLastError(result.error || 'Camera access failed.');
+                setInteractionMode('idle');
+                liveSessionRef.current = null;
+                stopVideoSource(session);
+                session.disconnect();
+              }
+            }
           } else if (status === 'idle') {
             setInteractionMode('idle');
             liveSessionRef.current = null;
@@ -90,9 +116,15 @@ const App = () => {
       // IMPORTANT: set ref before connecting so startVideoSource() can see an active session.
       liveSessionRef.current = session;
 
+      // iOS Safari requires getUserMedia to be called directly from user gesture
+      // setupAudio is called synchronously in the click handler, so this should work
       const ready = await setupAudio();
       if (!ready) {
-        setLastError('Microphone access required.');
+        if (isIOS()) {
+          setLastError('Microphone access required. Please allow access when prompted, or check Settings > Safari > Microphone.');
+        } else {
+          setLastError('Microphone access required. Please allow access and try again.');
+        }
         setInteractionMode('idle');
         liveSessionRef.current = null;
         stopVideoSource(session);

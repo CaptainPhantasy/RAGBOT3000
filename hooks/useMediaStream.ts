@@ -48,16 +48,42 @@ export const useMediaStream = (
   }, [liveSessionRef]);
 
   const startVideoSource = useCallback(
-    async (type: 'screen' | 'camera') => {
-      if (!liveSessionRef.current) return;
+    async (type: 'screen' | 'camera'): Promise<{ success: boolean; error?: string }> => {
+      if (!liveSessionRef.current) {
+        return { success: false, error: 'Session not initialized' };
+      }
 
       try {
         stopVideoSource();
 
+        // Check support before attempting
+        if (type === 'screen' && !navigator.mediaDevices?.getDisplayMedia) {
+          return { 
+            success: false, 
+            error: 'Screen sharing is not supported on this device or browser.' 
+          };
+        }
+
+        if (type === 'camera' && !navigator.mediaDevices?.getUserMedia) {
+          return { 
+            success: false, 
+            error: 'Camera access is not supported on this device or browser.' 
+          };
+        }
+
         const stream =
           type === 'screen'
-            ? await navigator.mediaDevices.getDisplayMedia({ video: true })
-            : await navigator.mediaDevices.getUserMedia({ video: true });
+            ? await navigator.mediaDevices.getDisplayMedia({ 
+                video: {
+                  displaySurface: 'browser', // Prefer browser tab/window over entire screen
+                  cursor: 'always',
+                } as MediaTrackConstraints 
+              })
+            : await navigator.mediaDevices.getUserMedia({ 
+                video: {
+                  facingMode: 'user',
+                } 
+              });
 
         liveSessionRef.current.startVideoStream(stream);
 
@@ -73,10 +99,30 @@ export const useMediaStream = (
         stream.getVideoTracks()[0].onended = () => {
           stopVideoSource();
         };
-      } catch (err) {
+
+        return { success: true };
+      } catch (err: any) {
         console.error(`Failed to start ${type}:`, err);
         setIsScreenSharing(false);
         setIsCameraActive(false);
+        
+        let errorMsg = `Failed to start ${type === 'screen' ? 'screen sharing' : 'camera'}.`;
+        
+        if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+          errorMsg = type === 'screen' 
+            ? 'Screen sharing permission denied. Please allow screen sharing in your browser settings.'
+            : 'Camera permission denied. Please allow camera access and try again.';
+        } else if (err.name === 'NotFoundError' || err.name === 'DevicesNotFoundError') {
+          errorMsg = type === 'screen'
+            ? 'No screen or window available to share.'
+            : 'No camera found. Please connect a camera and try again.';
+        } else if (err.name === 'NotReadableError' || err.name === 'TrackStartError') {
+          errorMsg = `Unable to access ${type === 'screen' ? 'screen' : 'camera'}. It may be in use by another application.`;
+        } else if (err.message) {
+          errorMsg = err.message;
+        }
+        
+        return { success: false, error: errorMsg };
       }
     },
     [liveSessionRef, videoPreviewRef, stopVideoSource],

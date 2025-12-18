@@ -2,6 +2,10 @@
 
 **By Legacy AI**
 
+<div align="center">
+  <img src="icon-192.jpeg" alt="RAGBOT3000 - Legacy AI Robot" width="400" />
+</div>
+
 RAGBOT3000 is a white-labeled, retrieval-augmented "teammate" chatbot designed to **teach, guide, and troubleshoot** across *any platform* by grounding its help in a **swappable RAG knowledgebase** while keeping its **persona (name/voice/behavior)** separate and reusable.
 
 It is built to feel less like a Q&A bot and more like a **hands-on operator + patient instructor** who helps a human move from "I want to do X" to "X is done," with minimal friction.
@@ -33,6 +37,13 @@ RAGBOT3000 exists to solve the real problem of learning and using unfamiliar too
 - **Live preview** (confidence monitor) showing what the agent sees
 - **2 FPS video streaming** optimized for real-time analysis
 
+### 🎯 Barge-in / Interruptions
+- **User can interrupt agent mid-speech** - speak over the agent to take control
+- **Adaptive noise floor** prevents false self-interrupts from agent audio leakage
+- **Sub-2 second latency** for responsive interruption detection
+- **Grace window** during audio chunk gaps ensures reliable detection
+- **Industry-standard implementation** following turn-taking best practices
+
 ### 🧠 Persistent Memory System
 - **Session memory** with 72-hour TTL expiration
 - **Progress checkpointing** across all interaction modes
@@ -45,7 +56,7 @@ RAGBOT3000 exists to solve the real problem of learning and using unfamiliar too
 - **Typed error handling** with user-friendly messages
 - **Graceful degradation** for older browsers
 - **Resource cleanup** with AbortController pattern
-- **Connection status indicators** and error toasts
+- **Error toasts** with auto-dismiss and manual close
 
 ---
 
@@ -141,9 +152,18 @@ ragbot3000/
 │
 ├── components/                 # UI components
 │   ├── WavyBackground.tsx     # Voice-reactive visualization
+│   ├── ModeControls.tsx       # VOICE/SCREEN/LIVE mode toggle
+│   ├── VisionPreview.tsx      # Draggable/resizable vision preview
+│   ├── ErrorToast.tsx         # Error notification toasts
 │   ├── EvidenceWidget.tsx     # Evidence display
 │   ├── TaskFrameWidget.tsx    # Task progress display
+│   ├── FeedbackWidget.tsx     # User feedback collection
+│   ├── MarkdownRenderer.tsx   # Markdown content rendering
 │   └── ...
+│
+├── hooks/                      # React custom hooks
+│   ├── useMediaStream.ts      # Media stream management (mic/screen/camera)
+│   └── useDragAndResize.ts    # Drag and resize logic for vision preview
 │
 ├── services/                   # Core services
 │   ├── geminiService.ts       # LLM orchestration (router + responder + memory patches)
@@ -212,10 +232,20 @@ RAGBOT3000 features a real-time voice interface powered by:
 | Component | Technology |
 |-----------|------------|
 | Platform | Google Gemini |
-| Model | `gemini-2.5-flash-native-audio-preview-09-2025` |
 | Voice | Chirp 3 HD (configurable via `persona/voice.json`) |
 | Audio Input | AudioWorklet (modern) / ScriptProcessor (fallback) |
 | Visualization | Voice-reactive waveforms (Bass/Mid/Treble) |
+
+### Model Usage
+
+RAGBOT3000 uses multiple Gemini models optimized for different tasks:
+
+| Purpose | Model |
+|---------|-------|
+| Live Audio Streaming | `gemini-2.5-flash-native-audio-preview-09-2025` |
+| Intent Router | `gemini-3-flash-preview` |
+| Response Generation | `gemini-3-pro-preview` |
+| Memory Checkpointing | `gemini-2.0-flash` |
 
 ### Vision Capabilities
 
@@ -303,27 +333,30 @@ RAGBOT3000 becomes an **invaluable asset** as a learning partner:
 
 ## Usage
 
-### Starting a Live Session
+### Starting a Session
 
-1. Click the microphone button to start listening
-2. Grant microphone permissions when prompted
-3. Speak naturally - the agent will respond with voice
-4. Use screen share or camera buttons to share visual context
+RAGBOT3000 offers three interaction modes via buttons at the bottom of the screen:
 
-### Sharing Visual Context
+- **VOICE**: Voice-only interaction (no visual context)
+- **SCREEN**: Voice + automatic screen sharing for digital task assistance
+- **LIVE**: Voice + automatic camera feed for real-world object collaboration
 
-- **Screen Share**: Click the screen icon to share your screen
-- **Camera**: Click the camera icon to share your camera feed
-- **Live Preview**: A small preview window shows what the agent sees
-- **Stop Sharing**: Click the active button again or use browser controls
+**To start:**
+1. Click any mode button (VOICE, SCREEN, or LIVE)
+2. Grant microphone permissions when prompted (required for all modes)
+3. For SCREEN/LIVE modes, grant screen/camera permissions when prompted
+4. Speak naturally - the agent will respond with voice
 
-### Connection Status
+**To stop:**
+- Click the active mode button again to toggle off and return to idle state
+- Or click a different mode button to switch modes (previous mode stops automatically)
 
-The UI displays connection status:
-- 🟡 **Connecting...** - Establishing connection
-- 🟢 **Connected** - Active session
-- 🟠 **Reconnecting...** - Auto-reconnecting after network error
-- 🔴 **Connection Error** - Manual retry needed
+### Visual Context
+
+- **Screen Share** (SCREEN mode): Automatically initiates when SCREEN mode is activated
+- **Camera Feed** (LIVE mode): Automatically initiates when LIVE mode is activated
+- **Live Preview**: A draggable, resizable preview window shows what the agent sees
+- **Stop Sharing**: Click the active mode button again or use browser controls
 
 ### Error Handling
 
@@ -344,6 +377,15 @@ Edit files in `/persona/`:
 Replace contents in `/knowledge/`:
 - Add markdown docs to `/knowledge/docs/`
 - Update `/knowledge/index.json` with document metadata
+
+### Code quality and linting
+The project includes comprehensive linting tools:
+- **Biome** (`biome.json`) - Fast formatter and linter with auto-fix
+- **oxlint** (`.oxlintrc.json`) - Fast JavaScript/TypeScript linter
+- **TypeScript** (`tsconfig.json`) - Type checking
+- **Secretlint** (`.secretlintrc.json`) - Detects secrets and credentials
+
+Run all linters: `npm run lint`
 
 ### Adjust robustness settings
 Edit `services/liveService.ts`:
