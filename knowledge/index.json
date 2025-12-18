@@ -1,41 +1,55 @@
 {
   "version": "1.0",
-  "productName": "OrbitWork",
+  "productName": "ServiceTitan",
   "documents": [
     {
       "id": "doc_1",
-      "file": "docs/getting-started.md",
-      "title": "OrbitWork: Getting Started with Workspaces",
-      "productArea": "Setup",
-      "tags": ["workspace", "setup", "beginner"]
+      "file": "docs/index.md",
+      "title": "ServiceTitan Knowledge Base - Master Index",
+      "productArea": "Overview",
+      "tags": ["index", "navigation", "getting-started"]
     },
     {
       "id": "doc_2",
-      "file": "docs/api-keys.md",
-      "title": "OrbitWork: Configuring API Keys",
-      "productArea": "Developer",
-      "tags": ["api", "security", "configuration"]
+      "file": "docs/platform_overview.md",
+      "title": "ServiceTitan Platform Overview",
+      "productArea": "Platform",
+      "tags": ["platform", "architecture", "navigation", "onboarding", "system-requirements"]
     },
     {
       "id": "doc_3",
-      "file": "docs/error-503.md",
-      "title": "Troubleshooting: Error 503 during Deployment",
-      "productArea": "Deployment",
-      "tags": ["error", "troubleshooting", "deployment"]
+      "file": "docs/field_tech_guide.md",
+      "title": "ServiceTitan Field Technician Guide",
+      "productArea": "Field Operations",
+      "tags": ["technician", "mobile", "field", "jobs", "estimates", "payments", "invoicing"]
     },
     {
       "id": "doc_4",
-      "file": "docs/permissions.md",
-      "title": "OrbitWork: Team Permissions and Roles",
-      "productArea": "Administration",
-      "tags": ["permissions", "roles", "admin"]
+      "file": "docs/dispatch_guide.md",
+      "title": "ServiceTitan Dispatcher Guide",
+      "productArea": "Dispatch",
+      "tags": ["dispatch", "scheduling", "capacity", "technicians", "jobs", "emergencies"]
     },
     {
       "id": "doc_5",
-      "file": "docs/database-relations.md",
-      "title": "Advanced: Database Relations",
-      "productArea": "Databases",
-      "tags": ["database", "advanced", "relations"]
+      "file": "docs/sales_guide.md",
+      "title": "ServiceTitan Sales Guide",
+      "productArea": "Sales",
+      "tags": ["sales", "estimates", "pricebook", "pricing", "conversion", "presentation"]
+    },
+    {
+      "id": "doc_6",
+      "file": "docs/management_guide.md",
+      "title": "ServiceTitan Management Guide",
+      "productArea": "Management",
+      "tags": ["management", "reports", "dashboards", "kpis", "analytics", "performance"]
+    },
+    {
+      "id": "doc_7",
+      "file": "docs/office_staff_guide.md",
+      "title": "ServiceTitan Office Staff Guide",
+      "productArea": "Office",
+      "tags": ["office", "csr", "calls", "booking", "invoicing", "payments", "accounting", "customers"]
     }
   ]
 }

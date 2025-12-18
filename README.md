@@ -31,6 +31,7 @@ Why type when you can just... talk?
 
 - **Real-time voice** — it actually listens and responds (shocking)
 - **Interrupt anytime** — tell it to shut up mid-sentence (we won't tell)
+- **Multilingual** — speak Spanish, French, German, or whatever. It gets it. No translation app needed.
 - **Pretty sparkles** — because why not? ✨
 - **Works on your phone** — fullscreen, no browser clutter
 
@@ -58,6 +59,7 @@ Swap its brain like changing a cartridge.
 - **Swap expertise** — Notion guru today, Stripe wizard tomorrow
 - **Rebrand it** — change the name, voice, vibes, whatever
 - **Works anywhere** — feed it any docs, it adapts
+- **Speaks your language** — literally. Multilingual support means global teams can use it without awkward Google Translate moments.
 
 ---
 
@@ -150,4 +152,5 @@ Want to teach it about *your* platform?
 - Yes, it works on iOS. Yes, we tested it. Yes, it was painful.
 - Screen sharing doesn't work on iOS because Apple's WebKit doesn't support it. We don't make the rules.
 - The camera flip button exists because showing your face when you meant to show your broken printer is embarrassing.
+- It's multilingual because the world doesn't all speak English (shocking, we know). Speak to it in your language, it'll respond in kind.
 
