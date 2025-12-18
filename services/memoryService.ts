@@ -1,6 +1,6 @@
 /**
  * Memory Service for RAGBOT3000
- * 
+ *
  * Handles session memory with:
  * - Markdown-based storage
  * - TTL expiration (72 hours)
@@ -66,7 +66,7 @@ class MemoryManager {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         const data = JSON.parse(stored) as SessionData[];
-        data.forEach(session => {
+        data.forEach((session) => {
           this.sessions.set(session.session_id, session);
         });
       }
@@ -136,11 +136,8 @@ class MemoryManager {
     let mostRecent: SessionData | null = null;
     let mostRecentTime = 0;
 
-    this.sessions.forEach(session => {
-      if (
-        session.user_id === userId &&
-        (session.status === 'active' || session.status === 'paused')
-      ) {
+    this.sessions.forEach((session) => {
+      if (session.user_id === userId && (session.status === 'active' || session.status === 'paused')) {
         const updatedTime = new Date(session.updated_at).getTime();
         if (updatedTime > mostRecentTime) {
           mostRecentTime = updatedTime;
@@ -157,9 +154,9 @@ class MemoryManager {
    */
   getActiveSessions(userId: string): SessionData[] {
     this.cleanupExpired();
-    
+
     return Array.from(this.sessions.values())
-      .filter(s => s.user_id === userId && s.status !== 'completed')
+      .filter((s) => s.user_id === userId && s.status !== 'completed')
       .sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime());
   }
 
@@ -172,10 +169,10 @@ class MemoryManager {
     }
 
     const now = new Date().toISOString();
-    
+
     // Find existing or create new
     let session: SessionData;
-    
+
     if (existingSessionId && this.sessions.has(existingSessionId)) {
       // Update existing
       const existing = this.sessions.get(existingSessionId)!;
@@ -190,7 +187,7 @@ class MemoryManager {
         current_step: patch.current_step || existing.current_step,
         next_actions: patch.next_actions || existing.next_actions,
         blockers: patch.blockers || existing.blockers,
-        key_decisions: patch.key_decisions 
+        key_decisions: patch.key_decisions
           ? [...new Set([...existing.key_decisions, ...patch.key_decisions])]
           : existing.key_decisions,
         environment: patch.environment || existing.environment,
@@ -294,13 +291,13 @@ ${session.goal}
 - Next step: ${session.next_actions[0] || 'None'}
 
 # Key Decisions
-${session.key_decisions.map(d => `- ${d}`).join('\n') || '- None yet'}
+${session.key_decisions.map((d) => `- ${d}`).join('\n') || '- None yet'}
 
 # Blockers / Errors
-${session.blockers.map(b => `- ${b}`).join('\n') || '- None'}
+${session.blockers.map((b) => `- ${b}`).join('\n') || '- None'}
 
 # Environment
-${session.environment.map(e => `- ${e}`).join('\n') || '- Not specified'}
+${session.environment.map((e) => `- ${e}`).join('\n') || '- Not specified'}
 
 # Verification
 ${session.verification || 'Success criteria not defined'}
@@ -337,9 +334,7 @@ ${session.next_actions.map((a, i) => `${i + 1}. ${a}`).join('\n')}
   generateResumePrompt(session: SessionData): string {
     const lastStep = session.last_completed_step || 'getting started';
     const currentStep = session.current_step || session.next_actions[0] || 'continue';
-    const blockerNote = session.blockers.length > 0 
-      ? ` You encountered: ${session.blockers[0]}.` 
-      : '';
+    const blockerNote = session.blockers.length > 0 ? ` You encountered: ${session.blockers[0]}.` : '';
 
     return `Last time we were working on: **${session.topic}**. You had ${lastStep}.${blockerNote} Next step was to ${currentStep}. Want to continue from there?`;
   }
@@ -350,8 +345,10 @@ export const memoryManager = new MemoryManager();
 
 // Run cleanup periodically (every 30 minutes)
 if (typeof window !== 'undefined') {
-  setInterval(() => {
-    memoryManager.cleanupExpired();
-  }, 30 * 60 * 1000);
+  setInterval(
+    () => {
+      memoryManager.cleanupExpired();
+    },
+    30 * 60 * 1000,
+  );
 }
-

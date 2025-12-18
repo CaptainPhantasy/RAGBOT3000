@@ -1,14 +1,12 @@
-import { DocChunk } from './types';
-
-// Import knowledge index and docs
-import knowledgeIndex from './knowledge/index.json';
-
+import apiKeys from './knowledge/docs/api-keys.md?raw';
+import databaseRelations from './knowledge/docs/database-relations.md?raw';
+import error503 from './knowledge/docs/error-503.md?raw';
 // Import all doc files
 import gettingStarted from './knowledge/docs/getting-started.md?raw';
-import apiKeys from './knowledge/docs/api-keys.md?raw';
-import error503 from './knowledge/docs/error-503.md?raw';
 import permissions from './knowledge/docs/permissions.md?raw';
-import databaseRelations from './knowledge/docs/database-relations.md?raw';
+// Import knowledge index and docs
+import knowledgeIndex from './knowledge/index.json';
+import type { DocChunk } from './types';
 
 // Map file paths to imported content
 const docContents: Record<string, string> = {
@@ -20,7 +18,7 @@ const docContents: Record<string, string> = {
 };
 
 // Build knowledge base from index.json + markdown files
-export const KNOWLEDGE_BASE: DocChunk[] = knowledgeIndex.documents.map(doc => ({
+export const KNOWLEDGE_BASE: DocChunk[] = knowledgeIndex.documents.map((doc) => ({
   id: doc.id,
   title: doc.title,
   productArea: doc.productArea,
@@ -32,15 +30,15 @@ export const KNOWLEDGE_BASE: DocChunk[] = knowledgeIndex.documents.map(doc => ({
 // In production, replace with vector DB (Pinecone, Weaviate, etc.)
 export const retrieveDocs = (query: string): DocChunk[] => {
   const lowerQuery = query.toLowerCase();
-  const terms = lowerQuery.split(" ").filter(t => t.length > 3);
-  
-  const scored = KNOWLEDGE_BASE.map(doc => {
+  const terms = lowerQuery.split(' ').filter((t) => t.length > 3);
+
+  const scored = KNOWLEDGE_BASE.map((doc) => {
     let score = 0;
-    const contentLower = (doc.title + " " + doc.content).toLowerCase();
-    
+    const contentLower = (doc.title + ' ' + doc.content).toLowerCase();
+
     // Basic scoring
     if (contentLower.includes(lowerQuery)) score += 10;
-    terms.forEach(term => {
+    terms.forEach((term) => {
       if (contentLower.includes(term)) score += 2;
     });
 
@@ -48,8 +46,8 @@ export const retrieveDocs = (query: string): DocChunk[] => {
   });
 
   return scored
-    .filter(item => item.score > 0)
+    .filter((item) => item.score > 0)
     .sort((a, b) => b.score - a.score)
     .slice(0, 3) // Top 3
-    .map(item => item.doc);
+    .map((item) => item.doc);
 };

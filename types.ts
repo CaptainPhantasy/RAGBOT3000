@@ -1,13 +1,13 @@
 export enum Role {
   USER = 'user',
   MODEL = 'model',
-  SYSTEM = 'system'
+  SYSTEM = 'system',
 }
 
 export enum Mode {
   TEACH = 'Teach', // Explain concepts
   GUIDE = 'Guide', // Step-by-step
-  RESCUE = 'Rescue' // Troubleshooting
+  RESCUE = 'Rescue', // Troubleshooting
 }
 
 export interface TaskFrame {
@@ -17,13 +17,13 @@ export interface TaskFrame {
   mode: Mode;
   missingInfo?: string[];
   // Task Progress Tracking
-  steps?: string[];           // Extracted action steps
-  currentStep?: number;       // Where user is in the flow (0-indexed)
-  prerequisites?: string[];   // What must be true before starting
-  verifications?: string[];   // "What you should see" for each step
+  steps?: string[]; // Extracted action steps
+  currentStep?: number; // Where user is in the flow (0-indexed)
+  prerequisites?: string[]; // What must be true before starting
+  verifications?: string[]; // "What you should see" for each step
   // Diagnostic tracking (RESCUE mode)
-  diagnosticQuestions?: string[];  // Questions to ask user for troubleshooting
-  possibleCauses?: string[];       // Potential root causes from KB
+  diagnosticQuestions?: string[]; // Questions to ask user for troubleshooting
+  possibleCauses?: string[]; // Potential root causes from KB
 }
 
 export interface DocChunk {
