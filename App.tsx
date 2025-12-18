@@ -7,11 +7,11 @@ import { knowledgeBase } from './knowledgeBase';
 
 type MicPermission = 'prompt' | 'granted' | 'denied' | 'requesting';
 type ConnectionStatus = 'idle' | 'connecting' | 'connected' | 'reconnecting' | 'disconnecting' | 'error';
-type InteractionMode = 'chat' | 'screen' | 'live';
+type InteractionMode = 'chat' | 'screen' | 'live' | 'idle';
 
 const App: React.FC = () => {
   const [micPermission, setMicPermission] = useState<MicPermission>('prompt');
-  const [interactionMode, setInteractionMode] = useState<InteractionMode>('chat');
+  const [interactionMode, setInteractionMode] = useState<InteractionMode>('idle');
   const [isListening, setIsListening] = useState(false);
   const [isScreenSharing, setIsScreenSharing] = useState(false);
   const [isCameraActive, setIsCameraActive] = useState(false);
@@ -84,22 +84,12 @@ const App: React.FC = () => {
     previewSizeRef.current = previewSize;
   }, [previewSize]);
   
-  useEffect(() => {
-    interactionModeRef.current = interactionMode;
-  }, [interactionMode]);
-  
   // Shared audio resources (refs for things that don't need re-render)
   const streamRef = useRef<MediaStream | null>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
   const liveSessionRef = useRef<LiveSession | null>(null);
   const videoPreviewRef = useRef<HTMLVideoElement>(null);
   const previewContainerRef = useRef<HTMLDivElement>(null);
-  const interactionModeRef = useRef<InteractionMode>('chat');
-  
-  // Keep ref in sync with state
-  useEffect(() => {
-    interactionModeRef.current = interactionMode;
-  }, [interactionMode]);
 
   // Check mic permission on mount
   useEffect(() => {
@@ -257,9 +247,9 @@ const App: React.FC = () => {
       setIsListening(true);
     } else if (status === 'idle' || status === 'error') {
       setIsListening(false);
-      // Reset to chat mode if connection fails
+      // Reset to idle mode if connection fails
       if (status === 'error') {
-        setInteractionMode('chat');
+        setInteractionMode('idle');
       }
     }
   }, []);
@@ -269,153 +259,83 @@ const App: React.FC = () => {
     console.log('=== MODE CHANGE TRIGGERED ===');
     console.log('Requested mode:', mode);
     console.log('Current mode state:', interactionMode);
-    console.log('Current mode ref:', interactionModeRef.current);
     
-    // If clicking the same mode, toggle it off (return to chat)
-    if (interactionMode === mode && mode !== 'chat') {
-      console.log('Toggling off mode:', mode);
-      setInteractionMode('chat');
-      interactionModeRef.current = 'chat';
-      // Stop current activity
-      if (mode === 'screen') {
-        liveSessionRef.current?.stopVideoStream();
-        setIsScreenSharing(false);
-      } else if (mode === 'live') {
-        liveSessionRef.current?.stopVideoStream();
-        setIsCameraActive(false);
-      }
-      // Disconnect if listening
-      if (liveSessionRef.current) {
-        liveSessionRef.current.disconnect();
-        liveSessionRef.current = null;
-        setIsListening(false);
-        setConnectionStatus('idle');
-        setLastError(null);
-      }
-      return;
-    }
-
-    // Don't do anything if clicking the same mode that's already active
+    // Rule 1: If clicking the mode that is ALREADY active, toggle it OFF to 'idle'
     if (interactionMode === mode) {
-      console.log('Mode already active, ignoring');
-      return;
-    }
-
-    console.log('Switching from', interactionMode, 'to', mode);
-    
-    // Update state immediately for visual feedback
-    setInteractionMode(mode);
-    interactionModeRef.current = mode;
-
-    // Stop any existing activity before switching modes
-    if (isScreenSharing) {
-      liveSessionRef.current?.stopVideoStream();
-      setIsScreenSharing(false);
-    }
-    if (isCameraActive) {
-      liveSessionRef.current?.stopVideoStream();
-      setIsCameraActive(false);
-    }
-    if (isListening && mode === 'chat') {
+      console.log('Toggling off mode:', mode);
+      setInteractionMode('idle');
+      
+      // Full Cleanup
       liveSessionRef.current?.disconnect();
       liveSessionRef.current = null;
       setIsListening(false);
       setConnectionStatus('idle');
-    }
-
-    // Handle each mode
-    if (mode === 'chat') {
-      // Chat mode - no action needed, just text interface
-      setInteractionMode('chat');
+      setLastError(null);
+      setIsScreenSharing(false);
+      setIsCameraActive(false);
       return;
-    } else if (mode === 'screen') {
-      // Screen mode - start live session and screen share
-      setInteractionMode('screen');
-      const ready = await setupAudio();
-      if (!ready) {
-        showError('Microphone access is required for screen sharing.');
-        setInteractionMode('chat');
-        return;
-      }
-
-      setIsListening(true);
-      setConnectionStatus('connecting');
-      const session = new LiveSession(
-        (text) => console.log('Transcription:', text),
-        (base64Audio) => console.log('Audio chunk received'),
-        handleSessionError,
-        (status) => {
-          handleStatusChange(status);
-          // Start screen share once connected
-          if (status === 'connected' && interactionModeRef.current === 'screen' && liveSessionRef.current) {
-            startVideoSource('screen').catch(err => {
-              console.error('Failed to start screen share:', err);
-            });
-          }
-        }
-      );
-      
-      try {
-        const prompt = getUnifiedLivePrompt(activeTaskFrame, retrievedDocs);
-        await session.connect(streamRef.current!, prompt);
-        liveSessionRef.current = session;
-      } catch (err: any) {
-        console.error('Failed to connect:', err);
-        setIsListening(false);
-        setConnectionStatus('error');
-        setInteractionMode('chat');
-        
-        if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
-          showError('Microphone permission denied. Please grant access and try again.');
-        } else {
-          showError(`Connection failed: ${err.message || 'Unknown error'}`);
-        }
-      }
-    } else if (mode === 'live') {
-      // Live mode - start live session and camera
-      setInteractionMode('live');
-      const ready = await setupAudio();
-      if (!ready) {
-        showError('Microphone access is required for live camera.');
-        setInteractionMode('chat');
-        return;
-      }
-
-      setIsListening(true);
-      setConnectionStatus('connecting');
-      const session = new LiveSession(
-        (text) => console.log('Transcription:', text),
-        (base64Audio) => console.log('Audio chunk received'),
-        handleSessionError,
-        (status) => {
-          handleStatusChange(status);
-          // Start camera once connected
-          if (status === 'connected' && interactionModeRef.current === 'live' && liveSessionRef.current) {
-            startVideoSource('camera').catch(err => {
-              console.error('Failed to start camera:', err);
-            });
-          }
-        }
-      );
-      
-      try {
-        const prompt = getUnifiedLivePrompt(activeTaskFrame, retrievedDocs);
-        await session.connect(streamRef.current!, prompt);
-        liveSessionRef.current = session;
-      } catch (err: any) {
-        console.error('Failed to connect:', err);
-        setIsListening(false);
-        setConnectionStatus('error');
-        setInteractionMode('chat');
-        
-        if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
-          showError('Microphone permission denied. Please grant access and try again.');
-        } else {
-          showError(`Connection failed: ${err.message || 'Unknown error'}`);
-        }
-      }
     }
-  }, [interactionMode, isListening, isScreenSharing, isCameraActive, setupAudio, handleSessionError, handleStatusChange, showError]);
+
+    // Rule 2: If switching to a different mode, perform a clean handover
+    console.log('Switching from', interactionMode, 'to', mode);
+    
+    // Stop any existing session/streams first for a clean state
+    if (liveSessionRef.current) {
+      liveSessionRef.current.disconnect();
+      liveSessionRef.current = null;
+    }
+    setIsScreenSharing(false);
+    setIsCameraActive(false);
+    setIsListening(false);
+    setConnectionStatus('idle');
+
+    // Update state immediately for visual feedback
+    setInteractionMode(mode);
+
+    // If requested mode is idle, we are done
+    if (mode === 'idle') return;
+
+    // Start the new mode
+    setIsListening(true);
+    setConnectionStatus('connecting');
+
+    const session = new LiveSession(
+      (text) => console.log('Transcription:', text),
+      (base64Audio) => console.log('Audio chunk received'),
+      handleSessionError,
+      (status) => {
+        handleStatusChange(status);
+        // Automatically trigger vision if the mode requires it
+        if (status === 'connected') {
+          if (mode === 'screen') {
+            startVideoSource('screen').catch(err => console.error('Screen start failed:', err));
+          } else if (mode === 'live') {
+            startVideoSource('camera').catch(err => console.error('Camera start failed:', err));
+          }
+        }
+      }
+    );
+    
+    try {
+      // Ensure audio is ready before connecting
+      const ready = await setupAudio();
+      if (!ready) {
+        showError('Microphone access is required.');
+        setInteractionMode('idle');
+        return;
+      }
+
+      const prompt = getUnifiedLivePrompt(activeTaskFrame, retrievedDocs);
+      await session.connect(streamRef.current!, prompt);
+      liveSessionRef.current = session;
+    } catch (err: any) {
+      console.error('Failed to connect:', err);
+      setIsListening(false);
+      setConnectionStatus('error');
+      setInteractionMode('idle');
+      showError(`Connection failed: ${err.message || 'Unknown error'}`);
+    }
+  }, [interactionMode, activeTaskFrame, retrievedDocs, setupAudio, handleSessionError, handleStatusChange, showError]);
 
   // Initialize preview position on first show (only once)
   const hasInitializedRef = useRef(false);
