@@ -23,7 +23,7 @@ const App = () => {
   });
   const [retrievedDocs] = useState<DocChunk[]>([]);
 
-  const { isScreenSharing, isCameraActive, analyser, streamRef, setupAudio, startVideoSource, stopVideoSource } =
+  const { isScreenSharing, isCameraActive, cameraFacingMode, analyser, streamRef, setupAudio, startVideoSource, stopVideoSource, toggleCamera } =
     useMediaStream(liveSessionRef, videoPreviewRef);
 
   // Barge-in interruption state (local VAD)
@@ -251,7 +251,17 @@ const App = () => {
         onResizeStart={handleResizeStart}
         getResizeCursor={getResizeCursor}
       />
-      <ModeControls interactionMode={interactionMode} onModeChange={handleModeChange} />
+      <ModeControls 
+        interactionMode={interactionMode} 
+        onModeChange={handleModeChange}
+        cameraFacingMode={cameraFacingMode}
+        onToggleCamera={async () => {
+          const result = await toggleCamera();
+          if (!result.success && result.error) {
+            setLastError(result.error);
+          }
+        }}
+      />
       <ErrorToast error={lastError} onClose={() => setLastError(null)} />
       </div>
     </div>

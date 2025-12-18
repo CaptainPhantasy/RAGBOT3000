@@ -1,6 +1,8 @@
 import { useCallback, useRef, useState } from 'react';
 import type { LiveSession } from '../services/liveService';
 
+export type CameraFacingMode = 'user' | 'environment';
+
 export const useMediaStream = (
   liveSessionRef: React.RefObject<LiveSession | null>,
   videoPreviewRef: React.RefObject<HTMLVideoElement | null>,
@@ -8,8 +10,10 @@ export const useMediaStream = (
   const [isScreenSharing, setIsScreenSharing] = useState(false);
   const [isCameraActive, setIsCameraActive] = useState(false);
   const [analyser, setAnalyser] = useState<AnalyserNode | null>(null);
+  const [cameraFacingMode, setCameraFacingMode] = useState<CameraFacingMode>('user');
   const streamRef = useRef<MediaStream | null>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
+  const videoStreamRef = useRef<MediaStream | null>(null);
 
   const setupAudio = useCallback(async (): Promise<boolean> => {
     if (streamRef.current && audioContextRef.current && analyser) {
@@ -41,6 +45,11 @@ export const useMediaStream = (
   }, [analyser]);
 
   const stopVideoSource = useCallback((session?: LiveSession | null) => {
+    // Stop any existing video stream tracks
+    if (videoStreamRef.current) {
+      videoStreamRef.current.getTracks().forEach(track => track.stop());
+      videoStreamRef.current = null;
+    }
     // Allow callers to stop the previous session even if liveSessionRef has already been cleared.
     (session ?? liveSessionRef.current)?.stopVideoStream();
     setIsScreenSharing(false);
@@ -81,9 +90,14 @@ export const useMediaStream = (
               })
             : await navigator.mediaDevices.getUserMedia({ 
                 video: {
-                  facingMode: 'user',
+                  facingMode: cameraFacingMode,
                 } 
               });
+
+        // Store video stream reference for camera toggling
+        if (type === 'camera') {
+          videoStreamRef.current = stream;
+        }
 
         liveSessionRef.current.startVideoStream(stream);
 
@@ -125,18 +139,77 @@ export const useMediaStream = (
         return { success: false, error: errorMsg };
       }
     },
-    [liveSessionRef, videoPreviewRef, stopVideoSource],
+    [liveSessionRef, videoPreviewRef, stopVideoSource, cameraFacingMode],
   );
+
+  const toggleCamera = useCallback(async (): Promise<{ success: boolean; error?: string }> => {
+    if (!isCameraActive || !liveSessionRef.current) {
+      return { success: false, error: 'Camera is not active' };
+    }
+
+    // Stop current video stream
+    if (videoStreamRef.current) {
+      videoStreamRef.current.getTracks().forEach(track => track.stop());
+      videoStreamRef.current = null;
+    }
+    liveSessionRef.current.stopVideoStream();
+
+    // Toggle facing mode
+    const newFacingMode: CameraFacingMode = cameraFacingMode === 'user' ? 'environment' : 'user';
+    setCameraFacingMode(newFacingMode);
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: newFacingMode,
+        },
+      });
+
+      videoStreamRef.current = stream;
+      liveSessionRef.current.startVideoStream(stream);
+
+      if (videoPreviewRef.current) {
+        videoPreviewRef.current.srcObject = stream;
+      }
+
+      stream.getVideoTracks()[0].onended = () => {
+        stopVideoSource();
+      };
+
+      return { success: true };
+    } catch (err: any) {
+      console.error('Failed to toggle camera:', err);
+      // Revert facing mode on error
+      setCameraFacingMode(cameraFacingMode);
+      
+      let errorMsg = 'Failed to switch camera.';
+      if (err.name === 'NotAllowedError') {
+        errorMsg = 'Camera permission denied.';
+      } else if (err.name === 'NotFoundError') {
+        errorMsg = newFacingMode === 'environment' 
+          ? 'Back camera not available on this device.' 
+          : 'Front camera not available on this device.';
+      } else if (err.name === 'OverconstrainedError') {
+        errorMsg = newFacingMode === 'environment'
+          ? 'Back camera not supported on this device.'
+          : 'Front camera not supported on this device.';
+      }
+      
+      return { success: false, error: errorMsg };
+    }
+  }, [isCameraActive, cameraFacingMode, liveSessionRef, videoPreviewRef, stopVideoSource]);
 
   return {
     isScreenSharing,
     isCameraActive,
+    cameraFacingMode,
     analyser,
     streamRef,
     audioContextRef,
     setupAudio,
     startVideoSource,
     stopVideoSource,
+    toggleCamera,
     setIsScreenSharing,
     setIsCameraActive,
     setAnalyser,

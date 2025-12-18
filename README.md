@@ -38,8 +38,9 @@ Why type when you can just... talk?
 
 Stop explaining in broken English. Just show it.
 
-- **Screen sharing** — "See that thing? Why is it broken?" Problem solved.
-- **Camera feed** — point your camera at stuff in the real world
+- **Screen sharing** — "See that thing? Why is it broken?" Problem solved. *(Desktop/Android only — Apple said no)*
+- **Camera feed** — point your phone at stuff in the real world
+- **Flip camera** — front or back, your choice. Show your face or show the problem.
 - **Live preview** — see what it sees (no, it's not judging you)
 
 ### 🧠 **It Remembers... Briefly**
@@ -81,15 +82,17 @@ No making stuff up. No "As an AI language model..." speeches. Just help.
 1. Open Safari (iOS) or Chrome (Android)
 2. Tap **Share** → **Add to Home Screen**
 3. Boom. It's an app now. Fullscreen. No browser bar.
-4. Tap **VOICE**, **SCREEN**, or **LIVE** to start
-5. Talk. It responds. Technology is amazing.
+4. Tap **VOICE** or **LIVE** to start *(SCREEN works on Android, but iOS said "nah")*
+5. In LIVE mode, tap the **flip button** to switch front/back camera
+6. Talk. It responds. Technology is amazing.
 
 ### On Desktop (For the Keyboard Warriors)
 
 1. Visit the site
 2. Click a mode (**VOICE** for audio, **SCREEN** to share your screen, **LIVE** for camera)
 3. Allow mic access (yes, it needs to hear you)
-4. Start talking. Or just click stuff. Whatever.
+4. In LIVE mode, use the **flip button** if you have multiple cameras (fancy)
+5. Start talking. Or just click stuff. Whatever.
 
 ---
 
@@ -133,12 +136,6 @@ Want to teach it about *your* platform?
 
 ---
 
-## Deployment
-
-Deploys automatically to **Railway** on git push. Set your `GEMINI_API_KEY` environment variable and you're golden.
-
----
-
 **Built with ❤️ (and excessive amounts of coffee) by Legacy AI**
 
 *Because learning shouldn't feel like reading a phone book in the dark.*
@@ -151,4 +148,6 @@ Deploys automatically to **Railway** on git push. Set your `GEMINI_API_KEY` envi
 - It can interrupt itself if you start talking. Polite.
 - The name "RAGBOT3000" implies there were 2,999 earlier versions. There weren't. It just sounds cooler.
 - Yes, it works on iOS. Yes, we tested it. Yes, it was painful.
+- Screen sharing doesn't work on iOS because Apple's WebKit doesn't support it. We don't make the rules.
+- The camera flip button exists because showing your face when you meant to show your broken printer is embarrassing.
 
