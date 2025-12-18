@@ -2,7 +2,10 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { LiveSession, LiveSessionError } from './services/liveService';
 import { getUnifiedLivePrompt, analyzeIntent, generateTeammateResponse } from './services/geminiService';
 import { WavyBackground } from './components/WavyBackground';
-import { TaskFrame, DocChunk, Mode } from './types';
+import { EvidenceWidget } from './components/EvidenceWidget';
+import { TaskFrameWidget } from './components/TaskFrameWidget';
+import { MarkdownRenderer } from './components/MarkdownRenderer';
+import { TaskFrame, DocChunk, Mode, Message } from './types';
 import { knowledgeBase } from './knowledgeBase';
 
 type MicPermission = 'prompt' | 'granted' | 'denied' | 'requesting';
@@ -20,6 +23,12 @@ const App: React.FC = () => {
   const [lastError, setLastError] = useState<string | null>(null);
   const [errorTimeout, setErrorTimeout] = useState<number | null>(null);
   
+  // Chat State
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [inputValue, setInputValue] = useState('');
+  const [isProcessing, setIsProcessing] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  
   // Shared Agent Context (The "Brain" state)
   const [activeTaskFrame, setActiveTaskFrame] = useState<TaskFrame>({
     intent: "General Inquiry",
@@ -29,6 +38,62 @@ const App: React.FC = () => {
   });
   const [retrievedDocs, setRetrievedDocs] = useState<DocChunk[]>([]);
   
+  // Auto-scroll messages
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
+  // Handle Text Submission
+  const handleSendMessage = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    if (!inputValue.trim() || isProcessing) return;
+
+    const userText = inputValue.trim();
+    setInputValue('');
+    
+    // 1. Add User Message
+    const userMsg: Message = {
+      id: Date.now().toString(),
+      role: 'user',
+      text: userText,
+      timestamp: Date.now()
+    };
+    setMessages(prev => [...prev, userMsg]);
+    setIsProcessing(true);
+
+    try {
+      // 2. RAG Retrieval
+      const docs = await knowledgeBase.search(userText);
+      setRetrievedDocs(docs);
+
+      // 3. Analyze Intent
+      const taskFrame = await analyzeIntent(userText, messages.map(m => ({ role: m.role, text: m.text })));
+      setActiveTaskFrame(taskFrame);
+
+      // 4. Generate Response
+      const response = await generateTeammateResponse(
+        userText,
+        taskFrame,
+        docs,
+        messages.map(m => ({ role: m.role, text: m.text }))
+      );
+
+      // 5. Add AI Message
+      const assistantMsg: Message = {
+        id: (Date.now() + 1).toString(),
+        role: 'model',
+        text: response,
+        timestamp: Date.now()
+      };
+      setMessages(prev => [...prev, assistantMsg]);
+    } catch (err) {
+      console.error('Failed to process message:', err);
+      showError('Failed to send message. Please try again.');
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
   // Vision preview position and size state
   const [previewPosition, setPreviewPosition] = useState({ x: 0, y: 0 });
   const [previewSize, setPreviewSize] = useState({ width: 256, height: 144 }); // 16:9 aspect ratio
@@ -296,11 +361,22 @@ const App: React.FC = () => {
     if (mode === 'idle') return;
 
     // Start the new mode
+    if (mode === 'chat') {
+      // Chat mode - Just show the UI, no voice session
+      setIsListening(false);
+      setConnectionStatus('idle');
+      return;
+    }
+
+    // Voice modes (screen, live)
     setIsListening(true);
     setConnectionStatus('connecting');
 
     const session = new LiveSession(
-      (text) => console.log('Transcription:', text),
+      (text) => {
+        console.log('Transcription:', text);
+        // Optionally add transcriptions to message history
+      },
       (base64Audio) => console.log('Audio chunk received'),
       handleSessionError,
       (status) => {
@@ -604,6 +680,83 @@ const App: React.FC = () => {
       containerClassName="relative"
       className="w-full h-full"
     >
+      {/* Main UI Overlay */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center p-4 z-10">
+        
+        {/* Chat Interface - Visible in 'chat' mode or when idle */}
+        {(interactionMode === 'chat' || interactionMode === 'idle') && (
+          <div className="w-full max-w-4xl h-[80vh] bg-white/10 backdrop-blur-3xl rounded-3xl border border-white/20 shadow-2xl flex flex-col overflow-hidden animate-in zoom-in-95 duration-300">
+            
+            {/* Split Screen Chat */}
+            <div className="flex-1 flex overflow-hidden">
+              
+              {/* Left Side: Messages */}
+              <div className="flex-1 flex flex-col min-w-0 border-r border-white/10">
+                <div className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-hide">
+                  {messages.length === 0 ? (
+                    <div className="h-full flex flex-col items-center justify-center text-center space-y-4 opacity-60">
+                      <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                        </svg>
+                      </div>
+                      <h2 className="text-xl font-semibold text-white">Hi, I'm Legacy</h2>
+                      <p className="text-slate-300 max-w-sm">I'm your technical RAG teammate. Ask me anything about OrbitWork or share your screen for live help.</p>
+                    </div>
+                  ) : (
+                    messages.map((m) => (
+                      <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                        <div className={`max-w-[85%] rounded-2xl p-4 ${
+                          m.role === 'user' 
+                            ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20' 
+                            : 'bg-slate-800 text-slate-100 border border-white/10'
+                        }`}>
+                          <MarkdownRenderer content={m.text} />
+                        </div>
+                      </div>
+                    ))
+                  )}
+                  <div ref={messagesEndRef} />
+                </div>
+
+                {/* Input Area */}
+                <div className="p-4 bg-black/20 border-t border-white/10">
+                  <form onSubmit={handleSendMessage} className="relative flex items-center gap-2">
+                    <input
+                      type="text"
+                      value={inputValue}
+                      onChange={(e) => setInputValue(e.target.value)}
+                      placeholder="Type a message..."
+                      disabled={isProcessing}
+                      className="flex-1 bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all disabled:opacity-50"
+                    />
+                    <button
+                      type="submit"
+                      disabled={isProcessing || !inputValue.trim()}
+                      className="p-4 bg-blue-600 text-white rounded-xl hover:bg-blue-500 transition-all disabled:opacity-50 disabled:bg-slate-700"
+                    >
+                      {isProcessing ? (
+                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      ) : (
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                        </svg>
+                      )}
+                    </button>
+                  </form>
+                </div>
+              </div>
+
+              {/* Right Side: Sidebars (RAG + Progress) */}
+              <div className="w-80 hidden lg:flex flex-col min-w-0 bg-black/10 overflow-y-auto p-6 space-y-8 scrollbar-hide">
+                <TaskFrameWidget frame={activeTaskFrame} />
+                <EvidenceWidget docs={retrievedDocs} />
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
       {/* Live Confidence Monitor (Visual Preview) - Draggable & Resizable */}
       {(isScreenSharing || isCameraActive) && (
         <div
