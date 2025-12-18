@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "npx serve -s dist -l ${PORT:-3000}"
+    "start": "serve -s dist -l 0.0.0.0:${PORT:-3000}"
   },
   "dependencies": {
     "@google/genai": "^1.34.0",
