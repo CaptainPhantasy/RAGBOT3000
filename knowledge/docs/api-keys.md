@@ -1,3 +1,10 @@
+---
+id: doc_2
+title: OrbitWork: Configuring API Keys
+productArea: Developer
+tags: [api, security, configuration]
+---
+
 # API Key Configuration
 
 API Keys are located under Settings > Developer > Tokens.

@@ -1,3 +1,10 @@
+---
+id: doc_5
+title: Advanced: Database Relations
+productArea: Databases
+tags: [database, advanced, relations]
+---
+
 # Database Relations
 
 OrbitWork allows linking two databases.

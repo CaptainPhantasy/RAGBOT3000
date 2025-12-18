@@ -1,30 +1,44 @@
-import apiKeys from './knowledge/docs/api-keys.md?raw';
-import databaseRelations from './knowledge/docs/database-relations.md?raw';
-import error503 from './knowledge/docs/error-503.md?raw';
-// Import all doc files
-import gettingStarted from './knowledge/docs/getting-started.md?raw';
-import permissions from './knowledge/docs/permissions.md?raw';
-// Import knowledge index and docs
-import knowledgeIndex from './knowledge/index.json';
+import matter from 'gray-matter';
 import type { DocChunk } from './types';
 
-// Map file paths to imported content
-const docContents: Record<string, string> = {
-  'docs/getting-started.md': gettingStarted,
-  'docs/api-keys.md': apiKeys,
-  'docs/error-503.md': error503,
-  'docs/permissions.md': permissions,
-  'docs/database-relations.md': databaseRelations,
-};
+// Auto-discover all markdown files in knowledge/docs/ at build time
+const docModules = import.meta.glob('./knowledge/docs/*.md', {
+  eager: true,
+  query: '?raw',
+  import: 'default',
+}) as Record<string, string>;
 
-// Build knowledge base from index.json + markdown files
-export const KNOWLEDGE_BASE: DocChunk[] = knowledgeIndex.documents.map((doc) => ({
-  id: doc.id,
-  title: doc.title,
-  productArea: doc.productArea,
-  tags: doc.tags,
-  content: docContents[doc.file] || '',
-}));
+// Parse frontmatter and build knowledge base automatically
+export const KNOWLEDGE_BASE: DocChunk[] = Object.entries(docModules)
+  .map(([path, rawContent]) => {
+    try {
+      const { data, content } = matter(rawContent);
+
+      // Extract filename for fallback ID if not in frontmatter
+      const filename = path.split('/').pop()?.replace('.md', '') || 'unknown';
+
+      // Build DocChunk from frontmatter + content
+      return {
+        id: data.id || `doc_${filename}`,
+        title: data.title || filename.replace(/-/g, ' '),
+        productArea: data.productArea || 'General',
+        tags: Array.isArray(data.tags) ? data.tags : [],
+        content: content.trim(),
+      };
+    } catch (err) {
+      console.error(`Failed to parse frontmatter for ${path}:`, err);
+      // Fallback: create minimal DocChunk from filename
+      const filename = path.split('/').pop()?.replace('.md', '') || 'unknown';
+      return {
+        id: `doc_${filename}`,
+        title: filename.replace(/-/g, ' '),
+        productArea: 'General',
+        tags: [],
+        content: rawContent.trim(),
+      };
+    }
+  })
+  .filter((doc) => doc.content.length > 0); // Filter out empty docs
 
 // Simple keyword search simulation
 // In production, replace with vector DB (Pinecone, Weaviate, etc.)

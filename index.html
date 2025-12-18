@@ -158,9 +158,38 @@
   }
 }
 </script>
-</head>
+  </head>
   <body>
     <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
+  <script>
+    // Auto-hide browser chrome on iOS Safari/Chrome
+    (function() {
+      // Only run on mobile devices
+      if (!/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) return;
+      
+      // Wait for page load, then scroll slightly to hide address bar
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          // Scroll down 1px to trigger Safari's address bar hiding
+          window.scrollTo(0, 1);
+          // Then scroll back to top
+          setTimeout(function() {
+            window.scrollTo(0, 0);
+          }, 100);
+        }, 100);
+      });
+      
+      // Also hide on orientation change
+      window.addEventListener('orientationchange', function() {
+        setTimeout(function() {
+          window.scrollTo(0, 1);
+          setTimeout(function() {
+            window.scrollTo(0, 0);
+          }, 100);
+        }, 500);
+      });
+    })();
+  </script>
 </body>
 </html>

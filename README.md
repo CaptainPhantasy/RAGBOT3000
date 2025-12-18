@@ -6,424 +6,149 @@
   <img src="icon-192.jpeg" alt="RAGBOT3000 - Legacy AI Robot" width="400" />
 </div>
 
-RAGBOT3000 is a white-labeled, retrieval-augmented "teammate" chatbot designed to **teach, guide, and troubleshoot** across *any platform* by grounding its help in a **swappable RAG knowledgebase** while keeping its **persona (name/voice/behavior)** separate and reusable.
+Meet **RAGBOT3000** — the AI teammate that actually *knows its stuff*. No BS. No hallucinations. No "I think maybe possibly..." nonsense. Just real help, grounded in real documentation.
 
-It is built to feel less like a Q&A bot and more like a **hands-on operator + patient instructor** who helps a human move from "I want to do X" to "X is done," with minimal friction.
-
----
-
-## Purpose
-
-RAGBOT3000 exists to solve the real problem of learning and using unfamiliar tools:
-
-- People don't just need explanations — they need **step-by-step execution**
-- Documentation is often correct but hard to apply — users need it turned into **actionable guidance**
-- Work gets interrupted — the bot must **resume progress** confidently and quickly
-- Platforms differ by plan, role, version, and UI — the bot must **diagnose friction** and adapt without guessing
+Think of it as the coworker who actually read the manual. Wild, right?
 
 ---
 
-## Features
+## What Makes This Bot Special?
 
-### 🎤 Real-Time Voice Interface
-- **Live audio streaming** with Google Gemini's native audio API
-- **Chirp 3 HD voices** for natural, emotionally resonant speech
-- **Voice-reactive visualization** with real-time waveform analysis
-- **Modern audio processing** using AudioWorklet (with ScriptProcessor fallback)
+### 🎯 **It Actually Does Things (Revolutionary, We Know)**
 
-### 👁️ Vision Capabilities
-- **Screen sharing** for digital task assistance
-- **Camera feed** for real-world object collaboration
-- **Live preview** (confidence monitor) showing what the agent sees
-- **2 FPS video streaming** optimized for real-time analysis
+Most AI chatbots: "Here's a 47-step essay about the philosophy of clicking a button."
 
-### 🎯 Barge-in / Interruptions
-- **User can interrupt agent mid-speech** - speak over the agent to take control
-- **Adaptive noise floor** prevents false self-interrupts from agent audio leakage
-- **Sub-2 second latency** for responsive interruption detection
-- **Grace window** during audio chunk gaps ensures reliable detection
-- **Industry-standard implementation** following turn-taking best practices
+RAGBOT3000: "Click here. Good? Cool, moving on."
 
-### 🧠 Persistent Memory System
-- **Session memory** with 72-hour TTL expiration
-- **Progress checkpointing** across all interaction modes
-- **Resume capability** - pick up where you left off
-- **Unified memory** shared between chat and live voice sessions
+- ✅ Turns boring docs into **actual steps you can follow**
+- ✅ Explains stuff when you're confused, skips it when you're not
+- ✅ **Checks your work** like a good lab partner
+- ✅ When stuff breaks, it goes full detective mode
 
-### 🛡️ Production-Ready Robustness
-- **Auto-reconnection** with exponential backoff (up to 5 attempts)
-- **State machine** architecture preventing race conditions
-- **Typed error handling** with user-friendly messages
-- **Graceful degradation** for older browsers
-- **Resource cleanup** with AbortController pattern
-- **Error toasts** with auto-dismiss and manual close
+### 🎤 **Talk to It Like a Human (Wild Concept)**
 
----
+Why type when you can just... talk?
 
-## Goals
+- **Real-time voice** — it actually listens and responds (shocking)
+- **Interrupt anytime** — tell it to shut up mid-sentence (we won't tell)
+- **Pretty sparkles** — because why not? ✨
+- **Works on your phone** — fullscreen, no browser clutter
 
-### 1) Teach and guide through any process
+### 👁️ **It Can Actually See What You're Doing**
 
-RAGBOT3000 should:
-- Translate documentation into **clear, ordered steps**
-- Explain the "why" when helpful, without overwhelming the user
-- Provide **checkpoints** ("what you should see") so users can verify progress
-- Offer "fast path" vs "safe path" depending on user preference
+Stop explaining in broken English. Just show it.
 
-### 2) Be a reliable, grounded teammate (not a hallucination machine)
+- **Screen sharing** — "See that thing? Why is it broken?" Problem solved.
+- **Camera feed** — point your camera at stuff in the real world
+- **Live preview** — see what it sees (no, it's not judging you)
 
-RAGBOT3000 should:
-- Treat retrieved documentation as the **source of truth**
-- Avoid inventing UI labels, product limits, API fields, or workflows
-- Clearly signal when the knowledgebase lacks coverage and what's needed to proceed
+### 🧠 **It Remembers... Briefly**
 
-### 3) Handle friction like a pro
+RAGBOT3000 has short-term memory. Like a goldfish, but useful.
 
-When users get stuck, RAGBOT3000 should:
-- Switch into **Rescue Mode**
-- Ask for the **minimum** diagnostics (error text, step number, what they expected)
-- Retrieve again using those friction signals
-- Provide a short decision tree with 1–2 actions per branch
+- **Picks up where you left off** — interrupted? It remembers.
+- **Forgets in 72 hours** — because privacy > creepy data hoarding
+- **Doesn't judge** — your workflow is safe with us
 
-### 4) Be white-labeled and modular
+### 🎨 **One Bot, Many Personalities**
 
-RAGBOT3000 is built around strict separation of concerns:
-- **Persona & behavior prompts** are reusable and brandable
-- **Knowledgebase packs** are swappable "expertise repos" (platform-specific docs)
-- You can assign a new expertise pack without changing the bot's identity
+Swap its brain like changing a cartridge.
 
-### 5) Resume interrupted work with local memory (and forget on schedule)
-
-RAGBOT3000 maintains a lightweight local memory that captures:
-- Current goal
-- Last completed step
-- Current step / next actions
-- Key decisions and blockers
-
-Memory expires automatically:
-- **Wipe/expire after 72 hours** (TTL-based cleanup)
+- **Swap expertise** — Notion guru today, Stripe wizard tomorrow
+- **Rebrand it** — change the name, voice, vibes, whatever
+- **Works anywhere** — feed it any docs, it adapts
 
 ---
 
-## High-Level Architecture
+## How Does This Thing Work?
 
-### Runtime Loop (conceptual)
+1. You tell it what you're trying to do
+2. It reads the actual documentation (what a concept)
+3. It guides you step-by-step
+4. You verify each step so you know you're not lost
+5. When you hit a wall, it troubleshoots
 
-1. **Intake** user message and infer intent (Teach / Guide / Rescue)
-2. **Frame** the task (goal, success criteria, constraints)
-3. **Retrieve** relevant evidence from the selected knowledgebase pack
-4. **Distill** evidence into a tight context brief (steps, prereqs, warnings, verification)
-5. **Respond** using persona + behavior + retrieved context
-6. **Log** progress to local memory for resumability (with 72h expiration)
-
-### Connection State Machine
-
-The live session uses a robust state machine:
-- `idle` → `connecting` → `connected` → `disconnecting` → `idle`
-- `connected` → `reconnecting` (on network error) → `connected` (after retry)
-- Prevents race conditions and ensures clean state transitions
-
-### Error Recovery
-
-- **Network errors**: Automatic reconnection with exponential backoff (1s → 30s max)
-- **Permission errors**: Clear user guidance with device-specific messages
-- **API errors**: Graceful degradation with informative error toasts
-- **Audio errors**: Fallback from AudioWorklet to ScriptProcessor for compatibility
+No making stuff up. No "As an AI language model..." speeches. Just help.
 
 ---
 
-## Repository Structure
+## Try It Now
 
-```
-ragbot3000/
-├── persona/                    # INTERNAL PROMPTS ONLY (no platform knowledge)
-│   ├── system.md              # Core system prompt
-│   ├── router.md              # Intent analysis prompt
-│   ├── rescue-flow.md         # Troubleshooting behavior
-│   ├── memory.md              # Memory behavior guidelines
-│   └── voice.json             # Voice config (name, tone, greetings)
-│
-├── knowledge/                  # SWAPPABLE expertise packs (RAG KB)
-│   ├── index.json             # Document manifest
-│   └── docs/                   # Platform-specific documentation
-│       ├── getting-started.md
-│       ├── api-keys.md
-│       └── ...
-│
-├── components/                 # UI components
-│   ├── WavyBackground.tsx     # Voice-reactive visualization
-│   ├── ModeControls.tsx       # VOICE/SCREEN/LIVE mode toggle
-│   ├── VisionPreview.tsx      # Draggable/resizable vision preview
-│   ├── ErrorToast.tsx         # Error notification toasts
-│   ├── EvidenceWidget.tsx     # Evidence display
-│   ├── TaskFrameWidget.tsx    # Task progress display
-│   ├── FeedbackWidget.tsx     # User feedback collection
-│   ├── MarkdownRenderer.tsx   # Markdown content rendering
-│   └── ...
-│
-├── hooks/                      # React custom hooks
-│   ├── useMediaStream.ts      # Media stream management (mic/screen/camera)
-│   └── useDragAndResize.ts    # Drag and resize logic for vision preview
-│
-├── services/                   # Core services
-│   ├── geminiService.ts       # LLM orchestration (router + responder + memory patches)
-│   ├── liveService.ts         # Real-time voice session (with robustness features)
-│   └── memoryService.ts       # Local memory manager (TTL, checkpoints, resume)
-│
-├── audio/                      # Audio processing
-│   └── pcm-processor.worklet.ts  # Modern AudioWorklet processor
-│
-├── public/                     # Static assets
-│   └── audio/
-│       └── pcm-processor.worklet.js  # Compiled worklet for browser
-│
-├── lib/                        # Utilities
-├── App.tsx                     # Main application
-└── knowledgeBase.ts           # RAG retrieval logic
-```
+**Live Demo:** [ragbot3000-production.up.railway.app](https://ragbot3000-production.up.railway.app)
+
+### On Your Phone (Yeah, It Works on Mobile)
+
+1. Open Safari (iOS) or Chrome (Android)
+2. Tap **Share** → **Add to Home Screen**
+3. Boom. It's an app now. Fullscreen. No browser bar.
+4. Tap **VOICE**, **SCREEN**, or **LIVE** to start
+5. Talk. It responds. Technology is amazing.
+
+### On Desktop (For the Keyboard Warriors)
+
+1. Visit the site
+2. Click a mode (**VOICE** for audio, **SCREEN** to share your screen, **LIVE** for camera)
+3. Allow mic access (yes, it needs to hear you)
+4. Start talking. Or just click stuff. Whatever.
 
 ---
 
-## Key Design Rules
+## What It's Actually Good At
 
-### Persona vs Knowledge
-
-| Persona Files | Knowledge Files |
-|---------------|-----------------|
-| Define name, tone, voice, teaching style, behaviors | Contain documentation and indexing configs |
-| Located in `/persona/` | Located in `/knowledge/` |
-| Reusable across platforms | Swappable per platform |
-
-**Rule:** The bot must never "hide knowledge" in the persona prompt; knowledge comes from retrieval.
-
-### Grounded Guidance Format
-
-Default response structure:
-
-1. **Goal confirmation** + assumptions
-2. **Plan** (A → B → C)
-3. **Steps** with verification ("You should see…")
-4. **If stuck:** short troubleshooting branches
-5. **Next options** ("continue" vs "explain")
-
-### Confidence Signals
-
-Responses include source markers:
-- `[FROM KB: Document Title]` — Direct from retrieved docs
-- `[INFERRED]` — Logical deduction from KB patterns
-- `[NOT IN KB]` — Information not available
-
-### Local Memory Scope
-
-Memory stores **state**, not facts:
-
-✅ "We're on step 3, mapping CSV columns"  
-✅ "Error: 403 missing permission"  
-❌ "Full platform documentation pasted into memory"
-
-Memory expires after 72 hours to stay privacy-conscious and avoid stale context.
+- **Learning new platforms** — "How do I even start with X?" → Done.
+- **Fixing broken stuff** — "Why is this error haunting me?" → Fixed.
+- **Complex workflows** — "Walk me through this 47-step process" → Walked.
+- **Understanding concepts** — "What even is Z?" → Explained, no Wikipedia essay.
 
 ---
 
-## Voice Interface
+## What It's NOT
 
-RAGBOT3000 features a real-time voice interface powered by:
-
-| Component | Technology |
-|-----------|------------|
-| Platform | Google Gemini |
-| Voice | Chirp 3 HD (configurable via `persona/voice.json`) |
-| Audio Input | AudioWorklet (modern) / ScriptProcessor (fallback) |
-| Visualization | Voice-reactive waveforms (Bass/Mid/Treble) |
-
-### Model Usage
-
-RAGBOT3000 uses multiple Gemini models optimized for different tasks:
-
-| Purpose | Model |
-|---------|-------|
-| Live Audio Streaming | `gemini-2.5-flash-native-audio-preview-09-2025` |
-| Intent Router | `gemini-3-flash-preview` |
-| Response Generation | `gemini-3-pro-preview` |
-| Memory Checkpointing | `gemini-2.0-flash` |
-
-### Vision Capabilities
-
-- **Screen Sharing**: Share your screen for digital task assistance
-- **Camera Feed**: Share real-world objects via camera
-- **Live Preview**: See exactly what the agent is viewing
-- **Spatial Awareness**: Agent uses precise spatial language ("top-right corner", "that object you're holding")
+- ❌ **A know-it-all** — if it doesn't know, it admits it (refreshing, right?)
+- ❌ **A data vacuum** — your stuff expires in 72 hours
+- ❌ **A hallucination machine** — grounds everything in actual docs
+- ❌ **Sentient** — yet 👀
 
 ---
 
-## Robustness Features
+## The Nerdy Bits (Skip If You Don't Care)
 
-### Network Resilience
-- **Auto-reconnect**: Exponential backoff (1s → 30s max, 5 attempts)
-- **State management**: Prevents multiple simultaneous connections
-- **Intentional disconnect tracking**: Won't reconnect on user-initiated stops
-
-### Error Handling
-- **Typed errors**: Categorized by type (permission, network, API, audio)
-- **User-friendly messages**: Clear guidance for each error type
-- **Status indicators**: Visual feedback for connection state
-- **Error toasts**: Auto-dismissing notifications with manual close option
-
-### Audio Processing
-- **Modern API**: AudioWorklet replaces deprecated ScriptProcessorNode
-- **Browser compatibility**: Automatic fallback for older browsers
-- **No deprecation warnings**: Clean console output
-
-### Resource Management
-- **AbortController**: Clean cancellation of async operations
-- **Proper cleanup**: All streams, contexts, and sessions cleaned up on disconnect
-- **Memory leak prevention**: Comprehensive resource tracking
+Built with:
+- **Google Gemini** — because it actually works
+- **React + TypeScript** — for people who like their code to not break
+- **Progressive Web App** — fancy words for "installs like an app"
+- **Real-time audio streaming** — sub-second latency (fast = good)
+- **Keyword RAG** — no vector database, just fast grep-style search
 
 ---
 
-## Intended Outcome
+## Make It Your Own
 
-RAGBOT3000 becomes an **invaluable asset** as a learning partner:
+Want to teach it about *your* platform?
 
-- It helps users **learn faster**
-- It helps users **do the work correctly**
-- It helps users **recover quickly** from confusion or errors
-- It stays **grounded in the documentation** you provide, with a clean, swappable expertise model
-- It provides **visual assistance** through screen and camera sharing
-- It **remembers context** across sessions and interaction modes
+1. Dump your docs in `/knowledge/docs/` (markdown files)
+2. Register them in `/knowledge/index.json`
+3. Tweak the personality in `/persona/` (name, voice, sass level)
+4. Deploy it. Congrats, you have a custom AI expert.
 
 ---
 
-## Non-Goals
+## Deployment
 
-| What RAGBOT3000 Does NOT Do |
-|-----------------------------|
-| Replace official documentation (it operationalizes it) |
-| Store long-term personal data (memory is short-lived and task-focused) |
-| Guess answers when the knowledgebase is missing coverage |
+Deploys automatically to **Railway** on git push. Set your `GEMINI_API_KEY` environment variable and you're golden.
 
 ---
 
-## Getting Started
+**Built with ❤️ (and excessive amounts of coffee) by Legacy AI**
 
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-2. **Configure API key:**
-   Create a `.env` file in the project root:
-   ```
-   GEMINI_API_KEY=your_api_key_here
-   ```
-
-3. **Run the app:**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open:** http://localhost:3000
-
-5. **Build for production:**
-   ```bash
-   npm run build
-   ```
+*Because learning shouldn't feel like reading a phone book in the dark.*
 
 ---
 
-## Usage
+### Fun Facts Nobody Asked For
 
-### Starting a Session
+- The sparkles are just vibing. They don't do anything. We kept them because they're pretty.
+- It can interrupt itself if you start talking. Polite.
+- The name "RAGBOT3000" implies there were 2,999 earlier versions. There weren't. It just sounds cooler.
+- Yes, it works on iOS. Yes, we tested it. Yes, it was painful.
 
-RAGBOT3000 offers three interaction modes via buttons at the bottom of the screen:
-
-- **VOICE**: Voice-only interaction (no visual context)
-- **SCREEN**: Voice + automatic screen sharing for digital task assistance
-- **LIVE**: Voice + automatic camera feed for real-world object collaboration
-
-**To start:**
-1. Click any mode button (VOICE, SCREEN, or LIVE)
-2. Grant microphone permissions when prompted (required for all modes)
-3. For SCREEN/LIVE modes, grant screen/camera permissions when prompted
-4. Speak naturally - the agent will respond with voice
-
-**To stop:**
-- Click the active mode button again to toggle off and return to idle state
-- Or click a different mode button to switch modes (previous mode stops automatically)
-
-### Visual Context
-
-- **Screen Share** (SCREEN mode): Automatically initiates when SCREEN mode is activated
-- **Camera Feed** (LIVE mode): Automatically initiates when LIVE mode is activated
-- **Live Preview**: A draggable, resizable preview window shows what the agent sees
-- **Stop Sharing**: Click the active mode button again or use browser controls
-
-### Error Handling
-
-- **Permission Denied**: Check browser settings and grant access
-- **Network Error**: Automatic reconnection (up to 5 attempts)
-- **Connection Lost**: Status indicator shows reconnection progress
-
----
-
-## Customization
-
-### Change the persona
-Edit files in `/persona/`:
-- `system.md` — Core behavior and rules
-- `voice.json` — Voice name, greetings, tone, TTS/Live voice selection
-
-### Swap the knowledge base
-Replace contents in `/knowledge/`:
-- Add markdown docs to `/knowledge/docs/`
-- Update `/knowledge/index.json` with document metadata
-
-### Code quality and linting
-The project includes comprehensive linting tools:
-- **Biome** (`biome.json`) - Fast formatter and linter with auto-fix
-- **oxlint** (`.oxlintrc.json`) - Fast JavaScript/TypeScript linter
-- **TypeScript** (`tsconfig.json`) - Type checking
-- **Secretlint** (`.secretlintrc.json`) - Detects secrets and credentials
-
-Run all linters: `npm run lint`
-
-### Adjust robustness settings
-Edit `services/liveService.ts`:
-- `maxReconnectAttempts` - Number of reconnection attempts (default: 5)
-- `reconnectDelay` - Initial delay in ms (default: 1000)
-- Connection timeout values
-
----
-
-## Technical Details
-
-### Audio Processing Pipeline
-
-1. **Input**: Microphone → AudioContext (16kHz) → AudioWorklet/ScriptProcessor → PCM conversion → Base64 → Gemini API
-2. **Output**: Gemini API → Base64 audio → PCM decode → AudioContext (24kHz) → Speakers
-
-### Memory Integration
-
-- **Chat sessions**: Memory checkpoints after each assistant response
-- **Live sessions**: Background checkpointing during conversation
-- **Unified storage**: Same memory system for both interaction modes
-- **Session resumption**: Load active session on connection
-
-### State Management
-
-- **Session state**: Typed state machine prevents invalid transitions
-- **Reconnection logic**: Exponential backoff with attempt tracking
-- **Resource cleanup**: AbortController ensures clean shutdowns
-
----
-
-## Browser Compatibility
-
-- **Chrome/Edge**: Full support (AudioWorklet)
-- **Firefox**: Full support (AudioWorklet)
-- **Safari**: Supported with ScriptProcessor fallback
-- **Mobile**: iOS Safari and Chrome Android supported
-
----
-
-**Built by Legacy AI**

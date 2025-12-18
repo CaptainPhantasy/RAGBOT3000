@@ -50,7 +50,7 @@ export const WavyBackground = ({
     }
   };
 
-  // Use external analyser for audio levels
+  // Use external analyser for audio levels (shared with LiveSession)
   useEffect(() => {
     if (!analyser) return;
 
@@ -59,10 +59,6 @@ export const WavyBackground = ({
     let rafId: number;
 
     // Calculate frequency bin indices for voice-appropriate bands
-    // Assuming ~44100Hz sample rate: each bin = sampleRate / fftSize ≈ 86Hz
-    // Bass: 60-300Hz (voice fundamentals) - bins 1-4
-    // Mid: 300-2000Hz (main formants, clarity) - bins 4-23
-    // Treble: 2000-8000Hz (sibilants, presence) - bins 23-93
     const sampleRate = analyser.context?.sampleRate || 44100;
     const binWidth = sampleRate / (analyser.fftSize || 512);
 
@@ -74,22 +70,20 @@ export const WavyBackground = ({
     const updateAudioLevel = () => {
       analyser.getByteFrequencyData(dataArray);
 
-      // Extract frequency bands with proper voice ranges
       const bassData = dataArray.slice(bassStart, bassEnd);
       const midData = dataArray.slice(bassEnd, midEnd);
       const trebleData = dataArray.slice(midEnd, trebleEnd);
 
-      // Calculate averages with minimum thresholds to reduce noise
       const calcLevel = (data: Uint8Array) => {
         if (data.length === 0) return 0;
         const sum = data.reduce((a, b) => a + b, 0);
         const avg = sum / data.length / 255;
-        return Math.max(0, avg - 0.05) * 1.2; // Noise gate + boost
+        return Math.max(0, avg - 0.05) * 1.2;
       };
 
-      targetBassRef.current = calcLevel(bassData) * 1.5; // Boost bass visibility
-      targetMidRef.current = calcLevel(midData) * 1.3; // Boost mid
-      targetTrebleRef.current = calcLevel(trebleData) * 1.8; // Boost treble (usually quieter)
+      targetBassRef.current = calcLevel(bassData) * 1.5;
+      targetMidRef.current = calcLevel(midData) * 1.3;
+      targetTrebleRef.current = calcLevel(trebleData) * 1.8;
 
       rafId = requestAnimationFrame(updateAudioLevel);
     };
@@ -101,34 +95,37 @@ export const WavyBackground = ({
     };
   }, [analyser]);
 
-  const waveColors = colors ?? ['rgba(220, 38, 38, 0.4)', 'rgba(34, 211, 238, 0.4)', 'rgba(168, 85, 247, 0.4)'];
+  const waveColors = colors ?? [
+    'rgba(220, 38, 38, 0.4)', // Red for bass
+    'rgba(34, 211, 238, 0.4)', // Cyan for mid
+    'rgba(168, 85, 247, 0.4)', // Purple for treble
+  ];
 
   const drawWave = () => {
-    // Smooth interpolation - faster response for more reactive feel
-    bassLevelRef.current += (targetBassRef.current - bassLevelRef.current) * 0.25;
-    midLevelRef.current += (targetMidRef.current - midLevelRef.current) * 0.25;
-    trebleLevelRef.current += (targetTrebleRef.current - trebleLevelRef.current) * 0.25;
+    // Smooth interpolation
+    bassLevelRef.current += (targetBassRef.current - bassLevelRef.current) * 0.15;
+    midLevelRef.current += (targetMidRef.current - midLevelRef.current) * 0.15;
+    trebleLevelRef.current += (targetTrebleRef.current - trebleLevelRef.current) * 0.15;
 
     nt += getSpeed();
     offsetRef.current += 2.5;
 
     const waves = [
-      { level: bassLevelRef.current, speed: 1.0, yOffset: 0.3, color: waveColors[0], baseAmp: 80 },
-      { level: midLevelRef.current, speed: 1.3, yOffset: 0.5, color: waveColors[1], baseAmp: 100 },
-      { level: trebleLevelRef.current, speed: 1.7, yOffset: 0.7, color: waveColors[2], baseAmp: 60 },
+      { level: bassLevelRef.current, speed: 1.0, yOffset: 0.3, color: waveColors[0] },
+      { level: midLevelRef.current, speed: 1.3, yOffset: 0.5, color: waveColors[1] },
+      { level: trebleLevelRef.current, speed: 1.7, yOffset: 0.7, color: waveColors[2] },
     ];
 
     waves.forEach((wave, i) => {
-      // More dramatic voice response: base amplitude + level-based boost
-      const voiceMultiplier = analyser ? 1 + wave.level * 6 : 1;
-      const amplitude = wave.baseAmp * voiceMultiplier;
+      const voiceMultiplier = analyser ? 1 + wave.level * 4 : 1;
 
       ctx.beginPath();
-      ctx.lineWidth = (waveWidth || 50) * (1 + wave.level * 0.5); // Line gets thicker with level
+      ctx.lineWidth = waveWidth || 50;
       ctx.strokeStyle = wave.color;
 
       for (x = 0; x < w; x += 5) {
-        const y = noise((x + offsetRef.current * wave.speed) / 800, wave.yOffset * i, nt * wave.speed) * amplitude;
+        const y =
+          noise((x + offsetRef.current * wave.speed) / 800, wave.yOffset * i, nt * wave.speed) * 100 * voiceMultiplier;
         ctx.lineTo(x, y + h * 0.5);
       }
 
@@ -137,7 +134,7 @@ export const WavyBackground = ({
     });
   };
 
-  useEffect(() => {
+  const init = () => {
     canvas = canvasRef.current;
     if (!canvas) return;
     ctx = canvas.getContext('2d');
@@ -155,23 +152,28 @@ export const WavyBackground = ({
 
     window.addEventListener('resize', handleResize);
 
-    const renderLoop = () => {
+    const render = () => {
       if (!ctx) return;
       ctx.fillStyle = backgroundFill || 'black';
       ctx.globalAlpha = waveOpacity || 0.3;
       ctx.fillRect(0, 0, w, h);
       drawWave();
-      animationIdRef.current = requestAnimationFrame(renderLoop);
+      animationIdRef.current = requestAnimationFrame(render);
     };
 
-    renderLoop();
+    render();
 
     return () => {
       cancelAnimationFrame(animationIdRef.current);
       window.removeEventListener('resize', handleResize);
     };
+  };
+
+  useEffect(() => {
+    const cleanup = init();
+    return cleanup;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [blur, backgroundFill, waveOpacity]);
+  }, []);
 
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
@@ -187,6 +189,7 @@ export const WavyBackground = ({
       <canvas
         className="absolute inset-0 z-0"
         ref={canvasRef}
+        id="canvas"
         style={{
           ...(isSafari ? { filter: `blur(${blur}px)` } : {}),
         }}
