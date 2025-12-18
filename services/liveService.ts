@@ -74,7 +74,7 @@ export class LiveSession {
   /**
    * Connect to Gemini Live API with robustness features
    */
-  async connect(externalStream?: MediaStream) {
+  async connect(externalStream?: MediaStream, systemInstruction?: string) {
     // State machine guard
     if (this.state !== 'idle' && this.state !== 'reconnecting') {
       console.warn(`Cannot connect: state is ${this.state}`);
@@ -119,6 +119,14 @@ export class LiveSession {
 
       if (signal.aborted) return;
 
+      // Final fallback for system instruction if not provided
+      const finalInstruction = systemInstruction || `You are Legacy, a helpful RAG teammate.
+
+## Session Memory (Grounding)
+${memoryContext}
+
+Keep answers concise and helpful.`;
+
       // Connect to Gemini Live
       const sessionPromise = genAI.live.connect({
         model: 'gemini-2.5-flash-native-audio-preview-09-2025',
@@ -127,17 +135,7 @@ export class LiveSession {
           speechConfig: {
             voiceConfig: { prebuiltVoiceConfig: { voiceName: getLiveVoice() } },
           },
-          systemInstruction: `You are Legacy, a helpful RAG teammate.
-
-## Session Memory (Grounding)
-${memoryContext}
-
-VISION CAPABILITIES:
-When the user shares their screen or camera, actively look for UI elements, errors, code, or real-world objects.
-Use precise spatial language to "point out" items.
-Example: "I see the error in the top-right corner..." or "That object you're holding looks like..."
-
-Keep answers concise and helpful.`,
+          systemInstruction: finalInstruction,
         },
         callbacks: {
           onopen: () => {

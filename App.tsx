@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { LiveSession, LiveSessionError } from './services/liveService';
+import { getUnifiedLivePrompt, analyzeIntent, generateTeammateResponse } from './services/geminiService';
 import { WavyBackground } from './components/WavyBackground';
+import { TaskFrame, DocChunk, Mode } from './types';
+import { knowledgeBase } from './knowledgeBase';
 
 type MicPermission = 'prompt' | 'granted' | 'denied' | 'requesting';
 type ConnectionStatus = 'idle' | 'connecting' | 'connected' | 'reconnecting' | 'disconnecting' | 'error';
@@ -16,6 +19,15 @@ const App: React.FC = () => {
   const [connectionStatus, setConnectionStatus] = useState<ConnectionStatus>('idle');
   const [lastError, setLastError] = useState<string | null>(null);
   const [errorTimeout, setErrorTimeout] = useState<number | null>(null);
+  
+  // Shared Agent Context (The "Brain" state)
+  const [activeTaskFrame, setActiveTaskFrame] = useState<TaskFrame>({
+    intent: "General Inquiry",
+    goal: "Assist the user",
+    constraints: [],
+    mode: Mode.TEACH
+  });
+  const [retrievedDocs, setRetrievedDocs] = useState<DocChunk[]>([]);
   
   // Vision preview position and size state
   const [previewPosition, setPreviewPosition] = useState({ x: 0, y: 0 });
@@ -344,7 +356,8 @@ const App: React.FC = () => {
       );
       
       try {
-        await session.connect(streamRef.current!);
+        const prompt = getUnifiedLivePrompt(activeTaskFrame, retrievedDocs);
+        await session.connect(streamRef.current!, prompt);
         liveSessionRef.current = session;
       } catch (err: any) {
         console.error('Failed to connect:', err);
@@ -386,7 +399,8 @@ const App: React.FC = () => {
       );
       
       try {
-        await session.connect(streamRef.current!);
+        const prompt = getUnifiedLivePrompt(activeTaskFrame, retrievedDocs);
+        await session.connect(streamRef.current!, prompt);
         liveSessionRef.current = session;
       } catch (err: any) {
         console.error('Failed to connect:', err);

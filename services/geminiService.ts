@@ -160,20 +160,14 @@ const buildGroundedDocsContext = (retrievedDocs: DocChunk[]): { context: string;
 };
 
 /**
- * Step 2: Generate Response (The Teammate)
- * Uses the thinking model to synthesize retrieved docs into guidance.
- * Enhanced with: task progress tracking, grounding signals, RESCUE flow
- * Updated: Support for Image Analysis
+ * Centralized System Prompt Generator
+ * Unifies persona, behavior, grounding, and capabilities across all modes (Chat, Live, Screen)
  */
-export const generateTeammateResponse = async (
-  userMessage: string,
+export const buildUnifiedSystemPrompt = (
   taskFrame: TaskFrame,
   retrievedDocs: DocChunk[],
-  history: { role: string; text: string }[],
-  image?: MessageImage
-): Promise<string> => {
-  const model = "gemini-3-pro-preview"; // As requested for complex tasks
-
+  includeVision: boolean = false
+): string => {
   const { context: docsContext, hasKBSupport } = buildGroundedDocsContext(retrievedDocs);
   const behaviorInstruction = getModeInstruction(taskFrame.mode, taskFrame);
 
@@ -206,21 +200,62 @@ ${taskFrame.steps.map((s, i) => `  ${i + 1}. ${s}${taskFrame.verifications?.[i] 
 - Do NOT guess or fabricate features/procedures
 `;
 
-  const fullSystemPrompt = `
-    ${systemPrompt}
+  const visionCapabilities = includeVision ? `
+## VISION CAPABILITIES
+When the user shares their screen or camera, actively look for UI elements, errors, code, or real-world objects.
+Use precise spatial language to "point out" items.
+Example: "I see the error in the top-right corner..." or "That object you're holding looks like..."
+` : '';
 
-    ${behaviorInstruction}
+  return `
+${systemPrompt}
 
-    ${groundingRules}
+${behaviorInstruction}
 
-    ${taskProgressSection}
+${groundingRules}
 
-    Current Task Frame:
-    Intent: ${taskFrame.intent}
-    Goal: ${taskFrame.goal}
-    Constraints: ${taskFrame.constraints.join(", ") || "None"}
-    Missing Info: ${taskFrame.missingInfo?.join(", ") || "None"}
-  `;
+${taskProgressSection}
+
+${visionCapabilities}
+
+Current Task Frame:
+Intent: ${taskFrame.intent}
+Goal: ${taskFrame.goal}
+Constraints: ${taskFrame.constraints.join(", ") || "None"}
+Missing Info: ${taskFrame.missingInfo?.join(", ") || "None"}
+`.trim();
+};
+
+/**
+ * Get unified system prompt for Live Sessions
+ */
+export const getUnifiedLivePrompt = (taskFrame?: TaskFrame, retrievedDocs: DocChunk[] = []): string => {
+  const frame = taskFrame || {
+    intent: "General Live Interaction",
+    goal: "Assist the user in real-time",
+    constraints: [],
+    mode: Mode.GUIDE
+  };
+  return buildUnifiedSystemPrompt(frame, retrievedDocs, true);
+};
+
+/**
+ * Step 2: Generate Response (The Teammate)
+ * Uses the thinking model to synthesize retrieved docs into guidance.
+ * Enhanced with: task progress tracking, grounding signals, RESCUE flow
+ * Updated: Support for Image Analysis
+ */
+export const generateTeammateResponse = async (
+  userMessage: string,
+  taskFrame: TaskFrame,
+  retrievedDocs: DocChunk[],
+  history: { role: string; text: string }[],
+  image?: MessageImage
+): Promise<string> => {
+  const model = "gemini-3-pro-preview"; // As requested for complex tasks
+
+  const { context: docsContext } = buildGroundedDocsContext(retrievedDocs);
+  const fullSystemPrompt = buildUnifiedSystemPrompt(taskFrame, retrievedDocs, !!image);
 
   const userPrompt = `
     Retrieved Documentation:
