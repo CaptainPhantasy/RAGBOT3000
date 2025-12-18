@@ -1,5 +1,5 @@
 import { GoogleGenAI, Type, Modality } from "@google/genai";
-import { DocChunk, TaskFrame, Mode } from "../types";
+import { DocChunk, TaskFrame, Mode, MessageImage } from "../types";
 
 // Import persona files
 import systemPrompt from '../persona/system.md?raw';
@@ -163,12 +163,14 @@ const buildGroundedDocsContext = (retrievedDocs: DocChunk[]): { context: string;
  * Step 2: Generate Response (The Teammate)
  * Uses the thinking model to synthesize retrieved docs into guidance.
  * Enhanced with: task progress tracking, grounding signals, RESCUE flow
+ * Updated: Support for Image Analysis
  */
 export const generateTeammateResponse = async (
   userMessage: string,
   taskFrame: TaskFrame,
   retrievedDocs: DocChunk[],
-  history: { role: string; text: string }[]
+  history: { role: string; text: string }[],
+  image?: MessageImage
 ): Promise<string> => {
   const model = "gemini-3-pro-preview"; // As requested for complex tasks
 
@@ -237,11 +239,23 @@ ${taskFrame.steps.map((s, i) => `  ${i + 1}. ${s}${taskFrame.verifications?.[i] 
     - Include verification checkpoints: "✓ You should see: [expected]"
   `;
 
+  // Construct parts: [Image if present] + System prompt + User Prompt
+  const parts: any[] = [{ text: fullSystemPrompt + "\n\n" + userPrompt }];
+
+  if (image) {
+    parts.unshift({
+      inlineData: {
+        mimeType: image.mimeType,
+        data: image.data
+      }
+    });
+  }
+
   try {
     const response = await genAI.models.generateContent({
       model,
       contents: [
-        { role: 'user', parts: [{ text: fullSystemPrompt + "\n\n" + userPrompt }] }
+        { role: 'user', parts: parts }
       ],
       config: {
         // High thinking budget for complex reasoning as requested

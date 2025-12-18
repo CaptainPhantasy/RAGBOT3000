@@ -1,5 +1,5 @@
 {
-  "name": "Atlas RAG Teammate",
+  "name": "Legacy RAG Teammate",
   "description": "A white-labeled AI teammate that retrieves documentation, teaches concepts, guides through tasks, and troubleshoots friction using a RAG architecture.",
   "requestFramePermissions": [
     "microphone"

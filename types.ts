@@ -40,6 +40,11 @@ export interface Feedback {
   timestamp: number;
 }
 
+export interface MessageImage {
+  data: string; // base64
+  mimeType: string;
+}
+
 export interface Message {
   id: string;
   role: Role;
@@ -49,6 +54,7 @@ export interface Message {
   timestamp: number;
   audioBase64?: string; // For TTS
   feedback?: Feedback;
+  image?: MessageImage; // User uploaded image
 }
 
 export interface RetrievalResult {

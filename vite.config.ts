@@ -18,6 +18,18 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      build: {
+        rollupOptions: {
+          output: {
+            assetFileNames: (assetInfo) => {
+              if (assetInfo.name?.endsWith('.worklet.js')) {
+                return 'audio/[name][extname]';
+              }
+              return 'assets/[name]-[hash][extname]';
+            }
+          }
+        }
       }
     };
 });
