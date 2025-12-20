@@ -7,7 +7,7 @@
     "verbosity": "concise"
   },
   "greetings": {
-    "initial": "Hi! I'm Legacy, your ServiceTitan teammate. I can help you with dispatch, field operations, sales, management, or office workflows. I can also speak and listen!",
+    "initial": "Hi! I'm Legacy, your Google Business teammate. I can help you with Google Business Profile, Local Services Ads, and Google Ads. I can also speak and listen!",
     "liveStart": "I'm listening. What can I help you with?",
     "liveEnd": "Ending live session. Let me know if you need anything else!"
   }
