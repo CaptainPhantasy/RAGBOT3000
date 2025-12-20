@@ -1,77 +1,85 @@
-# RAGBOT3000
+# RAGBOT3000 — Google Business Expert Edition
 
 **By Legacy AI**
 
 <div align="center">
-  <img src="icon-192.jpeg" alt="RAGBOT3000 - Legacy AI Robot" width="400" />
+  <img src="icon-192.jpeg" alt="RAGBOT3000 - Your Google Business Brain Jar" width="400" />
 </div>
 
-Meet **RAGBOT3000** — the AI teammate that actually *knows its stuff*. No BS. No hallucinations. No "I think maybe possibly..." nonsense. Just real help, grounded in real documentation.
+Meet **RAGBOT3000** — the AI teammate that actually *knows* the Google Business ecosystem. GBP suspensions giving you nightmares? LSA leads draining your wallet? Conversion tracking making you question your life choices? We got you.
 
-Think of it as the coworker who actually read the manual. Wild, right?
+Think of it as the coworker who memorized every Google support doc so you don't have to. You're welcome.
 
 ---
 
 ## What Makes This Bot Special?
 
-### 🎯 **It Actually Does Things (Revolutionary, We Know)**
+### 🎯 **It Actually Knows Google's Ecosystem (Finally)**
 
-Most AI chatbots: "Here's a 47-step essay about the philosophy of clicking a button."
+Most AI chatbots: "Have you tried checking Google's help center?" *Thanks, genius.*
 
-RAGBOT3000: "Click here. Good? Cool, moving on."
+RAGBOT3000: "Your GBP suspension is likely from keyword stuffing. You have 60 minutes after clicking 'Submit' to upload evidence. Here's exactly what you need..."
 
-- ✅ Turns boring docs into **actual steps you can follow**
-- ✅ Explains stuff when you're confused, skips it when you're not
-- ✅ **Checks your work** like a good lab partner
-- ✅ When stuff breaks, it goes full detective mode
+- ✅ **Google Business Profile** — Verification, suspensions, reviews, the whole nightmare
+- ✅ **Local Services Ads** — Screening, lead credits, ranking factors, the blue badge mystery
+- ✅ **Google Ads** — Call tracking, conversion setup, phone policies that make no sense
+- ✅ **Trap-doors & gotchas** — The stuff Google doesn't tell you until it's too late
 
-### 🎤 **Talk to It Like a Human (Wild Concept)**
+### 🎤 **Talk to It Like a Human (Revolutionary)**
 
 Why type when you can just... talk?
 
-- **Real-time voice** — it actually listens and responds (shocking)
+- **Real-time voice** — describe your problem, get answers (shocking)
 - **Interrupt anytime** — tell it to shut up mid-sentence (we won't tell)
-- **Multilingual** — speak Spanish, French, German, or whatever. It gets it. No translation app needed.
-- **Pretty sparkles** — because why not? ✨
-- **Works on your phone** — fullscreen, no browser clutter
+- **Multilingual** — explain your GBP disaster in Spanish, French, German, whatever
+- **Pretty sparkles** — because staring at Google dashboards all day is depressing ✨
 
-### 👁️ **It Can Actually See What You're Doing**
+### 👁️ **Show It Your Screen (Game Changer)**
 
-Stop explaining in broken English. Just show it.
+Stop trying to describe error messages. Just show it.
 
-- **Screen sharing** — "See that thing? Why is it broken?" Problem solved. *(Desktop/Android only — Apple said no)*
-- **Camera feed** — point your phone at stuff in the real world
-- **Flip camera** — front or back, your choice. Show your face or show the problem.
-- **Live preview** — see what it sees (no, it's not judging you)
+- **Screen sharing** — "Why is my verification stuck?" Point. Click. Fixed. *(Desktop/Android only — Apple said no)*
+- **Camera feed** — show it your business signage for verification tips
+- **Live preview** — see what it sees (it's not judging your messy GBP dashboard)
 
-### 🧠 **It Remembers... Briefly**
+### 🧠 **It Remembers Your Pain**
 
 RAGBOT3000 has short-term memory. Like a goldfish, but useful.
 
-- **Picks up where you left off** — interrupted? It remembers.
-- **Forgets in 72 hours** — because privacy > creepy data hoarding
-- **Doesn't judge** — your workflow is safe with us
+- **Picks up where you left off** — "Where were we with that suspension appeal?"
+- **Forgets in 72 hours** — because your GBP struggles shouldn't haunt you forever
+- **Doesn't judge** — we've all accidentally keyword-stuffed a business name
 
-### 🎨 **One Bot, Many Personalities**
+---
 
-Swap its brain like changing a cartridge.
+## What It Actually Knows
 
-- **Swap expertise** — Notion guru today, Stripe wizard tomorrow
-- **Rebrand it** — change the name, voice, vibes, whatever
-- **Works anywhere** — feed it any docs, it adapts
-- **Speaks your language** — literally. Multilingual support means global teams can use it without awkward Google Translate moments.
+### 📍 Google Business Profile (GBP)
+- **Verification** — Video, phone, postcard, live call. Why you can't just pick one.
+- **Suspensions** — The 60-minute evidence timer that ruins lives. How to actually appeal.
+- **Reviews** — Missing reviews, fake review attacks, why your customer's review vanished
+
+### 📢 Local Services Ads (LSA)
+- **Screening** — Background checks, the 14-day accelerated verification trap
+- **Lead Credits** — The 2025 ML system that decides if you get your money back
+- **Ranking** — Why missed calls are killing your visibility (hint: answer your phone)
+
+### 📊 Google Ads
+- **Call Tracking** — Dynamic number insertion, why your number won't swap
+- **Conversions** — Enhanced conversions, the "Unverified" status that won't go away
+- **Phone Policies** — Why Google rejected your perfectly normal phone number
 
 ---
 
 ## How Does This Thing Work?
 
-1. You tell it what you're trying to do
-2. It reads the actual documentation (what a concept)
-3. It guides you step-by-step
-4. You verify each step so you know you're not lost
-5. When you hit a wall, it troubleshoots
+1. You describe your Google problem (or show your screen)
+2. It searches its knowledge base of **actual documentation**
+3. It gives you step-by-step fixes with verification checkpoints
+4. It warns you about trap-doors *before* you fall in them
+5. When Google breaks something new, it helps you troubleshoot
 
-No making stuff up. No "As an AI language model..." speeches. Just help.
+No making stuff up. No "As an AI language model..." speeches. Just answers.
 
 ---
 
@@ -79,39 +87,38 @@ No making stuff up. No "As an AI language model..." speeches. Just help.
 
 **Live Demo:** [ragbot3000-production.up.railway.app](https://ragbot3000-production.up.railway.app)
 
-### On Your Phone (Yeah, It Works on Mobile)
+### On Your Phone
 
 1. Open Safari (iOS) or Chrome (Android)
 2. Tap **Share** → **Add to Home Screen**
-3. Boom. It's an app now. Fullscreen. No browser bar.
-4. Tap **VOICE** or **LIVE** to start *(SCREEN works on Android, but iOS said "nah")*
-5. In LIVE mode, tap the **flip button** to switch front/back camera
-6. Talk. It responds. Technology is amazing.
+3. Boom. Your Google Business expert in your pocket.
+4. Tap **VOICE** to start talking about your problems
+5. It responds. Technology is amazing.
 
-### On Desktop (For the Keyboard Warriors)
+### On Desktop
 
 1. Visit the site
-2. Click a mode (**VOICE** for audio, **SCREEN** to share your screen, **LIVE** for camera)
-3. Allow mic access (yes, it needs to hear you)
-4. In LIVE mode, use the **flip button** if you have multiple cameras (fancy)
-5. Start talking. Or just click stuff. Whatever.
+2. Click **VOICE** (audio) or **SCREEN** (share your screen)
+3. Allow mic access
+4. Start describing your Google nightmare. We'll handle it.
 
 ---
 
 ## What It's Actually Good At
 
-- **Learning new platforms** — "How do I even start with X?" → Done.
-- **Fixing broken stuff** — "Why is this error haunting me?" → Fixed.
-- **Complex workflows** — "Walk me through this 47-step process" → Walked.
-- **Understanding concepts** — "What even is Z?" → Explained, no Wikipedia essay.
+- **"Why is my GBP suspended?"** → Diagnosis + appeal strategy
+- **"My LSA leads are garbage"** → Settings audit + credit system explanation  
+- **"Conversion tracking says Unverified"** → Step-by-step fix with verification
+- **"What's the 60-minute timer thing?"** → The trap-door you need to know about
+- **"How do I get the blue badge?"** → Screening requirements + timeline
 
 ---
 
 ## What It's NOT
 
-- ❌ **A know-it-all** — if it doesn't know, it admits it (refreshing, right?)
-- ❌ **A data vacuum** — your stuff expires in 72 hours
-- ❌ **A hallucination machine** — grounds everything in actual docs
+- ❌ **Google Support** — we can't actually click buttons in your account
+- ❌ **A magic fix** — some suspensions are permanent (sorry)
+- ❌ **A hallucination machine** — everything is grounded in real docs
 - ❌ **Sentient** — yet 👀
 
 ---
@@ -119,38 +126,46 @@ No making stuff up. No "As an AI language model..." speeches. Just help.
 ## The Nerdy Bits (Skip If You Don't Care)
 
 Built with:
-- **Google Gemini** — because it actually works
+- **Google Gemini** — ironic, we know
 - **React + TypeScript** — for people who like their code to not break
-- **Progressive Web App** — fancy words for "installs like an app"
-- **Real-time audio streaming** — sub-second latency (fast = good)
-- **Keyword RAG** — no vector database, just fast grep-style search
+- **Progressive Web App** — installs like an app, works offline-ish
+- **Real-time audio streaming** — sub-second latency
+- **Keyword RAG** — fast search, no fancy vector database needed
 
 ---
 
-## Make It Your Own
+## Knowledge Base
 
-Want to teach it about *your* platform?
+Currently loaded with expertise on:
 
-1. Dump your docs in `/knowledge/docs/` (markdown files)
-2. Register them in `/knowledge/index.json`
-3. Tweak the personality in `/persona/` (name, voice, sass level)
-4. Deploy it. Congrats, you have a custom AI expert.
+| Product | Topics |
+|---------|--------|
+| **GBP** | Verification, Suspensions, Reviews |
+| **LSA** | Screening, Lead Credits, Ranking |
+| **Google Ads** | Call Tracking, Conversions, Phone Policies |
+
+Each doc includes:
+- 📘 **Foundation** — Core concepts
+- 🛠️ **Workflows** — Step-by-step procedures
+- 🛑 **Trap-doors** — Critical failure risks
+- 🔧 **Triage Matrix** — Issue diagnosis
+- 🔗 **Resolution Links** — Official resources
 
 ---
 
-**Built with ❤️ (and excessive amounts of coffee) by Legacy AI**
+**Built with ❤️ (and excessive Googling) by Legacy AI**
 
-*Because learning shouldn't feel like reading a phone book in the dark.*
+*Because reading Google's help docs shouldn't require a law degree.*
 
 ---
 
 ### Fun Facts Nobody Asked For
 
-- The sparkles are just vibing. They don't do anything. We kept them because they're pretty.
-- It can interrupt itself if you start talking. Polite.
-- The name "RAGBOT3000" implies there were 2,999 earlier versions. There weren't. It just sounds cooler.
-- Yes, it works on iOS. Yes, we tested it. Yes, it was painful.
-- Screen sharing doesn't work on iOS because Apple's WebKit doesn't support it. We don't make the rules.
-- The camera flip button exists because showing your face when you meant to show your broken printer is embarrassing.
-- It's multilingual because the world doesn't all speak English (shocking, we know). Speak to it in your language, it'll respond in kind.
+- The robot is swapping brains from jars. That's you switching knowledge bases. Deep, right?
+- It knows about the 60-minute evidence timer because someone learned the hard way.
+- "Keyword stuffing" sounds fun until your business disappears from Google.
+- LSA's "blue badge" used to be a "green checkmark." Google loves changing things.
+- The sparkles don't do anything. They're just pretty.
+- Yes, it can explain why your legitimate review disappeared. No, it can't bring it back.
+- It's multilingual because Google Business problems are universal.
 
