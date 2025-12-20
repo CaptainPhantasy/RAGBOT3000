@@ -46,7 +46,7 @@ Why type when you can just... talk?
 - **Real-time voice** — it actually listens and responds (shocking)
 - **Interrupt anytime** — tell it to shut up mid-explanation of accrual accounting
 - **Multilingual** — speak Spanish, French, German, or whatever. It gets it.
-- **Pretty sparkles** — because bookkeeping can be glamorous ✨
+- **Custom edition branding** — the brain-swapping robot knows its specialty
 - **Works on your phone** — fullscreen, no browser clutter
 
 ### 👁️ **It Can Actually See Your QuickBooks Screen**
@@ -171,7 +171,7 @@ Want to teach it about *your* platform?
 
 ### Fun Facts Nobody Asked For
 
-- The sparkles are just vibing. They don't make your books balance faster.
+- The background robot is swapping in its QuickBooks brain. That's commitment.
 - It can interrupt itself if you start talking. Unlike most accountants.
 - The name "RAGBOT3000" implies there were 2,999 earlier versions. There weren't.
 - Yes, it works on iOS. Yes, we tested it during month-end close.
