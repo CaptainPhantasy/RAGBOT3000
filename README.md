@@ -32,7 +32,7 @@ Why type when you can just... talk?
 - **Real-time voice** — describe your problem, get answers (shocking)
 - **Interrupt anytime** — tell it to shut up mid-sentence (we won't tell)
 - **Multilingual** — explain your GBP disaster in Spanish, French, German, whatever
-- **Pretty sparkles** — because staring at Google dashboards all day is depressing ✨
+- **Custom edition branding** — the brain-swapping robot knows its Google specialty
 
 ### 👁️ **Show It Your Screen (Game Changer)**
 
@@ -165,7 +165,7 @@ Each doc includes:
 - It knows about the 60-minute evidence timer because someone learned the hard way.
 - "Keyword stuffing" sounds fun until your business disappears from Google.
 - LSA's "blue badge" used to be a "green checkmark." Google loves changing things.
-- The sparkles don't do anything. They're just pretty.
+- The background robot is swapping in its Google brain. That's commitment.
 - Yes, it can explain why your legitimate review disappeared. No, it can't bring it back.
 - It's multilingual because Google Business problems are universal.
 
