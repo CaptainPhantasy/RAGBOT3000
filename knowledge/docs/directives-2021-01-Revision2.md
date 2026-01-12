@@ -1,0 +1,36 @@
+---
+source: https://www.dol.gov/index.php/agencies/ofccp/directives/2021-01-Revision2
+scraped_at: 2025-12-26T02:49:55.025487
+project: knowledge_bases/workplace_rights
+---
+
+> **DISCLAIMER:** This is for informational purposes only. I am an AI, not an attorney or tax professional.
+
+# Directive (DIR) 2021-01 Revision 2 | U.S. Department of Labor
+
+![U.S. Department of Labor Seal](/sites/dolgov/files/OFCCP/regs/compliance/directives/images/logo.png)
+## U.S. DEPARTMENT OF LABOR Office of Federal Contract Compliance Programs
+**A Directive (DIR) is intended to provide guidance to OFCCP staff and/or federal contractors on enforcement and compliance policy or procedures. A DIR does not change the laws and/or regulations governing OFCCP’s programs and does not establish any legally enforceable rights or obligations. The contents of this document do not have the force and effect of law and are not meant to bind the public in any way. This document is intended only to provide clarity to the public regarding existing requirements under the law or agency policies.**
+**Effective Date: June 11, 2025**
+1. **SUBJECT:** Extending the Scheduling Moratorium for Veterans Affairs Health Benefits Program (VAHBP) Providers
+2. **PURPOSE:** To maintain access to health care for veterans by extending a moratorium on the enforcement of affirmative obligations required of VAHBP providers.[1](/agencies/ofccp/directives/2021-01-Revision2#ftn.id1)
+3. **REFERENCES:** This DIR includes references to the following:
+   1. [DIR 2014-01](/agencies/ofccp/directives/2014-01), *TRICARE* Subcontractor Enforcement Activities (May 7, 2014).
+   2. [DIR 2018-02](/agencies/ofccp/directives/2018-02), *TRICARE* Subcontractor Enforcement Activities (May 18, 2018).
+   3. DIR 2021-01 Revision 1, Extending the Scheduling Moratorium for Veterans Affairs Health Benefits Program (VAHBP) Providers (May 01, 2023).
+   4. Affirmative Action and Nondiscrimination Obligations of Federal Contractors and Subcontractors: TRICARE Providers, [85 FR 39834](https://www.federalregister.gov/documents/2020/07/02/2020-11934/affirmative-action-and-nondiscrimination-obligations-of-federal-contractors-and-subcontractors) (July 2, 2020).
+4. **AFFECTED POLICY:** This directive revises DIR 2021-01.
+5. **BACKGROUND:** The Office of Federal Contract Compliance Programs (OFCCP) enforces Section 503 of the Rehabilitation Act of 1973, as amended (Section 503) and the Vietnam Era Veterans’ Readjustment Assistance Act of 1974, as amended (VEVRAA).[2](/agencies/ofccp/directives/2021-01-Revision2#ftn.id2) Together, these laws prohibit federal contractors and subcontractors from discriminating in employment and require them to take affirmative steps to ensure equal opportunity without regard to disability or status as a protected veteran.  
+   On May 7, 2014, OFCCP issued DIR 2014-01, establishing a moratorium to suspend enforcement of the affirmative obligations required of all TRICARE[3](/agencies/ofccp/directives/2021-01-Revision2#ftn.id3) subcontractors for a period of five years.[4](/agencies/ofccp/directives/2021-01-Revision2#ftn.id4) OFCCP subsequently extended the moratorium until May 7, 2021, under DIR 2018-02, which also amended the moratorium to include VAHBP providers. The extension was intended to provide time to sufficiently address additional stakeholder feedback and prevent protected veterans and their families from encountering further difficulty accessing healthcare.  
+   OFCCP addressed the stakeholder feedback through rulemaking. In a final rule that took effect on August 31, 2020, Affirmative Action and Nondiscrimination Obligations of Federal Contractors and Subcontractors: TRICARE Providers, OFCCP established an exemption from OFCCP’s authority for TRICARE providers. OFCCP determined that this exemption was in the national interest because it would improve access to healthcare for active and retired service members and their families and provide greater uniformity, certainty, and notice for health care providers participating in TRICARE. Though the final rule did not release VAHBP providers from complying with OFCCP’s laws, OFCCP committed to providing further subregulatory guidance on VAHBP providers. More information regarding VAHBP providers can be found on OFCCP’s website: <https://www.dol.gov/agencies/ofccp>.  
+   On May 1, 2021, OFCCP issued DIR 2021-01, which extended the moratorium as it applies to VAHBP providers by two years, until May 7, 2023. OFCCP subsequently extended the moratorium until May 7, 2025, under DIR 2021-01 Revision 1.
+6. **POLICY:** OFCCP will exercise its prosecutorial discretion to extend the moratorium as it applies to VAHBP providers by two years, from May 7, 2025, until May 7, 2027.   
+   The moratorium serves as an exemption to enforcement of affirmative obligations and being neutrally scheduled for a compliance evaluation, but does not relieve VAHBP providers of their nondiscrimination obligations or of being subject to discrimination complaint investigations under the laws enforced by OFCCP.
+/S/  
+Catherine Eschbach  
+Director  
+Office of Federal Contract Compliance Programs
+1. OFCCP uses “VAHBP providers” as an umbrella term to encompass health care providers that contract with the U.S. Department of Veterans Affairs, including those in Veterans Affairs Community Care Networks, as well as Veterans Care Agreements created pursuant to the 2018 VA MISSION Act. 
+2. Previously, OFCCP also enforced Executive Order (E.O.) 11246, which prohibited federal contractors and subcontractors from discriminating in employment because of race, color, religion, sex, sexual orientation, gender identity, or national origin and required them to take affirmative steps to ensure equal opportunity in employment. E.O. 11246 also made it illegal for contractors and subcontractors to discriminate against applicants or employees because they inquire about, discuss, or disclose their compensation or that of others, subject to certain limitations. On January 21, 2025, President Trump issued [E.O. 14173](https://www.federalregister.gov/documents/2025/01/31/2025-02097/ending-illegal-discrimination-and-restoring-merit-based-opportunity) (“Ending Illegal Discrimination and Restoring Merit-Based Opportunity”), revoking [E.O. 11246](https://archives.federalregister.gov/issue_slice/1965/9/28/12315-12325.pdf).
+3. TRICARE is the health care program for uniformed service members, retirees, and their families around the world. TRICARE is managed by the Defense Health Agency under leadership of the Assistant Secretary of Defense (Health Affairs). Additional information is located at the [TRICARE website](https://tricare.mil/).
+4. Except for the investigation of discrimination complaints, DIR 2014-01 stopped OFCCP enforcement of all obligations under E.O. 11246, Section 503, and VEVRAA effective from the date of its issuance, including the enforcement of obligations related to affirmative action programs and recordkeeping, for TRICARE subcontractors.

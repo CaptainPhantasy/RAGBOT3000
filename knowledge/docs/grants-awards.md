@@ -1,0 +1,126 @@
+---
+source: https://www.dol.gov/agencies/eta/grants/awards
+scraped_at: 2025-12-26T02:52:14.493748
+project: knowledge_bases/workplace_rights
+---
+
+> **DISCLAIMER:** This is for informational purposes only. I am an AI, not an attorney or tax professional.
+
+# Grants Awarded | U.S. Department of Labor
+
+More in This Section 
+- [Close](#)
+* [About Our Office](/agencies/eta/grants/about)
+* [Become a Grant Panelist](/agencies/eta/grants/panelist)
+* [Funding Opportunities](/agencies/eta/grants/apply/find-opportunities)
+* [Grants Awarded](/agencies/eta/grants/awards)
+* [How to Apply](/agencies/eta/grants/apply)
+* [Manage Your Awarded Grant](/agencies/eta/grants/management)
+* [Resources](/agencies/eta/grants/resources)
+## Grants Awarded
+* [U.S. Department of Labor Dislocated Worker Grants](https://www.dol.gov/agencies/eta/dislocated-workers/grants/awards) – provides information on grants awarded to assist states and other eligible applicants to respond to large, unexpected events causing significant job losses.
+### Grants Awarded in 2024
+* [Strengthening Community College Training Grants - FOA-ETA-23-15 "Fourth Round"](https://www.dol.gov/newsroom/releases/eta/eta20240410-0)
+* [YouthBuild - FOA-ETA-24-36](https://www.dol.gov/newsroom/releases/eta/eta20240502-0)
+* [Growth Opportunities - FOA-ETA-24-06 "Fourth Round"](https://www.dol.gov/newsroom/releases/eta/eta20240702-0)
+* [Pathway Home 5 - FOA-ETA-24-05](https://www.dol.gov/newsroom/releases/eta/eta20240702)
+* [State Apprenticeship Expansion Formula Grant Program (SAEF2) Base Formula Funding - FOA-ETA-24-03](https://www.dol.gov/newsroom/releases/eta/eta20240710)
+* [State Apprenticeship Expansion Formula Grant Program (SAEF2) Competitive Funding - FOA-ETA-24-03](https://www.dol.gov/newsroom/releases/eta/eta20240711-0)
+* [Apprenticeship Building America - FOA-ETA-24-04 "Second Round"](https://www.dol.gov/newsroom/releases/eta/eta20240711-0)
+* [Job Corps Information Technology Academy/Hub FOA-ETA-24-16](https://www.dol.gov/newsroom/releases/eta/eta20240715)
+* [Building Pathways for Infrastructure Jobs - FOA-ETA-23-31 "Second Round"](https://www.dol.gov/newsroom/releases/eta/eta20240925)
+* [Critical Sectors Job Quality Grants - FOA-ETA-23-13 "Second Round"](https://www.dol.gov/newsroom/releases/eta/eta20240925)
+* [Workforce Pathways for Youth - FOA-ETA-24-07 "Fourth Round"](https://www.dol.gov/newsroom/releases/eta/eta20240925)
+### Grants Awarded in 2023
+* [Critical Sectors Job Quality Grants](/newsroom/releases/eta/eta20230928-1)
+* [Quality Jobs, Equity, Strategy and Training Dislocated Worker Grants](/newsroom/releases/eta/eta20230914-1)
+* [Workforce Opportunity for Rural Communities](/newsroom/releases/eta/eta20230914-0)
+* [Growth Opportunities – FOA-ETA-22-03 “Second Round”](/newsroom/releases/eta/eta20230110)
+* [YouthBuild - FOA-ETA-23-17](https://www.dol.gov/newsroom/releases/eta/eta20230428-0)
+* [Nursing Expansion Grant - FOA-ETA-22-16](https://www.dol.gov/newsroom/releases/eta/eta20230511-0)
+* [Strengthening Community College Training Grants - FOA-ETA-22-02 "Third Round"](https://www.dol.gov/newsroom/releases/eta/eta20230217)
+* [Workforce Data Quality Initiative (WDQI) - FOA-ETA-23-05 "Ninth Round"](https://www.dol.gov/newsroom/releases/eta/eta20230628)
+* [State Apprenticeship Expansion Formula Grant Program (SAEF) - FOA-ETA-23-09](https://www.dol.gov/newsroom/releases/eta/eta20230719)
+* [Growth Opportunities - FOA-ETA-22-03 "Additional Second Round"](https://www.dol.gov/newsroom/releases/ETA/ETA20230629-2)
+* [Pathway Home 4 - FOA-ETA-23-04](https://www.dol.gov/newsroom/releases/eta/eta20230628-0)
+* [Workforce Pathways for Youth - FOA-ETA-23-06](https://www.dol.gov/newsroom/releases/eta/eta20230907-0)
+* [Building Pathways to Infrastructure Jobs Grant Program - FOA-ETA-23-31](https://www.dol.gov/newsroom/releases/eta/eta20230926)
+* [Partners for Reentry Opportunities in Workforce Development (PROWD)](https://www.dol.gov/newsroom/releases/eta/eta20230928-0)
+### Grants Awarded in 2022
+* [YouthBuild - FOA-ETA-22-01](https://www.dol.gov/newsroom/releases/eta/eta20220426)
+* [Strengthening Community College Training Grants FOA-ETA-22-02 "Second Round"](/sites/dolgov/files/ETA/grants/pdfs/SCC2%20Awards%20Press%20Release%209.7.22.pdf)
+* [Growth Opportunities - FOA-ETA-22-03](https://www.dol.gov/newsroom/releases/eta/eta20220623-0)
+* [Pathway Home 3 - FOA-ETA-22-04](https://www.dol.gov/newsroom/releases/eta/eta20220629)
+* [Apprenticeship Building America (ABA) Grant Program FOA-ETA-22-06](https://www.dol.gov/newsroom/releases/eta/eta20220707-0)
+* [Apprenticeship Building America (ABA) Grant Program FOA-22-06 "Additional Funding"](https://www.dol.gov/newsroom/releases/eta/eta20220824)
+* [Workforce Pathways for Youth - FOA-ETA-22-07](https://www.dol.gov/newsroom/releases/eta/eta20220714-0)
+### Grants Awarded in 2021
+* [Workforce Pathways for Youth Grant Program - FOA-ETA-21-01](https://www.dol.gov/newsroom/releases/eta/eta20210610-1)
+* [Pathway Home 2 - FOA-ETA-21-02](https://www.dol.gov/newsroom/releases/eta/eta20210621 "Pathway Home 2 - FOA-ETA-21-02")
+* [Young Adult Reentry Partnership (YARP) 2 - FOA-ETA-21-03](https://www.dol.gov/newsroom/releases/eta/eta20210621 "Young Adult Reentry Partnership (YARP) 2 - FOA-ETA-21-03")
+* [YouthBuild - FOA-ETA-21-04](https://www.dol.gov/newsroom/releases/eta/eta20210610-0)
+* [Workforce Data Quality Initiative – WDQI Round 8 - FOA-ETA-21-05](https://www.dol.gov/newsroom/releases/eta/eta20210623 "Workforce Data Quality Initiative – WDQI Round 8 - FOA-ETA-21-05")
+* [Registered Apprenticeship Technical Assistance Centers of Excellence - FOA-ETA-21-06](https://www.dol.gov/newsroom/releases/eta/eta20210622 "Registered Apprenticeship Technical Assistance Centers of Excellence - FOA-ETA-21-06")
+* [State Apprenticeship Expansion, Equity and Innovation (SAEEI) Grants - FOA-ETA-21-07](https://www.dol.gov/newsroom/releases/eta/eta20210622 "State Apprenticeship Expansion, Equity and Innovation (SAEEI) Grants - FOA-ETA-21-07")
+* [Workforce Opportunity for Rural Communities (WORC) – FOA-ETA-21-08](https://www.dol.gov/newsroom/releases/eta/eta20210927 "Workforce Opportunity for Rural Communities (WORC) – FOA-ETA-21-08")
+### Grants Awarded in 2020
+* [Building State Capacity to Expand Apprenticeship through Innovation: ETA-TEGL-15-19](https://www.dol.gov/newsroom/releases/eta/eta20200701 "ETA news release Building State Capacity to Expand Apprenticeship")
+* [YouthBuild: FOA-ETA-19-04](https://www.dol.gov/newsroom/releases/eta/eta20191216 "YouthBuild: FOA-ETA-19-04")
+* [Apprenticeships: Closing the Skills Gap: FOA-ETA-19-09](https://www.dol.gov/newsroom/releases/eta/eta20200218 "Apprenticeships: Closing the Skills Gap: FOA-ETA-19-09")
+* [The Support to Communities: Fostering Opioid Recovery Through Workforce Development - FOA-ETA-20-01](https://www.dol.gov/newsroom/releases/eta/eta20200826)
+* [Pathway Home: FOA-ETA-20-02](/newsroom/releases/eta/eta20200707 "Pathway Home: FOA-ETA-20-02")
+* [Job Corps Scholars Program - FOA-ETA-20-03](/newsroom/releases/eta/eta20200528-0 "Job Corps Scholars Program - FOA-ETA-20-03")
+* [Workforce Opportunity for Rural Communities (WORC) – FOA-ETA-20-04](https://www.dol.gov/newsroom/releases/eta/eta20200929 "ETA news release WORC")
+* [Young Adult Reentry Partnership (YARP): FOA-ETA-20-05](/newsroom/releases/eta/eta20200707 "Young Adult Reentry Partnership (YARP): FOA-ETA-20-05")
+* [Youth Apprenticeship Readiness Grants: FOA-ETA-20-06](/newsroom/releases/eta/eta20200630-1 "Youth Apprenticeship Readiness Grants: FOA-ETA-20-06<")
+* [Strengthening Community Colleges Training Grants - FOA-ETA-20-07](/newsroom/releases/eta/eta20220907 "ETA news release Strengthening Community Colleges Training Grants")
+* [The National Farmworker Jobs Program (NFJP) Career Services and Training Grants and Housing Grants – FOA-ETA-20-08](https://www.dol.gov/newsroom/releases/eta/eta20200825 "NFJP Career Services and Training Grants and Housing Grants")
+* [Senior Community Service Employment Program (SCSEP) National Grants for Program Year (PY) 2020 – FOA-ETA-20-09](https://www.dol.gov/newsroom/releases/eta/eta20200925 "SCSEP National Grants for Program Year (PY) 2020")
+* [H-1B Rural Healthcare Grant Program - FOA-ETA-20-12](https://www.dol.gov/newsroom/releases/eta/eta20210114-0 "ETA news release H-1B Rural Healthcare Grant Program")
+* [H-1B One Workforce Grant Program - FOA-ETA-20-13](https://www.dol.gov/newsroom/releases/eta/eta20210119 "ETA news release H-1B One Workforce Grant Program")
+### Grants Awarded in 2019
+* [YouthBuild: FOA-ETA-18-04](https://www.dol.gov/newsroom/releases/eta/eta20190130)
+* [Scaling Apprenticeship Through Sector-Based Strategies: FOA-ETA-18-08](https://www.dol.gov/newsroom/releases/eta/eta20190624)
+* [Reentry Projects: FOA-ETA-19-01](https://www.dol.gov/newsroom/releases/eta/eta20190717)
+* [Workforce Data Quality Initiative - WDQI Round VII: FOA-ETA-19-02](https://www.dol.gov/newsroom/releases/eta/eta20190722)
+* [Veterans Accelerated Learning for Licensed Occupations Project: FOA-ETA-19-06](/sites/dolgov/files/ETA/grants/pdfs/veterans-accelerated-learning-for-licensed-occupations-project.pdf)
+* [Workforce Opportunity for Rural Communities (WORC): FOA-ETA-19-08](https://www.dol.gov/newsroom/releases/eta/eta20190930)
+### Grants Awarded in 2018
+* [Reentry Projects (RP): FOA-ETA-18-02](https://www.dol.gov/newsroom/releases/eta/eta20180626)
+* [State Occupational Licensing Review and Reform: FOA-ETA-18-06](https://www.dol.gov/newsroom/releases/eta/eta20180625)
+* [Veterans Accelerated Learning for Licensed Occupations Project: FOA-ETA-18-07](https://www.dol.gov/newsroom/releases/eta/eta20180625)
+### Grants Awarded in 2017
+* [Workforce Data Quality Initiative (WDQI) Round 6: FOA-ETA-17-01](https://www.dol.gov/newsroom/releases/eta/eta20170616)
+* [Reentry Projects (RP): FOA-ETA-17-02](https://www.dol.gov/newsroom/releases/eta/eta20170627)
+* [YouthBuild 2017: FOA-ETA-17-03](https://www.dol.gov/newsroom/releases/eta/eta20170818)
+* Indian and Native American Employment and Training Programs - Assistance to Unique Populations in [Alaska](https://www.dol.gov/newsroom/releases/eta/eta20170608-0) and [Hawaii](https://www.dol.gov/newsroom/releases/eta/eta20170608-1) :FOA-ETA-17-04
+* [Women in Apprenticeship and Nontraditional Occupations ("WANTO") Technical Assistance Grant Program: FOA-WB-17-01](https://www.dol.gov/newsroom/releases/eta/eta20170818)
+* [Occupational Licensing Review and Portability: FOA-ETA-16-14-A](https://www.dol.gov/newsroom/releases/eta/eta20170112-0)
+### Grants Awarded in 2016
+* [National Farmworker Jobs Program (NFJP) Employment and Training Grants and Housing Assistance Grants (NFJP): FOA-ETA-16-02](https://www.dol.gov/newsroom/releases/eta/eta20160707-0)
+* [Senior Community Service Employment Program (SCSEP): FOA-ETA-16-04-A](https://www.dol.gov/newsroom/releases/eta/eta20161020-0)
+* [Disability Employment Initiative Cooperative Agreements: FOA-ETA-16-07](https://www.dol.gov/newsroom/releases/odep/odep20160914)
+* [Paid Leave Analysis Grants: FOA-WB-16-01](https://www.dol.gov/newsroom/releases/wb/wb20160809)
+* [ApprenticeshipUSA State Expansion Grants: FOA-ETA-16-13](https://www.whitehouse.gov/the-press-office/2016/10/21/fact-sheet-investing-more-50-million-through-apprenticeshipusa-expand)
+* [Portable Retirement Benefits Planning: FOA-WB-16-02](https://www.dol.gov/newsroom/releases/wb/wb20160922)
+* [YouthBuild 2016: FOA-ETA-16-10](https://www.dol.gov/newsroom/releases/eta/eta20160922-0)
+* [America's Promise Job Driven Grant Program: FOA-ETA-16-12](https://www.dol.gov/newsroom/releases/eta/eta20161117)
+* [Linking to Employment Activities Pre-Release through Specialized America Job Centers (LEAP2): FOA-ETA-16-03](https://www.dol.gov/newsroom/releases/eta/eta20160624)
+* [Pathways to Justice: FOA-ETA-16-09](https://www.dol.gov/newsroom/releases/eta/eta20160624)
+* [Reentry Demonstration Projects for Young Adults: FOA-ETA-16-06](https://www.dol.gov/newsroom/releases/eta/eta20160624)
+* [Strengthening Working Families Initiative: FOA-ETA-16-05](https://www.dol.gov/newsroom/releases/eta/eta20160614)
+* [Summer Jobs and Beyond: Career Pathways for Youth (CPY): FOA-ETA-16-08](https://www.dol.gov/newsroom/releases/dol/dol20160516)
+* [TechHire Partnership Grants: FOA-ETA-16-01](https://www.whitehouse.gov/the-press-office/2016/06/27/fact-sheet-expanding-tech-economies-communities-across-country)
+* [Training to Work 3 - Adult Reentry: FOA-ETA-15-07-A](https://www.dol.gov/newsroom/releases/eta/eta20160624)
+* [Women in Apprenticeship and Nontraditional Occupations (WANTO) Technical Assistance (TA) Grants: FOA-ETA-16-11](https://www.dol.gov/newsroom/releases/eta/eta20160614-0)
+### Grants Awarded 2015
+* [Paid Leave Analysis: FOA-WB-15-01](https://www.dol.gov/newsroom/releases/wb/wb20150929-0)
+* [Workforce Innovation Fund Limited Competition Opportunity: FOA-ETA-15-10](https://www.dol.gov/newsroom/releases/eta/eta20150928)
+* [Disability Employment Initiative - Round VI: FOA-ETA-15-08](https://www.dol.gov/newsroom/releases/eta/eta20150917-0)
+* [YouthBuild: FOA-ETA-15-05](https://www.dol.gov/newsroom/releases/eta/eta20150916)
+* [American Apprenticeship Initiative: FOA-ETA-15-02](https://www.dol.gov/newsroom/releases/eta/eta20150909)
+* [Workforce Data Quality Initiative: FOA-ETA-15-06](https://www.dol.gov/newsroom/releases/eta/eta20151284)
+* [Training to Work 3 - Adult Reentry: FOA-ETA-15-07](https://www.dol.gov/newsroom/releases/eta/eta20151264)
+* [Face Forward 3-Intermediary and Community Grants: FOA-ETA-15-04](https://www.dol.gov/newsroom/releases/eta/eta20151264)
+* [Linking to Employment Activities Pre-release Specialized American Job Centers (AJCs): FOA-ETA-15-03](https://www.dol.gov/newsroom/releases/eta/eta20151117)
+* [National Guard Youth ChalleNGe and Job ChalleNGe Program: FOA-ETA-15-01](https://www.dol.gov/newsroom/releases/eta/eta20150674)

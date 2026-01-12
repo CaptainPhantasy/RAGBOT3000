@@ -1,0 +1,58 @@
+---
+source: https://www.dol.gov/agencies/eta/skills-grants/h1-b-skills-training
+scraped_at: 2025-12-26T03:28:59.257987
+project: knowledge_bases/workplace_rights
+---
+
+> **DISCLAIMER:** This is for informational purposes only. I am an AI, not an attorney or tax professional.
+
+# H-1B Skills Training Grants | U.S. Department of Labor
+
+H-1B Skills Training Grants fund projects that provide training and related activities to workers to assist them in gaining the skills and competencies needed to obtain or upgrade employment in high-growth industries or economic sectors. These grants are supported by user fees paid by employers seeking high-skilled foreign workers under the H-1B visa program. The training grants aim to prepare Americans for high-skill jobs, reducing dependence on foreign labor. Funds are authorized by Section 414(c) of the American Competitiveness and Workforce Improvement Act of 1998 (ACWIA), as amended (29 USC 3224a).
+## **Current H-1B Funding Opportunity Announcements**
+N/A.
+## **Current H-1B Grant Programs**
+### Industry-Driven Skills Training Fund Grant Program
+The Industry-Driven Skills Training Fund (“Training Fund”) provides grants to State Workforce Agencies to form partnerships with eligible employers in key high-growth and emerging industry sectors to provide skills training to their current employees or newly hired workers. In September 2025, DOL [awarded more than $86 million in grants](/newsroom/releases/eta/eta20250930) to 14 states to accelerate innovation, strengthen domestic production, and address critical workforce needs across the country. Participating employers can apply for outcomes-based partial reimbursement of actual training costs on a per-employee basis. Grantees will prioritize training for in-demand skilled trades including shipbuilding occupations, occupations essential to the buildout of artificial intelligence (AI) infrastructure, advanced manufacturing, nuclear energy, domestic mineral production, and information technology including AI.
+These grants are authorized under section 169(c) of the Workforce Innovation and Opportunity Act (WIOA) and section 414(c) of the American Competitiveness and Workforce Improvement Act of 1998 (ACWIA), as amended (codified at 29 U.S.C. 3224a).
+For more information about the Training Fund, please see the following:
+* Information on grants awarded (coming soon)
+* [The Industry-Driven Skills Training Fund Training and Employment Guidance Letter No. 02-25](/sites/dolgov/files/ETA/advisories/TEGL/2025/TEGL%2002-25/TEGL%2002-25%20.pdf)
+Please [email us](mailto:TrainingFund@dol.gov) with questions about the Training Fund.
+### DOL Building Pathways to Infrastructure Jobs Grant Program Round 2
+The second round of the DOL Building Pathways to Infrastructure Jobs Grant Program expands the U.S. Department of Labor's investment in public-private partnerships to develop, implement, and scale worker-centered sector strategy training programs that train and prepare the skilled workforce needed for good-paying infrastructure jobs created by federal infrastructure investments.  In September 2024, DOL awarded nearly $38 million in grants to 13 public-private partnerships across nine states. Grantees will design and implement training programs in advanced manufacturing, information technology, and professional, scientific, and technical service occupations that support renewable energy, transportation, and broadband infrastructure sectors.
+For more information about the DOL Building Pathways to Infrastructure Jobs Grant Program round 2, please see the following:
+* Information on [grants awarded](/sites/dolgov/files/ETA/skillstraining/Building%20Pathways%20Round%201%20and%202%20Abstracts%202-21-25%20final.pdf)
+* [The DOL Building Pathways to Infrastructure Jobs Grant Program Funding Opportunity Announcement (FOA](https://grants.gov/search-results-detail/343871) ) is available on grants.gov under the "Related Documents" tab.
+Please [email us](mailto:%20BuildingPathways@dol.gov) with questions about the DOL Building Pathways to Infrastructure Jobs Grant Program.
+### DOL Building Pathways to Infrastructure Jobs Grant Program Round 1
+The first round of the DOL Building Pathways to Infrastructure Jobs Grant Program invests in public-private partnerships to develop, implement, and scale worker-centered sector strategy training programs that train and prepare the skilled workforce needed to meet the demands of the sizeable infrastructure investments made through the Bipartisan Infrastructure Law. In September 2023, DOL awarded approximately $94 million in grants to 34 public-private partnerships nationwide. This grant program trains job seekers in advanced manufacturing; information technology; and professional, scientific, and technical services occupations that support renewable energy, transportation, and broadband infrastructure sectors.
+For more information about the DOL Building Pathways to Infrastructure Jobs Grant Program Round 1, please see the following:
+* Information on [grants awarded](/sites/dolgov/files/ETA/skillstraining/Building%20Pathways%20Round%201%20and%202%20Abstracts%202-21-25%20final.pdf)
+* [The DOL Building Pathways to Infrastructure Jobs Grant Program Funding Opportunity Announcement](https://grants.gov/search-results-detail/343871) (FOA) is available on grants.gov under the "Related Documents" tab.
+Please [email us](mailto:%20BuildingPathways@dol.gov) with questions about the DOL Building Pathways to Infrastructure Jobs Grant Program.
+### DOL Nursing Expansion Grant Program
+The DOL Nursing Expansion Grant Program addresses bottlenecks in training the United States nursing workforce and boost the nation's healthcare system through two training tracks: 1) the Nurse Education Professional Track is increasing the number of nursing instructors and educators; and 2) Nursing Career Pathways Track is expanding the pipeline of nursing professionals who can fill quality nursing jobs. In May 2023, DOL awarded approximately $78 million in grants to 25 public-private partnerships nationwide. This grant program is grounded in the principles of worker-centered sector strategies where employers; education and training providers; labor unions, labor-management partnerships, and other worker organizations; workforce development entities; and workers collaboratively address nursing occupation needs in real-time and prepare for the future of work. 
+For more information about the DOL Nursing Expansion Grant Program, please see the following:
+* Information on [grants awarded](/sites/dolgov/files/ETA/skillstraining/Nursing%20Expansion%20-%20Project%20Descriptions_Revised%203-3.pdf)
+* [The DOL Nursing Expansion Grant Program Funding Opportunity Announcement (FOA)](https://www.grants.gov/search-results-detail/341995) is available on grants.gov under the "Related Documents" tab.
+Please [email us](mailto:%20NursingExpansion@dol.gov) with questions about the DOL Nursing Expansion Grant Program.
+### H-1B Rural Healthcare Grant Program
+The H-1B Rural Healthcare Grant Program is designed to alleviate healthcare workforce shortages by creating sustainable employment and training programs in healthcare occupations (including behavioral and mental healthcare) serving rural populations that are scalable and replicable after this funding expires. The COVID-19 pandemic has increased the need for healthcare workers, particularly in rural areas where there was already an acute need. In January 2021, DOL awarded $40 million in grants to 17 public-private partnerships across the country, to increase the number of individuals training in healthcare occupations that directly impact patient care and address rural healthcare workforce shortages. Expanding employment and training models for the healthcare industry will help individuals gain the skills necessary to provide needed services, fill vacancies, and allow employers to find skilled workers more readily.
+For more information about the H-1B Rural Healthcare Grant Program, please see the following:
+* Information on [grants awarded](/sites/dolgov/files/ETA/skillstraining/RH%20Selection%20Summaries%203-3-25.pdf)
+* [H-1B Rural Healthcare Grant Program Funding Opportunity Announcement](https://edit.dol.gov/sites/dolgov/files/ETA/skillstraining/FOA-ETA-20-12.pdf) and [Amendment One](/sites/dolgov/files/ETA/skillstraining/FOA-ETA-20-12-Amendment-One.pdf)
+Please [email us](mailto:%20RuralHealthcare@dol.gov) with questions about the H-1B Rural Healthcare Grant Program.
+### H-1B One Workforce Grant Program
+The H-1B One Workforce Grant Program is designed to develop replicable, comprehensive workforce strategies for preparing the workforce for middle- to high-skilled H-1B occupations within the information technology, advanced manufacturing, and transportation sectors.
+These grants build proofs of concept of innovative training models that can be replicated by the broader workforce system. In January 2021, DOL awarded $145 million in grants to 19 public-private partnerships across the country, which must build support for a common vision for responding to the workforce challenges within their state and economic regions, ensuring that their projects complement and leverage, but do not duplicate existing programs. By forging public-private partnerships—H-1B One Workforce Partnerships—grantees bring together industry and employers, education and training providers, the workforce system, state and local government, and other entities that work collaboratively to align resources in response to employer demand and to offer novel education and job training solutions that generate positive outcomes and results.
+For more information about the H-1B One Workforce Grant Program, please see:
+* Information on [grants awarded](/sites/dolgov/files/ETA/skillstraining/One%20Workforce%20Grantee%20Profiles%202.21.25%20final.pdf)
+* [H-1B One Workforce Grant Program Funding Opportunity Announcement](https://edit.dol.gov/sites/dolgov/files/ETA/skillstraining/FOA-ETA-20-13.pdf)and [Amendment One](/sites/dolgov/files/ETA/skillstraining/FOA-ETA-20-13-Amendment-One.pdf)
+Please [email us](mailto:%20OneWorkforce@dol.gov@dol.gov) with questions about the H-1B One Workforce Grant Program.
+### Apprenticeships: Closing the Skills Gap
+Apprenticeships: Closing the Skills Gap grants promote apprenticeships as a significant workforce solution in filling current job vacancies and closing the skills gap between employer workforce needs and the skills of the current workforce. The grant program places a heavy emphasis on private sector partnership, with a corresponding 45 percent match of federal funds awarded. In February 2020, DOL awarded nearly $100 million in grants to 28 public-private partnerships across the country, which are supporting the large-scale expansion of apprenticeship to industry sectors and occupations that have not traditionally deployed apprenticeships, such as advanced manufacturing, healthcare, and information technology. These also include in-demand cybersecurity professions and emerging occupations involving artificial intelligence.
+For more information about the H-1B Apprenticeships: Closing the Skills Gap Program, please see:
+* Information on [grants awarded](/sites/dolgov/files/ETA/skillstraining/Apprenticeships_CSG%20Grant%20Project%20Descriptions_Updated%202-27-25.pdf)
+* [H-1B Apprenticeships: Closing the Skills Gap Funding Opportunity Announcement](https://www.dol.gov/sites/dolgov/files/ETA/skillstraining/FOA-ETA-19-09%20CSG.pdf)
+Please [email us](mailto:%20ClosingSkillsGap@dol.gov) with questions about the H-1B Apprenticeships: Closing the Skills Gap Grant Program.

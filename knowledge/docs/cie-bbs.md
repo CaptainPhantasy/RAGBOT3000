@@ -1,0 +1,48 @@
+---
+source: https://www.dol.gov/agencies/odep/program-areas/cie/bbs
+scraped_at: 2025-12-26T03:31:12.763033
+project: knowledge_bases/workplace_rights
+---
+
+> **DISCLAIMER:** This is for informational purposes only. I am an AI, not an attorney or tax professional.
+
+# Blending, Braiding, and Sequencing | U.S. Department of Labor
+
+More in This Section 
+- [Close](#)
+* [Apprenticeship](/agencies/odep/program-areas/apprenticeship)
+* [Workforce System](/agencies/odep/program-areas/workforce-system)
+* [Competitive Integrated Employment (CIE)](/agencies/odep/program-areas/cie)
+* [Blending, Braiding, and Sequencing](/agencies/odep/program-areas/cie/bbs)
+* [Customized Employment](/agencies/odep/program-areas/cie/customized-employment)
+* [Mental Health](/agencies/odep/program-areas/mental-health)
+* [Autism](/agencies/odep/program-areas/autism)
+* [HIV/AIDS](/agencies/odep/program-areas/hiv-aids)
+![An image of messy lines in various colors braiding together and blending into a single red line with an arrow pointed ahead.](/sites/dolgov/files/ODEP/images/bbs1.png)
+## The Value of Leveraging Resources Across Multiple Systems
+Resource leveraging and service coordination across various public systems can increase [competitive integrated employment (CIE)](https://www.dol.gov/agencies/odep/program-areas/integrated-employment) for workers with disabilities. Through collaborative efforts, state and local entities that provide employment support services can maximize employment and economic advancement outcomes for disabled people.
+Blending, braiding, and sequencing (BBS) are innovative strategies that maximize the efficient and effective use of federal funds across systems to help people with disabilities secure and maintain CIE.
+### Defining BBS
+![Four arrows going into a funnel.](/sites/dolgov/files/ODEP/images/bbs2.png)
+**Blending** occurs when dollars from multiple funding streams combine to create a single “pot” of commingled dollars that can fund an initiative or purchase more specific services. Blending involves pooling funds from multiple sources to support a common goal, such that each individual funding source gives up its program identity.
+Typically, states or regions need explicit authorization by statute or regulation to allow the blending of funds. [Ticket to Work Outcome and Milestone payments](https://yourtickettowork.ssa.gov/employment-networks/milestone-outcome-system.html) do not require separate tracking, however, and can be blended with other funding sources that do not require tracking, based on program authorization.
+![Multi-colored braided strings.](/sites/dolgov/files/ODEP/images/bbs3.png)
+**Braiding** occurs when multiple funding streams separately and simultaneously provide specific services. Because braiding involves simultaneous service delivery by two or more systems, it may require interagency coordination and collaboration with this specific goal in mind.
+For instance, the [Centers for Medicare & Medicaid Service (CMS)](https://www.cms.gov/) has clarified that Ticket to Work Outcome and Milestone payments funded through the Social Security Administration may occur simultaneously with payment for [supported employment services](https://www.medicaid.gov/medicaid/long-term-services-supports/employment-initiatives/employment-services/index.html#:~:text=2)(B)(ii)%5D.-,Supported%20Employment,-Supported%20employment%20is) funded through the [Medicaid waiver program](https://www.cms.gov/training-education/partner-outreach-resources/american-indian-alaska-native/ltss-ta-center/information/state-medicaid-plans-and-waivers) to create a more robust support system for individuals seeking sustained CIE.
+![Two men running on a track in a relay race.  One person is passing the baton to the other.](/sites/dolgov/files/ODEP/images/bbs4.png)
+**Sequencing** occurs when multiple funding streams separately and sequentially provide specific services.
+For instance, an individual may begin the journey toward sustained CIE through funding available under the [Individuals with Disabilities Education Act (IDEA)](https://sites.ed.gov/idea/). When they age out of educational services, their journey may continue with funding through vocational rehabilitation (VR), then progress to Medicaid funding through a [Home and Community-Based Services (HCBS) waiver](https://www.medicaid.gov/medicaid/home-community-based-services/home-community-based-services-authorities/index.html) for sustained job coaching over an extended period of time.
+## Increasing Blending, Braiding, and Sequencing within Federal, State, and Local Systems
+[Training Employment Notice 07-22](https://www.dol.gov/sites/dolgov/files/ETA/advisories/TEN/2022/TEN%2007-22/1.%2043410-BBS%20TEN%20SRLC%20%28Accessible%20PDF%29.pdf)—This document encourages state and local partners to implement BBS strategies across systems to maximize resources and increase CIE for youth and adults with disabilities.
+## Blending, Braiding, and Sequencing in Practice
+Value, Outcome, and Performance-Based Payment Methodologies to Advance CIE: A Three-Part Webinar Series—ODEP hosted this webinar series highlighting best practices and strategies for states determining Medicaid rates that incentivize services that lead to CIE.
+* [Value, Outcome, and Performance-Based Payment Methodologies to Advance CIE in State Medicaid Long-Term Services and Supports (LTSS) Systems and Managed Care LTSS Systems](https://econsys.us6.list-manage.com/track/click?u=29aa515bd6e4d1a3e196930b4&id=8bfaeec9f9&e=c8e4843b8d)—This webinar discusses a range of examples from state Medicaid LTSS systems, including those that do and do not use managed care, that have designed and implemented value-based purchasing and outcome-based reimbursement methodologies specifically intended to advance "[Employment First](https://www.dol.gov/agencies/odep/initiatives/employment-first)" and CIE efforts.
+* [Supporting Employment Service Providers to Succeed and Prosper by Partnering to Advance CIE: Applying Value, Outcome, and Performance-Based Payment Methodologies](https://zoom.us/rec/play/qwkIjDDRJxToILGZjZKvwBtS152CHtL3LCJB8_U4ZJgKX4nto9KHk3g87ZQa-qKJvfnUqxfjzrSKtLYB.temZ9zrqexiFuGl0?startTime=1620845900000&_x_zm_rtaid=6n-e2VzJSmib2tJul-SnqA.1621018126484.e220be9e4b0627a5aeda3fdd4fe5bf10&_x_zm_rhtaid=584)—In this webinar hear from employment service providers (ESP) who work with state VR systems and state Medicaid LTSS systems. Some of the ESP presenters have used managed care and others have not. All discuss how they have implemented value-based purchasing and outcome-based reimbursement methodologies so that ESPs can prosper as they advance CIE.
+* [Advancing CIE: Value, Outcome, and Performance-Based Payment Methodologies in State VR and Behavioral Health Systems](https://www.youtube.com/watch?v=4gnOaTDzfBw)—In this webinar, state administrators discuss a range of value-based purchasing and outcome-based reimbursement methodologies, practices and structures in state VR and behavioral health systems specifically intended to advance evidence-based practices, CIE outcomes, policy alignment and rate alignment, and restructuring.
+[Yes, WIOA Can! Effectively Leveraging or Braiding Multiple Funding Sources with WIOA](https://www.workforcegps.org/events/2022/11/01/18/43/Yes-WIOA-Can-Effectively-Leveraging-or-Braiding-Multiple-Funding-Sources-with-WIOA)—This webinar serves as guidance for WIOA grantees to understand how to braid multiple funding sources to improve outcomes. Presenters share how WIOA funds can be leveraged or braided with other funding streams and how to properly track funds. The webinar also showcases examples of local areas that have braided funds.
+### On the Ground Success
+* [Colorado braiding and sequencing of services](https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DRcKWsHZ0V44&data=05%7C01%7CCheriyan.Ben%40dol.gov%7C45298ca426f5405df0ea08db895a7ab2%7C75a6305472044e0c9126adab971d4aca%7C0%7C0%7C638254793916644778%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=benpUIn4DcfhZZr9urHyTR6CFEp4oiB1oZ4%2F0ISa0XY%3D&reserved=0) (video)
+* [North Carolina sequencing](https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DFoXoDdqBkj0&data=05%7C01%7CCheriyan.Ben%40dol.gov%7C45298ca426f5405df0ea08db895a7ab2%7C75a6305472044e0c9126adab971d4aca%7C0%7C0%7C638254793916644778%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=zZ0jUpHv78KAWNSwk%2BO8QQTII9azX2ZJWo5V9elKCpQ%3D&reserved=0) (video)
+* [Anne Arundel Workforce Development Corporation braids and blends resources to better assist individuals enrolled in their workforce employment network](https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DiHwKtXqjnI8&data=05%7C01%7CCheriyan.Ben%40dol.gov%7C45298ca426f5405df0ea08db895a7ab2%7C75a6305472044e0c9126adab971d4aca%7C0%7C0%7C638254793916644778%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=XdoXy3C9TcoBbaMBYWuvRQ7e3oehcggGkZzlAcAsIfM%3D&reserved=0) (video)
+## Additional Resources
+* [Guide for Creating Successful CIE Memorandums of Understanding (MOUs)](https://www.dol.gov/sites/dolgov/files/ODEP/pdf/Task_2_Selleck_and_Luecking_MOU_Template_Final.pdf)—This step-by-step guide walks agencies through MOU development by illustrating who should be at the table, key areas to include in an MOU, strategies for completing an MOU, and tips for proper implementation.

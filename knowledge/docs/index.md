@@ -1,332 +1,70 @@
-# ServiceTitan Knowledge Base - Master Index
-
-**Document Version:** 1.0  
-**Last Updated:** December 17, 2025  
-**Source:** help.servicetitan.com
-
+---
+source: https://clear.dol.gov/
+scraped_at: 2025-12-26T03:30:24.605532
+project: knowledge_bases/workplace_rights
 ---
 
-## 📋 Overview
-
-This knowledge base contains streamlined, role-based documentation for ServiceTitan users. Content is organized by user roles and optimized for AI-assisted retrieval and support.
-
----
-
-## 🗂️ Document Structure
-
-### Core Documentation Files
-
-1. **[Platform Overview](platform_overview.md)**
-   - ServiceTitan platform architecture and structure
-   - Navigation and UI/UX fundamentals
-   - Core concepts and terminology
-   - System requirements
-   - Onboarding process
-
-2. **[Field Technician Guide](field_tech_guide.md)**
-   - Getting started with mobile apps
-   - Daily workflows and job management
-   - Estimates and invoicing in the field
-   - Payment collection
-   - Equipment tracking
-   - Mobile app features and tips
-
-3. **[Dispatcher Guide](dispatch_guide.md)**
-   - Dispatch board management
-   - Technician scheduling and assignments
-   - Job booking and rescheduling
-   - Capacity planning
-   - Team coordination
-   - GPS and route optimization
-
-4. **[Sales Guide](sales_guide.md)**
-   - Estimate creation and presentation
-   - Pricebook management
-   - Sales Pro features
-   - Converting estimates to jobs
-   - Sales performance tracking
-   - Pricing strategies
-
-5. **[Management Guide](management_guide.md)**
-   - Reports and analytics
-   - Dashboards and KPIs
-   - Business performance metrics
-   - Custom report creation
-   - Data export and scheduling
-   - Strategic planning tools
-
-6. **[Office Staff Guide](office_staff_guide.md)**
-   - Call booking procedures
-   - Customer record management
-   - Invoice processing
-   - Payment collection
-   - Accounting workflows
-   - CSR daily tasks
-
-7. **[Additional Resources](additional_resources.md)** (if needed)
-   - Advanced configurations
-   - Integrations
-   - Troubleshooting
-   - FAQs
-
----
-
-## 🎯 Quick Reference by Role
-
-### Field Technician Quick Start
-→ **Primary Document:** [Field Technician Guide](field_tech_guide.md)
-- **Key Topics:** Mobile app setup, job completion, estimate building, payment processing
-- **Common Tasks:** Clock in/out, view schedule, complete jobs, sell estimates, collect payments
-
-### Dispatcher Quick Start
-→ **Primary Document:** [Dispatcher Guide](dispatch_guide.md)
-- **Key Topics:** Dispatch board, scheduling, job assignments, capacity planning
-- **Common Tasks:** Book jobs, assign technicians, manage schedules, handle emergencies
-
-### Sales Professional Quick Start
-→ **Primary Document:** [Sales Guide](sales_guide.md)
-- **Key Topics:** Estimate creation, pricebook, presentations, conversions
-- **Common Tasks:** Create estimates, present options, convert to jobs, track performance
-
-### Manager Quick Start
-→ **Primary Document:** [Management Guide](management_guide.md)
-- **Key Topics:** Reports, dashboards, KPIs, business metrics
-- **Common Tasks:** Run reports, analyze performance, track KPIs, export data
-
-### Office Staff Quick Start
-→ **Primary Document:** [Office Staff Guide](office_staff_guide.md)
-- **Key Topics:** Call booking, customer records, invoicing, accounting
-- **Common Tasks:** Answer calls, book appointments, process invoices, collect payments
-
----
-
-## 🔍 Common Search Terms & Topics
-
-### Navigation & Platform
-- **Terms:** UI, navigation, search, global search, homepage, menu
-- **Document:** [Platform Overview](platform_overview.md)
-- **Section:** Navigation and UI Fundamentals
-
-### Mobile & Field Work
-- **Terms:** mobile app, field mobile app, tablet, technician app, on-site
-- **Document:** [Field Technician Guide](field_tech_guide.md)
-- **Section:** Mobile Apps and Setup
-
-### Scheduling & Dispatch
-- **Terms:** dispatch board, schedule, assign, capacity, appointments
-- **Document:** [Dispatcher Guide](dispatch_guide.md)
-- **Section:** Dispatch Board Management
-
-### Estimates & Sales
-- **Terms:** estimate, quote, proposal, pricebook, pricing, sell
-- **Document:** [Sales Guide](sales_guide.md)
-- **Section:** Estimate Creation and Management
-
-### Invoicing & Payments
-- **Terms:** invoice, bill, payment, collect, credit card, check
-- **Documents:** [Field Technician Guide](field_tech_guide.md), [Office Staff Guide](office_staff_guide.md)
-- **Sections:** Payment Processing
-
-### Reports & Analytics
-- **Terms:** report, dashboard, KPI, metrics, analytics, performance
-- **Document:** [Management Guide](management_guide.md)
-- **Section:** Reports and Dashboards
-
-### Customer Management
-- **Terms:** customer, location, contact, record, profile
-- **Document:** [Office Staff Guide](office_staff_guide.md)
-- **Section:** Customer and Location Records
-
-### Accounting & Finance
-- **Terms:** accounting, QuickBooks, export, batch, post, transactions
-- **Document:** [Office Staff Guide](office_staff_guide.md)
-- **Section:** Accounting Workflows
-
----
-
-## 📊 ServiceTitan Core Workflows
-
-### 1. New Customer Booking Flow
-1. **Call received** → Office Staff Guide: Call Booking
-2. **Customer created** → Office Staff Guide: Customer Records
-3. **Job booked** → Dispatcher Guide: Job Booking
-4. **Technician assigned** → Dispatcher Guide: Scheduling
-5. **Job completed** → Field Tech Guide: Job Completion
-6. **Invoice created** → Field Tech Guide: Invoicing
-7. **Payment collected** → Field Tech/Office Guide: Payments
-
-### 2. Estimate to Job Conversion Flow
-1. **Estimate created** → Sales Guide: Estimate Creation
-2. **Estimate presented** → Sales Guide: Presentation
-3. **Estimate approved** → Sales Guide: Conversion
-4. **Job scheduled** → Dispatcher Guide: Scheduling
-5. **Job completed** → Field Tech Guide: Job Completion
-
-### 3. Daily Technician Workflow
-1. **Clock in** → Field Tech Guide: Time Tracking
-2. **View schedule** → Field Tech Guide: Schedule Management
-3. **Arrive at job** → Field Tech Guide: Job Preparation
-4. **Complete work** → Field Tech Guide: Job Completion
-5. **Build/present estimate** → Field Tech Guide: Estimates
-6. **Collect payment** → Field Tech Guide: Payments
-7. **Clock out** → Field Tech Guide: Time Tracking
-
-### 4. Daily Dispatcher Workflow
-1. **Check dispatch board** → Dispatcher Guide: Dispatch Board
-2. **Book new jobs** → Dispatcher Guide: Job Booking
-3. **Assign technicians** → Dispatcher Guide: Assignment
-4. **Monitor progress** → Dispatcher Guide: Job Monitoring
-5. **Handle changes** → Dispatcher Guide: Rescheduling
-6. **Manage emergencies** → Dispatcher Guide: Emergency Handling
-
----
-
-## 🏗️ ServiceTitan Platform Architecture
-
-### Core Modules
-- **Call Booking:** Customer intake and appointment scheduling
-- **Dispatching:** Job assignment and technician scheduling
-- **Mobile:** Field technician mobile applications
-- **Pricebook:** Service and material catalog
-- **Estimates:** Quote and proposal generation
-- **Jobs:** Work order management
-- **Invoicing:** Billing and invoice creation
-- **Payments:** Payment processing and collection
-- **Accounting:** Financial transaction management
-- **Reports:** Business analytics and reporting
-- **Dashboards:** Real-time KPI visualization
-
-### Key Terminology
-- **Job:** A work order for services to be performed
-- **Project:** Multi-day or multi-phase work engagements
-- **Estimate:** Quote for proposed work
-- **Invoice:** Bill for completed work
-- **Customer:** Individual or business receiving services
-- **Location:** Physical address where services are performed
-- **Technician:** Field employee performing work
-- **Dispatch Board:** Visual scheduling interface
-- **Pricebook:** Catalog of services and materials with pricing
-- **Business Unit:** Organizational division (e.g., HVAC, Plumbing)
-
----
-
-## 🚀 Getting Started Paths
-
-### New Company Onboarding
-**Document:** [Platform Overview](platform_overview.md) → Onboarding Section
-1. Pre-implementation setup
-2. Data migration
-3. Staff training by role
-4. Go-live preparation
-5. Post-launch support
-
-### New Employee Onboarding
-
-#### New Field Technician
-1. Read: [Field Technician Guide](field_tech_guide.md) - Getting Started
-2. Complete: Mobile app setup
-3. Shadow: Experienced technician
-4. Practice: Test jobs in sandbox
-5. Review: Payment processing procedures
-
-#### New Dispatcher
-1. Read: [Dispatcher Guide](dispatch_guide.md) - Getting Started
-2. Review: Dispatch board overview
-3. Learn: Job booking process
-4. Practice: Scheduling scenarios
-5. Understand: Capacity planning
-
-#### New Office Staff
-1. Read: [Office Staff Guide](office_staff_guide.md) - Getting Started
-2. Learn: Call booking procedures
-3. Practice: Customer record creation
-4. Review: Invoice processing
-5. Understand: Payment collection
-
-#### New Sales Representative
-1. Read: [Sales Guide](sales_guide.md) - Getting Started
-2. Explore: Pricebook structure
-3. Practice: Estimate creation
-4. Learn: Presentation techniques
-5. Review: Conversion tracking
-
-#### New Manager
-1. Read: [Management Guide](management_guide.md) - Getting Started
-2. Explore: Available reports
-3. Configure: Custom dashboards
-4. Set: KPI targets
-5. Schedule: Regular report reviews
-
----
-
-## 🔧 System Requirements
-
-### Web Application (Office)
-- **Browser:** Chrome, Edge, Firefox, Safari (latest versions)
-- **Internet:** Stable broadband connection
-- **Resolution:** 1280x720 minimum (1920x1080 recommended)
-
-### Mobile Application (Field Technicians)
-- **iOS:** iOS 14 or later (iPhone, iPad)
-- **Android:** Android 8.0 or later
-- **Storage:** 500MB available space
-- **Internet:** 4G/LTE or Wi-Fi
-
----
-
-## 📞 Support Resources
-
-### Help & Support
-- **Help Center:** help.servicetitan.com
-- **Technical Support:** Available through ServiceTitan portal
-- **Customer Success Manager:** Assigned post-implementation
-- **TitanAdvisor:** In-app guidance and recommendations
-
-### Training Resources
-- **ServiceTitan Academy:** Online training courses
-- **Webinars:** Live training sessions
-- **Practice Environment:** Sandbox for testing
-- **Help Articles:** Searchable documentation
-
----
-
-## 📝 Document Usage Guidelines
-
-### For AI Assistants
-- Each document is self-contained but cross-referenced
-- Use index for topic discovery and navigation
-- Refer to specific sections for detailed workflows
-- Multiple documents may cover related topics from different perspectives
-
-### For Human Users
-- Start with role-specific quick start guides
-- Use search terms section for topic discovery
-- Follow workflow diagrams for process understanding
-- Cross-reference between documents as needed
-
----
-
-## 🔄 Version History
-
-- **v1.0** (December 17, 2025): Initial knowledge base creation
-  - 7 core documents
-  - 9 primary landing pages scraped
-  - Role-based organization
-  - RAG-optimized structure
-
----
-
-## 📚 Related Documentation
-
-- **ServiceTitan Academy:** academy.servicetitan.com
-- **API Documentation:** developer.servicetitan.com
-- **Release Notes:** Available in ServiceTitan platform
-- **Community Forums:** community.servicetitan.com
-
----
-
-**Note:** This knowledge base is derived from official ServiceTitan documentation (help.servicetitan.com) and is optimized for AI-assisted retrieval and support. Always refer to official ServiceTitan resources for the most current information and updates.
-
----
-
-*End of Index*
+> **DISCLAIMER:** This is for informational purposes only. I am an AI, not an attorney or tax professional.
+
+# Homepage | CLEAR
+
+CLEAR's mission is to make research on labor topics more accessible to practitioners, policymakers, researchers, and the public more broadly so that it can inform their decisions about labor policies and programs. CLEAR identifies and summarizes many types of research, including descriptive statistical studies and outcome analyses, implementation, and causal impact studies. For causal impact studies, CLEAR assesses the strength of the design and methodology in studies that look at the effectiveness of particular policies and programs.
+* ## CLEAR Website Updates Are Coming
+  Over the past year, the CLEAR team has been busy listening to CLEAR users. We are working on changes to make it easier to find what you need. Look for these changes on the CLEAR website in the coming months!
+  [MORE](/2025update)
+  ![graphic of a person using a wrench to turn gears on a computer monitor screen](/sites/default/files/construction_DEC20.jpg)
+  CLEAR Website Updates Are Coming
+* ## CLEAR 10th Anniversary Webinar Series
+  The U.S. Department of Labor’s Chief Evaluation Office is excited to celebrate 10 years of the Clearinghouse for Labor Evaluation and Research! To recognize this 10-year milestone, CEO invites you to a series of three webinars designed to introduce or refresh you on what CLEAR is and how to use it!
+  [MORE](https://www.dol.gov/agencies/oasp/evaluation/CEO-events)
+  ![CLEAR 10th Anniversary Logo](/sites/default/files/CLEAR-10-year%201_0.jpg)
+  CLEAR 10th Anniversary Webinar Series
+* ## Registered Apprenticeship program significantly boosts jobs, earnings
+  Compared to nonparticipants, workers in the program earned up to $6,595 more per year and increased their employment rates by nearly 9 percentage points.
+  [MORE](/study/effectiveness-assessment-and-cost-benefit-analysis-registered-apprenticeship-10-states-reed-et)
+  ![Drawing of money and briefcase](/sites/default/files/REED%202012_0.jpg)
+  Registered Apprenticeship program significantly boosts jobs, earnings
+* ## New Health and Safety Rapid Review Synthesis Report
+  CLEAR’s rapid review found strategies including vaccination, working from home, Personal Protective Equipment (PPE), and engineering and administrative controls can help reduce and control workplace infections of COVID-19.
+  [MORE](https://clear.dol.gov/trending-research)
+  ![What strategies help reduce COVID-19 related workplace risk for employees?](/sites/default/files/CLEAR-01.jpg)
+  New Health and Safety Rapid Review Synthesis Report
+* ## Reemployment and Eligibility Assessment (REA) program cuts UI duration, increases employment and earnings
+  The study found that Unemployment Insurance (UI) claimants who participated in REA received significantly fewer weeks of UI benefits, worked more quarters, and earned more, than claimants who did not participate in the program.
+  [MORE](https://clear.dol.gov/Study/Evaluation-impacts-Reemployment-and-Eligibility-Assessment-REA-Program-Final-report-Klerman-2)
+  ![Text reading: " REA participants received UI for 1.3 fewer weeks and earned $465 more over one year" next to an illustrated image of a briefcase.](/sites/default/files/rotator%202_fixed.png)
+  Reemployment and Eligibility Assessment (REA) program cuts UI duration, increases employment and earnings
+## Quick Links
+* **[CLEAR 10th Anniversary Webinar Series](https://www.dol.gov/agencies/oasp/evaluation/CEO-events)**
+* **[FAQ](/sites/default/files/CLEAR%20Frequently%20Asked%20Questions%2C%20Version%201.0.pdf)**
+* **[Browse the research by topic area](topic-area)**
+* **[Learn more about CLEAR's process](about)**
+* **[Causal Evidence Guidelines](reference-documents/causal-evidence-guidelines-version-21)**
+* **[Rapid reviews](/trending-research)**
+## Search for Studies
+## Search for Studies
+Operator
+Contains all of these words
+Contains any of these words
+Contains none of these words
+Year of PublicationYear of Publication
+Min
+Max
+## Most Popular
+* [Causal Evidence Guidelines, Version 2.2](/reference-documents/causal-evidence-guidelines)
+* [An assessment of the effectiveness of prison work release programs on post-release recidivism and employment. (Bales et al. 2015)](/study/assessment-effectiveness-prison-work-release-programs-post-release-recidivism-and-employment)
+* [An effectiveness assessment and cost-benefit analysis of Registered Apprenticeship in 10 states (Reed et al. 2012)](/study/effectiveness-assessment-and-cost-benefit-analysis-registered-apprenticeship-10-states-reed-et)
+* [State collective bargaining laws and public-sector pay (Brunner & Ju, 2019)](/Study/State-collective-bargaining-laws-and-public-sector-pay-Brunner-Ju-2019)
+## What's New
+* **Jan** 
+  **17**
+  New Release: CLEAR posted 29 new Registered Apprenticeship and Work-Based Learning profiles. Each study profile includes an overall summary, relevant findings, and considerations for interpreting findings. Click on link below to read more!
+  [Registered Apprenticeship and Work-Based Learning](/topic-area/registered-apprenticeship-and-work-based-learning)
+* **Jan** 
+  **10**
+  New Release: CLEAR posted the Regression Discontinuity Designs Causal Evidence Guidelines that provide the CLEAR evidence criteria for rating causal studies using Regression Discontinuity Designs. Click on the link below to read more!
+  [Regression Discontinuity Designs Causal Evidence Guidelines](/Reference-Documents/Regression-Discontinuity-Designs-Causal-Evidence-Guidelines)
+* **Jan** 
+  **07**
+  New Release: CLEAR posted the Apprenticeship and Work-Based Learning synthesis and supplement, which examine the effectiveness of work-based learning interventions in workplace or job-like settings on employment, earnings, public benefit receipt, and education. Click on the link below to read more!
+  [Registered Apprenticeship and Work-Based Learning Synthesis](/Synthesis-Report/Registered-Apprenticeship-and-Work-Based-Learning-Synthesis)

@@ -1,0 +1,70 @@
+---
+source: https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets
+scraped_at: 2025-12-26T02:54:58.349258
+project: knowledge_bases/workplace_rights
+---
+
+> **DISCLAIMER:** This is for informational purposes only. I am an AI, not an attorney or tax professional.
+
+# Fact Sheets | U.S. Department of Labor
+
+Health
+* [Adjusting ERISA Civil Monetary Penalties for Inflation](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/adjusting-erisa-civil-monetary-penalties-for-inflation "Adjusting ERISA Civil Monetary Penalties for Inflation")
+* [Changes for the 2023 Form 5500 and Form 5500-SF Annual Return/Reports](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/changes-for-the-2023-form-5500-and-form-5500-sf-annual-return-reports "Changes for the 2023 Form 5500 and Form 5500-SF Annual Return/Reports")
+* [Changes to HIPAA Special Enrollment Provisions under the Children's Health Insurance Program Reauthorization Act](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/changes-to-hipaa-under-chip.pdf "Changes to HIPAA Special Enrollment Provisions under the Children's Health Insurance Program Reauthorization Act")
+* [Consolidated Omnibus Budget Reconciliation Act (COBRA)](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/cobra.pdf "Consolidated Omnibus Budget Reconciliation Act (COBRA)")
+* [Department of Labor Rescinds Invalidated Rule on Association Health Plans](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/dol-rescinds-invalidated-rule-on-ahp "Department of Labor Rescinds Invalidated Rule on Association Health Plans")
+* [Final Affordable Care Act Regulations Related to Multiple Employer Welfare Arrangements](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/final-aca-regulations-related-to-mewas.pdf "Final Affordable Care Act Regulations Related to Multiple Employer Welfare Arrangements")
+* [Final Rule Strengthens Consumer Protections for Workers Requesting Disability Benefits from ERISA Employee Benefit Plans](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/final-rule-strengthens-consumer-protections-for-workers-requesting-disability-benefits-from-erisa-employee-benefit-plans.pdf "Final Rule Strengthens Consumer Protections for Workers Requesting Disability Benefits from ERISA Employee Benefit Plans")
+* [Final Rules under the Mental Health Parity and Addiction Equity Act (MHPAEA)](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/final-rules-under-the-mental-health-parity-and-addiction-equity-act-mhpaea "Final Rules under the Mental Health Parity and Addiction Equity Act (MHPAEA)")
+* [Form 5500 E-Filing Requirement](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/form-5500-efiling-requirement.pdf "Form 5500 E-Filing Requirement")
+* [General Facts on Women and Job Based Health](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/women-and-job-based-health "General Facts on Women and Job Based Health")
+* [Genetic Information Nondiscrimination Act of 2008 (GINA)](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/gina.pdf "Genetic Information Nondiscrimination Act of 2008 (GINA)")
+* [Health Insurance Portability and Accountability Act (HIPAA)](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/hipaa.pdf "Health Insurance Portability and Accountability Act (HIPAA)")
+* [How to Protect Your Employees When Purchasing Health Insurance](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/how-to-protect-your-employees-when-purchasing-health-insurance.pdf "How to Protect Your Employees When Purchasing Health Insurance")
+* [Job Loss - Information Workers Need to Know to Protect their Health Coverage and Retirement Benefits](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/job-loss.pdf "Job Loss - Information Workers Need to Know to Protect their Health Coverage and Retirement Benefits")
+* [Mental Health Parity and Addiction Equity Act of 2008 (MHPAEA)](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/mhpaea.pdf "Mental Health Parity and Addiction Equity Act of 2008 (MHPAEA)")
+* [Newborns' and Mothers' Health Protection Act](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/newborns-act.pdf "Newborns and Mothers Health Protection Act")
+* [Reservist Called to Active Duty](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/reservists-called-to-active-duty.pdf "Reservist Called to Active Duty")
+* [What To Do If Your Health Coverage Can No Longer Pay Benefits](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/what-to-do-if-your-health-coverage-can-no-longer-pay-benefits "What To Do If Your Health Coverage Can No Longer Pay Benefits")
+* [Women's Health and Cancer Rights Act](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/whcra.pdf "Womens Health and Cancer Rights Act")
+* [Workers' Right to Health Plan Information](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/workers-right-to-health-plan-information.pdf "Workers Right to Health Plan Information")
+* [Your Employer's Bankruptcy: How Will It Affect Your Employee Benefits?](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/your-employers-bankruptcy.pdf "Your Employers Bankruptcy: How Will It Affect Your Employee Benefits?")
+Retirement
+* [Abandoned Individual Account Plan Regulations and Class Exemption](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/abandoned-individual-account-plan-regulations-and-class-exemption)
+* [Adjusting ERISA Civil Monetary Penalties for Inflation](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/adjusting-erisa-civil-monetary-penalties-for-inflation)
+* [Cash Balance Pension Plans](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/cash-balance-pension-plans)
+* [Changes for the 2023 Form 5500 and Form 5500-SF Annual Return/Reports](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/changes-for-the-2023-form-5500-and-form-5500-sf-annual-return-reports)
+* [Direct Final Rule Provides Flexibility for the Timing of Annual Disclosures to Workers in 401(k)-Type Retirement Plans](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/direct-final-rule-provides-flexibility-for-the-timing-of-annual-disclosures-to-workers-in-401k-type-retirement-plans.pdf)
+* [Economically Targeted Investments (ETIs) and Investment Strategies that Consider Environmental, Social and Governance (ESG) Factors](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/etis-and-investment-strategies-that-consider-esg-factors.pdf)
+* [Final Amendment to PTE 84-14 - the QPAM Exemption](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/final-amendment-to-pte-84-14-the-qpam-exemption)
+* [Final Regulation: Annual Funding Notice for Defined Benefit Plans](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/final-regulation-annual-funding-notice-for-defined-benefit-plans.pdf)
+* [Final Regulation Improving Workers' Access to Multiemployer Retirement Plan Information](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/final-regulation-improving-workers-access-to-multiemployer-retirement-plan-information.pdf)
+* [Final Regulation Relating to Service Provider Disclosures Under Section 408(b)(2)](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/final-regulation-service-provider-disclosures-under-408b2.pdf)
+* [Final Rule on Prudence and Loyalty in Selecting Plan Investments and Exercising Shareholder Rights](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/final-rule-on-prudence-and-loyalty-in-selecting-plan-investments-and-exercising-shareholder-rights)
+* [Final Rule on Default Investment Alternatives In Participant-Directed Account Plans](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/final-rule-qdia-in-participant-directed-account-plans.pdf)
+* [Final Rule to Improve Transparency of Fees and Expenses to Workers in 401(k)-Type Retirement Plans](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/final-rule-improve-transparency-of-fees-and-expenses.pdf)
+* [Final Rule to Increase Workers' Access to High Quality Investment Advice](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/final-rule-to-increase-workers-access-to-high-quality-investment-advice.pdf)
+* [Form 5500 E-Filing Requirement](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/form-5500-efiling-requirement.pdf)
+* [How to Tell Whether Your Adviser is Working in Your Best Interest: A Fiduciary Guide for Individual Consumers](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/a-fiduciary-guide-for-individual-consumers.pdf)
+* [Job Loss - Important Information Workers Need to Know to Protect their Health Coverage and Retirement Benefits](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/job-loss.pdf)
+* [Notice of Proposed Rulemaking on Prudence and Loyalty in Selecting Plan Investments and Exercising Shareholder Rights](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/notice-of-proposed-rulemaking-on-prudence-and-loyalty-in-selecting-plan-investments-and-exercising-shareholder-rights.pdf)
+* [Notice of Proposed Rulemaking Relating to Application of the Definition of Adequate Consideration](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/notice-of-proposed-rulemaking-relating-to-application-of-the-definition-of-adequate-consideration)
+* [Pension Benefit Statements - Lifetime Income Illustrations](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/pension-benefit-statements-lifetime-income-illustrations)
+* [Reservist Being Called to Active Duty](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/reservists-called-to-active-duty.pdf)
+* [Retirement Savings Lost and Found Information Collection Request](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/retirement-savings-lost-and-found-information-collection-request)
+* [Retirement Security Rule and Amendments to Class Prohibited Transaction Exemptions for Investment Advice Fiduciaries](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/retirement-security-rule-and-amendments-to-class-pte-for-investment-advice-fiduciaries)
+* [SECURE Act and Related Revisions to Employee Benefit Plan Annual Reporting on the Form 5500](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/secure-act-and-related-revisions-to-employee-benefit-plan-annual-reporting-on-the-form-5500.pdf)
+* [Selecting And Monitoring Pension Consultants - Tips For Plan Fiduciaries](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/selecting-and-monitoring-pension-consultants.pdf)
+* [Target Date Retirement Funds - Tips for ERISA Plan Fiduciaries](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/target-date-retirement-funds.pdf)
+* [Tips For Selecting And Monitoring Service Providers For Your Employee Benefit Plan](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/tips-for-selecting-and-monitoring-service-providers.pdf)
+* [Your Employer's Bankruptcy: How Will It Affect Your Employee Benefits?](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/your-employers-bankruptcy.pdf)
+Program
+* [EBSA Restores Nearly $1.4 Billion to Employee Benefit Plans, Participants, and Beneficiaries](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/ebsa-monetary-results) | [EBSA Results Archive](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/ebsa-monetary-results-archive)
+* [Contributory Plans Criminal Project](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/cpcp.pdf)
+* [Delinquent Filer Voluntary Compliance Program](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/dfvcp.pdf)
+* [EBSAs Participant Assistance & Outreach Program](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/participant-assistance-and-outreach-program.pdf)
+* [Employee Contributions](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/employee-contributions.pdf)
+* [FY2023 MHPAEA Enforcement Fact Sheet](/agencies/ebsa/laws-and-regulations/laws/mental-health-parity/mhpaea-enforcement-2023) | [Archive](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/mhpaea-enforcement)
+* [MEWA Enforcement](/sites/dolgov/files/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/mewa-enforcement.pdf)
+* [Voluntary Fiduciary Correction Program](/agencies/ebsa/about-ebsa/our-activities/resource-center/fact-sheets/vfcp)

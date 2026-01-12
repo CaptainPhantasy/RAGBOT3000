@@ -1,0 +1,29 @@
+---
+source: https://www.dol.gov/agencies/odep/program-areas/individuals/older-workers
+scraped_at: 2025-12-26T03:31:25.056351
+project: knowledge_bases/workplace_rights
+---
+
+> **DISCLAIMER:** This is for informational purposes only. I am an AI, not an attorney or tax professional.
+
+# Older Workers | U.S. Department of Labor
+
+Today, a confluence of factors is prompting America to change the way it thinks about age and work. The economic downturn, shifting perceptions of retirement, increased workplace flexibility, and the aging of the "baby boom" generation are all contributing to people working longer. Many of these capable, experienced mature workers develop disabilities as they age, or existing disabilities may become more significant. To retain the talents of these valuable, skilled workers, employers can implement a variety of workplace practices, many of which benefit all workers and make good business sense. The following resources provide more information about the topic of older workers:
+## ODEP and other DOL agency resources
+* [Stay at Work/Return to Work](https://askearn.org/page/stay-at-work-return-to-work) Programs — A resource from the Employer Assistance and Resource Network on Disability (EARN) that shows the advantages of stay-at-work and return-to-work (SAW/RTW) programs, discusses successful SAW/RTW retention strategies, and helps employers decide which SAW/RTW strategies will work in their organizations.
+* [Job Accommodation Network](https://askjan.org/) guidance on accommodations for employees who are aging.
+  + [Accommodation and Compliance Series: Employees who are Aging](https://askjan.org/publications/Disability-Downloads.cfm?pubid=297434)
+  + [Our Aging Workforce: A Look at the Benefits of Job Accommodation — JAN's Consultants' Corner](http://askjan.org/corner/vol03iss03.htm)
+* [Senior Community Service Employment Program (SCSEP)](/agencies/eta/Seniors/) — ETA-funded community service and work-based program that provides subsidized training for low-income persons 55 or older who are unemployed and have poor employment prospects.
+* [Age Discrimination in Employment Act of 1967](https://www.eeoc.gov/statutes/age-discrimination-employment-act-1967)
+* [Age Discrimination in Employment Act of 1975](/agencies/oasam/regulatory/statutes/age-discrimination-act)
+* [DOL Employment & Training Administration's Older Worker Initiative](https://www.doleta.gov/reports/dpld_older_worker.cfm) — The aging and retirement of the baby boom generation will have impacts on many aspects of our society, including possible labor and skill shortages. This initiative looks at ways to encourage older employees to continue working.
+* [Retaining Older Workers](https://askearn.org/page/older-workers) — Information from EARN on strategies to retain the talents of older workers, who may develop disabilities as they age, and how to attract new, older workers.
+## Other resources
+* [Making Work More Flexible: Opportunities and Evidence](http://assets.aarp.org/rgcenter/econ/i11_work.pdf) (PDF) — This report considers the availability, utilization, and demand for workplace flexibility, with a particular emphasis on older workers. Although many aspects of flexibility can benefit workers of any age, the desire of some older workers to phase into retirement introduces some special considerations.
+* [Phased Retirement and Flexible Retirement Arrangements: Strategies for Retaining Skilled Workers](http://assets.aarp.org/www.aarp.org_/articles/money/employers/phased_retirement.pdf) (PDF) — Implementing appealing work arrangements that attract and retain workers 50+ may become increasingly important in an organization's bid to survive in today's marketplace. Phased retirement, which allows the employee to reduce work time in his or her current job, is regarded as one strategy to encourage hard-to-replace, experienced workers to postpone leaving the labor force. This report discusses the factors influencing the business need for phased retirement, how to create a phased retirement program, how to market a phased retirement program to employees, challenges in implementing phased retirement, proposed regulatory solutions, and cutting-edge employee programs.
+* [Protecting Family Caregivers from Employment Discrimination (AARP Public Policy Institute)](http://www.aarp.org/content/dam/aarp/research/public_policy_institute/health/protecting-caregivers-employment-discrimination-insight-AARP-ppi-ltc.pdf) (PDF) — This report is the first in a series of AARP Public Policy Institute papers on issues of eldercare and the workplace. It highlights the realities of changing demographics and issues affecting working caregivers of older adults. It defines family responsibilities discrimination (FRD), explains why FRD is a policy matter, and describes the types of workplace discrimination encountered by working caregivers.
+* [Highlights of a GAO Forum: Engaging and Retaining Older Workers](https://www.gao.gov/products/A66347) (PDF)
+* [Older Workers: Some Best Practices and Strategies for Engaging and Retaining Older Workers](https://www.gao.gov/products/A66354) (PDF)
+* [Building Your Career After 50](https://www.aarp.org/work/careers/) — AARP resources to assist 50 and older workers looking to switch careers or stay in their profession.
+* [Older Workers: An exploration of the Benefits, Barriers, and Adaptations for Older People in the Workforce](https://www.ncbi.nlm.nih.gov/pubmed/19759425) — A study from the National Institutes of Health which looks at the experiences and perceptions of paid workers aged 60 years and older. The study explains why older people continue to work and the barriers and facilitators they encounter.

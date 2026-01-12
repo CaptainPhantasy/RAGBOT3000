@@ -1,0 +1,35 @@
+---
+source: https://www.dol.gov/agencies/ocfo/about
+scraped_at: 2025-12-26T02:50:14.513540
+project: knowledge_bases/workplace_rights
+---
+
+> **DISCLAIMER:** This is for informational purposes only. I am an AI, not an attorney or tax professional.
+
+# About Us | U.S. Department of Labor
+
+## Office of the Chief Financial Officer (OCFO)
+OCFO delivers timely, accurate, and reliable financial information to decision makers through efficient and effective financial systems and business processes, fosters effective stewardship of public funds, and safeguards fiscal integrity through effective internal controls.
+OCFO ensures the Department's compliance with federal financial integrity legislation, including the Chief Financial Officers Act. Provides financial management leadership, direction, and guidance to the Office of the Secretary of Labor and all Department of Labor (DOL) program agencies. Manages the financial management system and leads the Department's efforts on the annual independent financial audit. OCFO leads efforts to examine, identify, and implement administrative cost reduction initiatives and improve efficiencies across DOL.
+**Division of Administrative Services**
+Provides OCFO support for internal human resource management, performance, procurement, budgetary, and other administrative services to ensure OCFO operates efficiently.
+**Division of Financial Policy and Compliance**
+Develops Department-wide financial policies, procedures, and standards for areas such as travel, cash management, credit management, debt management, and payment activities. Acts as liaison with the Office of Inspector General and the Department's independent auditors. Oversees implementation of OMB Circular A-123 Appendix A-D. Prepares and publishes DOL's annual Agency Financial Report (AFR). Oversees the DOL's internal control efforts by leading annual assessments of controls for financial systems under Circular A-123, Appendix A. Supports the Department's payment integrity efforts by performing triennial risk assessments, and annual reporting of improper payments and integrity efforts in the AFR under the Payment Integrity Information Act of 2019 and Circular A-123, Appendix C. Manages the Department's financial audit resolution and remediation programs, oversees development of management and legal representation letters, and manages internal and external financial scorecard processes.
+**Division of Client Financial Management Services**
+Supports the Department's mission by providing client agencies outstanding customer service through vital oversight in budget execution for all DOL agencies. Performs a wide variety of administrative and analytical duties in connection with the review, justification, and presentation of budgets for the Congressional Budget submission, including preparation of Departmental and OMB documentation. Conducts budget execution activities for operating and reimbursable accounts. Prepares operating plans and analyzes the status of funds throughout the fiscal year. Provides technical advice and assistance to senior Departmental staff on resource management issues. Monitors accounts for the accuracy of obligations, expenditures, and overall financial status. Ensures obligations are properly reconciled with the amounts apportioned and allotted. Provides critical financial management services for agencies funded under the Departmental Management Appropriation and Working Capital Fund (WCF). Manages agency cost allocations and provides guidance and oversight of the pricing strategies. Monitors and analyze WCF cost/expenditures, while performing monthly WCF processing and hold WCF Committee meetings. Provides overall management of the WCF.
+## Office of Fiscal Integrity (OFI)
+Implements the highest standards of fiscal responsibility by providing DOL services which enhance financial management, including preparation of financial statements, timely resolution of audit issues, processing and analysis of centralized accounting transactions, and providing agency-specific accounting services.
+**Division of Business Process Improvement**
+Provides DOL leadership for the U.S. Treasury government-wide initiative to streamline and standardize operational accounting processes and procedures. Provides accounting and invoice services to all Departmental Management (DM) agencies and other DOL component agencies. And ensures DOL transactions are appropriately reflected in Treasury's Government-wide Central Summary General Ledger by providing Department-wide oversight of the Intra-Governmental Payment and Accounting Collection (IPAC) process and Secure Payment System (SPS) activities.
+**Travel Management Division**
+Supports program agency's mission by managing activities related to the Federal travel system, including implementation of the 2nd Generation Electronic Travel System (ETS2) within DOL. Ensures a strong travel operations environment with a robust funds obligations/expense management platform, comprehensive reporting capabilities, and internal control oversight.
+**Division of Central Accounting Operations**
+Manages DOL-wide accounting operations, including maintenance and integrity of the Department's general ledger, cash and payroll reconciliation, and administration of the Department's Intra-Governmental Payment and Collection System, and canceled check programs.
+**Division of Financial Reporting**
+Prepares the Department's quarterly and annual financial statements, oversees external and internal financial reporting, monitors budgetary and proprietary accounts, performs reconciliations, and monitors compliance with the Federal Accounting Standards Advisory Board and Generally Accepted Accounting Principles requirements.
+## Office of Financial System Integrity (OFSI)
+Provides state of the art technology to ensure the delivery of reliable, consistent, and timely financial information for DOL management, the President, other Cabinet agencies, and Congress. Develops, maintains, and operates the Department's core financial management system and related centralized financial systems.
+**Division of Customer Support**
+Monitors DOL's core financial management system and related systems. Ensures OCFO enterprise architecture complies with the Department's framework and maintains a configuration process for all OCFO systems. Responsible for full system development life cycle support which includes planning, requirements gathering, analysis, development, testing, implementation, operations, maintenance and disposition support for all OCFO information systems.
+**Division of Security & Technology**
+Performs information security and quality assurance duties for all OCFO IT systems to meet or exceed federal mandates of the Federal Information Security Management Act, Federal Information System Control Audit, and OMB Circular A-123 internal control requirements.

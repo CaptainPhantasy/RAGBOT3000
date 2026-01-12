@@ -1,0 +1,60 @@
+---
+source: https://www.dol.gov/agencies/eta/RRW-hub/Getting-started/Addressing-stigma
+scraped_at: 2025-12-26T03:29:36.882060
+project: knowledge_bases/workplace_rights
+---
+
+> **DISCLAIMER:** This is for informational purposes only. I am an AI, not an attorney or tax professional.
+
+# Addressing Stigma | U.S. Department of Labor
+
+More in This Section 
+- [Close](#)
+* [Recovery-Ready Workplace Resource Hub](/agencies/eta/RRW-hub)
+* [Recovery-Ready Workplace](/agencies/eta/RRW-hub/Recovery-ready-workplace)
+* [Getting Started](/agencies/eta/RRW-hub/Getting-started)
+  + [Recruitment and Employment of People in Recovery](/agencies/eta/RRW-hub/Getting-started/Recruitment-employment)
+  + [Preventing Substance Use in the Workforce](/agencies/eta/RRW-hub/Getting-started/Preventing-substance-use)
+  + [Addressing Stigma](/agencies/eta/RRW-hub/Getting-started/Addressing-stigma)
+* [Recovery-Ready Workplace Toolkit](/agencies/eta/RRW-hub/Toolkit)
+* [Additional Resources](/agencies/eta/RRW-hub/Additional-resources)
+![two men staring at each other seated across a table](/sites/dolgov/files/ETA/RRW-hub/images/mini-banner-temp-addressing.jpg)
+The stigma surrounding substance use disorder is deeply entrenched and serves as a barrier to help-seeking for substance use disorder and open conversations on the topic.
+Stigma is commonly broken into three categories: 1) social stigma; 2) self-stigma; and, 3) structural stigma.
+## Social Stigma
+Social stigma is reflected in negative stereotypes about members or perceived members of a group that is perceived to have socially undesirable characteristics. Social stigma serves to distance or exclude such groups. It is based on misunderstanding, partial truths, and generalizations and assigns members of a group with an undesirable label, or social identity. For example, people with or in recovery from substance use disorder may be labeled as “addicts” and “alcoholics” and perceived as untrustworthy, deceitful, dangerous, or lacking in willpower or character. Additionally, people taking medications for the treatment of opioid use disorder can be further stigmatized through common misperceptions that taking medications is replacing one addiction for another, that their medication is simply a crutch, or the belief that true recovery can only take place without medications. For a better understanding of recovery, see the [working definition of recovery](https://store.samhsa.gov/sites/default/files/d7/priv/pep12-recdef.pdf) developed in 2010.
+## Self-Stigma
+Self-stigma occurs when members of a stigmatized group come to believe negative stereotypes about themselves. Among people with substance use disorder this can lead to feel shame, fear of asking for help, and what has been called the “why try effect,” the belief that there is no point in seeking help because one is fundamentally flawed and hopeless or because the barriers to recovery seem too great to overcome.[1](#citation-1)
+## Structural Stigma
+Structural stigma is defined as punitive or discriminatory laws, policies, and practices that negatively affect the stigmatized group. These three forms of stigma overlap and reinforce one another with sometimes devastating impacts on people with or in recovery from substance use disorders and other stigmatized groups.
+## Employers’ Role in Addressing Stigma
+While addressing stigma in the workplace my seem daunting, there are steps employers can take to reduce the stigma and misunderstanding that can undermine efforts to become a recovery-ready workplace. Here are three steps you can take:
+1. **Use neutral, person-first language**: Examine the terminology and framing used in your company’s documents, communications, policies, and informal discussions. What kinds of terms are used in relation substance use disorder, treatment, and recovery? Research shows that the use of terms such as “addict,” “abuse” and “clean” or “dirty” (in reference to a drug screening result or a person) can affect perceptions and judgments about people with substance use disorder. The effect of stigmatizing terminology is invisible to the people whose perceptions and judgments it affects. People are not defined by the health conditions they may have. By adopting neutral, science-based language and person-first framings (as in “person with a substance use disorder”) organizations can help reduce stigma and build a healthier, more welcoming workplace. For more information, see [Selected Resources](#selected-resources) below.
+2. **Educate your companies leadership, management, and staff** on substance use, stigma, language and their impact. You can find more information on this topic in [Selected Resources](#selected-resources), below.
+3. **Make recovery a reality through contact with people in recovery**. Exposure to members of a stigmatized group is one of the most effective stigma reduction strategies. People who are openly in recovery can help dispel myths, misperceptions, stigmas and fears demonstrating that recovery is possible and substance use disorder affects people from all walks of life, from leaders and managers to line staff. Recovering employees can be instrumental in reducing stigma and hesitance about seeking help. However, they should only speak openly about their recovery if they are comfortable doing so. As an alternative, you can reach out to the local recovery community for volunteers.
+Selected Resources
+[Addiction-ary](https://www.recoveryanswers.org/addiction-ary/) – A [Recovery Research Institute](https://www.recoveryanswers.org/) substance use disorder, treatment, and recovery language guide that flags stigmatizing terms.
+[Addressing the Stigma that Surrounds Addiction](https://nida.nih.gov/about-nida/noras-blog/2020/04/addressing-stigma-surrounds-addiction) – Blog post from National Institute on Drug Abuse Director Dr. Nora Volkow
+[Addressing Stigma of Substance Use Disorders](https://helpandhopewv.org/docs/Addressing%20Stigma%20Flyer%20-%20FINAL.pdf), a flyer developed through the [Stigma-Free WV](https://stigmafreewv.org/) initiative
+NEW [Anti-Stigma Toolkit: Guide to Reducing Addiction-Related Stigma](https://attcnetwork.org/centers/central-east-attc/product/anti-stigma-toolkit-guide-reducing-addiction-related-stigma "Anti-Stigma Toolkit") - This resource from the Central East Addiction Technology Transfer Center provides practical information about a variety of approaches to prevent addiction-related stigma.
+Botticelli MP, Koh HK. [Changing the Language of Addiction](https://jamanetwork.com/journals/jama/article-abstract/2565298). *Jama*. Oct 4 2016;316(13):1361-1362. doi:10.1001/jama.2016.11874
+[CDC’s RX Awareness Campaign](https://www.cdc.gov/rxawareness/index.html) tells the stories of people whose lives were impacted by prescription opioids. The goals of the campaign are to increase awareness that prescription opioids can be addictive and dangerous, to reinforce that help is available for those suffering from an opioid use disorder, and to encourage those struggling with prescription opioids to visit the campaign website to locate help and resources. Materials include:
+* [Real Stories from Real People: Overcoming Addiction](https://www.cdc.gov/rx-awareness/stories/?CDC_AAref_Val=https://www.cdc.gov/rxawareness/stories/index.html) – People sharing their stories via video.
+* [Recovery Is Possible](https://www.cdc.gov/rx-awareness/treatment/?CDC_AAref_Val=https://www.cdc.gov/rxawareness/treatment/index.html) provides information on opioid use disorder, its treatment, and recovery from it.
+* [What You Need to Know About Treatment and Recovery](https://www.cdc.gov/overdose-prevention/media/pdfs/What-to-look-for-Treatment-and-Recovery-Fact-Sheet.pdf) is a two-page information sheet that could be shared with employees or used in the context of a workplace substance use literacy program.
+[Disrupting Stigma: How Understanding, Empathy, and Connection Can Improve Outcomes for Families Affected by Substance Use and Mental Disorders](https://ncsacw.acf.hhs.gov/files/disrupting-stigma-brief.pdf), a publication of the National Center on Substance Abuse and Child Welfare
+[Memorandum to Heads of Executive Departments and Agencies: Changing Federal Terminology Regarding Substance Use and Substance Use Disorders](https://obamawhitehouse.archives.gov/sites/whitehouse.gov/files/images/Memo%20-%20Changing%20Federal%20Terminology%20Regrading%20Substance%20Use%20and%20Substance%20Use%20Disorders.pdf) – Guidance provided by the Director of National Drug Control Policy (January 9, 2017)
+[No Shame Movement](https://www.safeproject.us/noshame-mental-health-addiction/) includes a pledge to end stigma and support others in speaking up about their own mental health and substance use disorders from [SAFE Project](https://www.safeproject.us/).
+[No Shame Toolkit](https://www.safeproject.us/noshame-mental-health-addiction/no-shame-toolkit/), a social media toolkit SAFE Project developed to help stakeholders support the "No Shame Movement."
+[Perspective: Stigma and the Toll of Addiction, Nora Volkow, MD, New England Journal of Medicine](https://www.nejm.org/doi/full/10.1056/NEJMp1917360?query=recirc_curatedRelated_article) – Perspective article in peer-reviewed journal
+[SAMHSA’s Working Definition of Recovery and 10 Guiding Principles of Recovery](https://store.samhsa.gov/sites/default/files/d7/priv/pep12-recdef.pdf) – Developed with support from people in recovery from substance use disorder and mental health conditions
+[Shatterproof Addiction Language Guide](https://www.shatterproof.org/sites/default/files/2021-02/Stigma-AddictionLanguageGuide-v3.pdf) – Guidance on language and stigma developed by a nation not-for-profit organization
+[Stigma of Substance Use Recovery in the Workplace](https://www.ndwa.org/wp-content/uploads/2022/10/Stigma-in-the-Workplace-One-Pager.pdf), a flyer for employers and employees developed by the National Drug-Free Workplace Alliance
+[Substance Use and Stigma: Considerations for Employers, National Safety Council](https://www.nsc.org/safety-first/substance-use-and-stigma-considerations-for-employ) - Information for employers on stigma
+[The Real Stigma of Substance Use Disorders](https://www.recoveryanswers.org/research-post/the-real-stigma-of-substance-use-disorders/) – A Massachusetts General Hospital [Recovery Research Institute](https://www.recoveryanswers.org/) webpage demonstrating the impact of language on perceptions and judgments through a review of a well-known experiment.
+[The Shatterproof Addiction Stigma Index in Collaboration with The Hartford](https://www.shatterproof.org/our-work/ending-addiction-stigma/shatterproof-addiction-stigma-Index) – Findings of a survey intended to provide a baseline against which to measure progress addressing stigma
+[WISE (Wisconsin Initiative for Stigma Elimination)](https://eliminatestigma.org/) Launched as a statewide effort, WISE is now a nationwide coalition promoting inclusion and support for those affected by mental illness and substance use disorder through the advancement of evidence-based practices for stigma reduction efforts.
+[Words Matter - Terms to Use and Avoid When Talking About Addiction](https://nida.nih.gov/nidamed-medical-health-professionals/health-professions-education/words-matter-terms-to-use-avoid-when-talking-about-addiction) – Guidance on language and stigma from the National Institute on Drug Abuse
+[Words Matter: Preferred Language for Talking About Addiction](https://nida.nih.gov/research-topics/addiction-science/words-matter-preferred-language-talking-about-addiction) – A broader resource on language and stigma from the National Institute on Drug Abuse
+1 Corrigan PW, Larson JE, RÜSch N. Self-stigma and the “why try” effect: impact on life goals and evidence-based practices. *World Psychiatry*. 2009;8(2):75-81.
+2 Kelly JF, Westerhoff CM. Does it matter how we refer to individuals with substance-related conditions? A randomized study of two commonly used terms. *Int J Drug Policy*. 2010;21(3):202-207.
