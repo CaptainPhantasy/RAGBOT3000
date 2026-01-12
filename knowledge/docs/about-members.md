@@ -1,0 +1,25 @@
+---
+source: https://www.dol.gov/agencies/arb/about/members
+scraped_at: 2025-12-26T02:50:27.423318
+project: knowledge_bases/workplace_rights
+---
+
+> **DISCLAIMER:** This is for informational purposes only. I am an AI, not an attorney or tax professional.
+
+# ARB Board Members | U.S. Department of Labor
+
+* ![Judge Randel Johnson](/sites/dolgov/files/ARB/Images/Judge-Randel-Johnson.jpg)
+* ## Randel K. Johnson, Chair
+  Randel Johnson was appointed as Chair, Administrative Review Board, on February 24, 2025. Judge Johnson was formerly a judge on the Board, serving from August 2020 to June 2022, afterwards becoming associated with Cornell Law School and Syracuse College of Law. Formerly, a partner in the law firm of Seyfarth Shaw, his career history also includes stints with the Department of Labor's Office of Administrative of Law Judges, the Department’s Office of the Solicitor, serving as Labor Counsel to the United States House of Representatives’ Education and Workforce Committee and as Senior Vice President for Labor Immigration & Employee Benefits with the US Chamber of Commerce. Judge Johnson is a graduate of the University of Maryland Law School and holds a Masters of Laws from the Georgetown University Law Center and a Graduate Certificate from Harvard University’s Senior Managers in Government Program. He is a member of the Maryland, District of Columbia and various Federal bars. Judge Johnson is also a Member of the College of Labor and Employment Lawyers. His bookend achievements of his time on Capitol Hill include work leading to enactment of the American with Disabilities Act and the Congressional Accountability Act extending private sector employment laws to the Congress for the first time.
+* ![Judge Elliot Kaplan](/sites/dolgov/files/ARB/Images/Judge-Elliot-Kaplan.jpg)
+* ## Elliot M. Kaplan, Member
+  Judge Kaplan was appointed to the Administrative Review Board in April 2025. Before coming to the Board, he worked as a practicing attorney with extensive experience in commercial, insolvency, and employment litigation on behalf of Fortune 50 companies, banks, pharmaceutical manufacturers and retailers. Additionally, he served as a Unit Chief Immigration Judge in the U.S. Department of Justice, Executive Office for Immigration Review where he heard asylum, removal, and other cases and issued decisions in hundreds of matters. He has a Bachelor of Arts degree from Antioch University, a Master of Business Administration degree from Whittier College, and a Juris Doctor from the Whittier College School of Law. He is a member of the bar in Missouri.
+* ![Judge Thomas-Burrell](/sites/dolgov/files/ARB/Images/Judge-Thomas-Burrell.jpg)
+* ## Thomas H. Burrell, Member
+  Thomas H. Burrell is a longtime employee of the Department of Labor. Judge Burrell received his Bachelor of Science and Master of Business Administration from Illinois State University. He received his law degree from the Washington College of Law American University where he served on the American University Law Review. Judge Burrell has been published in several law reviews and cited by numerous journals. Burrell began his federal service with the Board in 2006 and was appointed to the Administrative Review Board in August 2019. He was reappointed to the Board in April 2025. Thomas is a member of the Virginia State Bar.
+* ![Judge Philip G. Kiko](/sites/dolgov/files/ARB/Images/Judge-Kiko.jpg)
+* ## Philip G. Kiko, Member
+  Judge Kiko was appointed as a Member of the Administrative Review Board on June 16, 2025. Judge Kiko previously served as Principal at Williams and Jensen, PLLC, from 2022 to 2025. He also recently served as President and CEO of Kiko Strategies, Inc.
+  Judge Kiko’s past experience includes several decades on Capitol Hill, including Chief of Staff and General Counsel for the House Judiciary Committee, Chief of Staff of the House Administration Committee, and Chief of Staff and General Counsel of the Select Committee on the Events Surrounding the 2012 Terrorist Attack in Benghazi. His past Hill experience culminated in being elected three times under two Speakers – Paul Ryan (R-WI) and Nancy Pelosi (D-CA) – to serve as the non-partisan Chief Administrative Officer (CAO) of the House.
+  Judge Kiko also served in several senior policy and management roles in the Department of the Education and the Department of Interior, including Deputy Director/Acting Director of the Office of Hearings and Appeals.
+  He has a Bachelor of Arts degree from Mount Union College and a J.D. degree from the International School of Law (now Antonin Scalia George Mason University School of Law). He is a member of the DC Bar and Virginia State Bar and is admitted to practice in the U.S. Court of Appeals for the D.C. Circuit, U.S. Court of Appeals for the Federal Circuit, and U.S Supreme Court. He is married to Colleen Duffy Kiko and has four children and nine grandchildren.
