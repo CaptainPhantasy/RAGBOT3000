@@ -1,5 +1,5 @@
 {
-  "name": "RAGBOT Web Analyzer",
-  "description": "An AI-powered web accessibility and visual analysis tool that provides detailed observations for LLM integration and human review.",
+  "name": "Tom the Peep - Floyd Vision Agent",
+  "description": "An AI-powered web accessibility and visual analysis tool with voice, vision, and structured DOM analysis by Legacy AI.",
   "requestFramePermissions": ["microphone", "camera", "screenCapture"]
 }
