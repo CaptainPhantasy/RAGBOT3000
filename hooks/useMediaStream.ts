@@ -1,3 +1,4 @@
+import type React from 'react';
 import { useCallback, useRef, useState } from 'react';
 import type { LiveSession } from '../services/liveService';
 

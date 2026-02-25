@@ -1,5 +1,5 @@
 {
-  "name": "Legacy RAG Teammate",
-  "description": "A white-labeled AI teammate that retrieves documentation, teaches concepts, guides through tasks, and troubleshoots friction using a RAG architecture.",
-  "requestFramePermissions": ["microphone"]
+  "name": "RAGBOT Web Analyzer",
+  "description": "An AI-powered web accessibility and visual analysis tool that provides detailed observations for LLM integration and human review.",
+  "requestFramePermissions": ["microphone", "camera", "screenCapture"]
 }

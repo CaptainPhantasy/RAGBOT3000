@@ -18,5 +18,19 @@
     },
     "allowImportingTsExtensions": true,
     "noEmit": true
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "services/communication.ts",
+    "services/llmInterface.ts",
+    "services/webAnalyzer.ts",
+    "services/cssAnalyzer.ts",
+    "services/markdownCommunication.ts",
+    "components/DualModeInterface.tsx",
+    "AppWebAnalyzer.tsx",
+    "AppAnalyzer.tsx",
+    "memory/types.ts",
+    "memory/memoryManager.ts",
+    "audio/pcm-processor.worklet.ts"
+  ]
 }

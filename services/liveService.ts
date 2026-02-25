@@ -2,6 +2,8 @@ import { GoogleGenAI, type LiveServerMessage, Modality } from '@google/genai';
 import { Mode } from '../types';
 import { generateMemoryPatch, getLiveVoice } from './geminiService';
 import { memoryManager } from './memoryService';
+import { VISION_AGENT_TOOLS } from './visionTools';
+import { executeToolCall } from './visionEngine';
 
 // Initialize Gemini
 const genAI = new GoogleGenAI({ apiKey: process.env.API_KEY });
@@ -210,6 +212,7 @@ Keep answers concise and helpful.`;
             voiceConfig: { prebuiltVoiceConfig: { voiceName: getLiveVoice() } },
           },
           systemInstruction: finalInstruction,
+          tools: [VISION_AGENT_TOOLS],
         },
         callbacks: {
           onopen: () => {
@@ -231,6 +234,46 @@ Keep answers concise and helpful.`;
           },
           onmessage: async (message: LiveServerMessage) => {
             if (signal.aborted || this.state !== 'connected') return;
+
+            // Handle Function Calls from Gemini (Vision Agent Tools)
+            const toolCall = (message as any).toolCall;
+            if (toolCall?.functionCalls) {
+              const functionResponses: any[] = [];
+              for (const fc of toolCall.functionCalls) {
+                console.log(`[Vision Agent] Tool call: ${fc.name}`, fc.args);
+                try {
+                  const result = await executeToolCall(fc.name, fc.args || {});
+                  functionResponses.push({
+                    id: fc.id,
+                    name: fc.name,
+                    response: { result: JSON.stringify(result) },
+                  });
+                  this.onMessage(`[Tool: ${fc.name}] ✓`);
+                } catch (err) {
+                  const errMsg = err instanceof Error ? err.message : String(err);
+                  functionResponses.push({
+                    id: fc.id,
+                    name: fc.name,
+                    response: { error: errMsg },
+                  });
+                  console.error(`[Vision Agent] Tool error: ${fc.name}`, err);
+                }
+              }
+
+              // Send function responses back to the session
+              sessionPromise
+                .then((session: any) => {
+                  if (this.state === 'connected' && session) {
+                    try {
+                      session.sendToolResponse({ functionResponses });
+                    } catch (err) {
+                      console.warn('Failed to send tool response:', err);
+                    }
+                  }
+                })
+                .catch(() => {});
+              return;
+            }
 
             // Handle Audio Output
             const base64Audio = message.serverContent?.modelTurn?.parts?.[0]?.inlineData?.data;

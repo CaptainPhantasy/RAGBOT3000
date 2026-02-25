@@ -3,6 +3,7 @@ import rescueFlowPrompt from '../persona/rescue-flow.md?raw';
 import routerPrompt from '../persona/router.md?raw';
 // Import persona files
 import systemPrompt from '../persona/system.md?raw';
+import visionAgentPrompt from '../persona/vision-agent.md?raw';
 import voiceConfig from '../persona/voice.json';
 import { type DocChunk, type MessageImage, Mode, type TaskFrame } from '../types';
 
@@ -209,6 +210,8 @@ ${taskFrame.steps.map((s, i) => `  ${i + 1}. ${s}${taskFrame.verifications?.[i] 
 When the user shares their screen or camera, actively look for UI elements, errors, code, or real-world objects.
 Use precise spatial language to "point out" items.
 Example: "I see the error in the top-right corner..." or "That object you're holding looks like..."
+
+${visionAgentPrompt}
 `
     : '';
 

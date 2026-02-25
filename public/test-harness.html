@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAGBOT Vision Agent — Test Harness</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .tool-output { max-height: 400px; overflow-y: auto; }
+    pre { white-space: pre-wrap; word-break: break-word; }
+    .badge-pass { background: #22c55e; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+    .badge-fail { background: #ef4444; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+    .badge-warn { background: #f59e0b; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  
+  <!-- Test Harness UI -->
+  <div class="max-w-7xl mx-auto p-6">
+    <header class="mb-8">
+      <h1 class="text-3xl font-bold text-gray-900">RAGBOT Vision Agent — Test Harness</h1>
+      <p class="text-gray-600 mt-1">Test the vision engine tools directly in your browser. No API key needed.</p>
+    </header>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      
+      <!-- Left: Tool Controls -->
+      <div class="space-y-4">
+        <div class="bg-white rounded-lg shadow p-4">
+          <h2 class="text-lg font-semibold mb-3">Analysis Tools</h2>
+          <div class="space-y-2">
+            <button type="button" onclick="runTool('analyze_page', {include_css:true, include_accessibility:true})" 
+                    class="w-full text-left px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded border border-blue-200 text-sm font-medium text-blue-800">
+              analyze_page — Full page audit
+            </button>
+            <button type="button" onclick="runTool('get_page_state', {})" 
+                    class="w-full text-left px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded border border-blue-200 text-sm font-medium text-blue-800">
+              get_page_state — Current page metadata
+            </button>
+            <button type="button" onclick="runTool('check_accessibility', {level:'AA'})" 
+                    class="w-full text-left px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded border border-blue-200 text-sm font-medium text-blue-800">
+              check_accessibility — WCAG AA audit
+            </button>
+            <button type="button" onclick="runTool('check_contrast', {})" 
+                    class="w-full text-left px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded border border-blue-200 text-sm font-medium text-blue-800">
+              check_contrast — Color contrast check
+            </button>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow p-4">
+          <h2 class="text-lg font-semibold mb-3">Element Tools</h2>
+          <div class="flex gap-2 mb-2">
+            <input type="text" id="selectorInput" placeholder="CSS selector (e.g. #test-form, .nav-link)" 
+                   class="flex-1 px-3 py-2 border rounded text-sm" value="#test-form" />
+          </div>
+          <div class="space-y-2">
+            <button type="button" onclick="runTool('analyze_element', {selector: document.getElementById('selectorInput').value})" 
+                    class="w-full text-left px-4 py-2 bg-purple-50 hover:bg-purple-100 rounded border border-purple-200 text-sm font-medium text-purple-800">
+              analyze_element — Deep element inspection
+            </button>
+            <button type="button" onclick="runTool('extract_css', {selector: document.getElementById('selectorInput').value})" 
+                    class="w-full text-left px-4 py-2 bg-purple-50 hover:bg-purple-100 rounded border border-purple-200 text-sm font-medium text-purple-800">
+              extract_css — Get computed styles
+            </button>
+            <button type="button" onclick="runTool('extract_text', {selector: document.getElementById('selectorInput').value})" 
+                    class="w-full text-left px-4 py-2 bg-purple-50 hover:bg-purple-100 rounded border border-purple-200 text-sm font-medium text-purple-800">
+              extract_text — Get text content
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-4">
+          <h2 class="text-lg font-semibold mb-3">Search Tools</h2>
+          <div class="flex gap-2 mb-2">
+            <input type="text" id="searchInput" placeholder="Search query (e.g. Submit, Login)" 
+                   class="flex-1 px-3 py-2 border rounded text-sm" value="Submit" />
+          </div>
+          <button type="button" onclick="runTool('find_elements', {query: document.getElementById('searchInput').value})" 
+                  class="w-full text-left px-4 py-2 bg-green-50 hover:bg-green-100 rounded border border-green-200 text-sm font-medium text-green-800">
+            find_elements — Search by text/aria/placeholder
+          </button>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow p-4">
+          <h2 class="text-lg font-semibold mb-3">Interaction Tools</h2>
+          <div class="space-y-2">
+            <button type="button" onclick="runTool('scroll_to', {target:'bottom'})" 
+                    class="w-full text-left px-4 py-2 bg-orange-50 hover:bg-orange-100 rounded border border-orange-200 text-sm font-medium text-orange-800">
+              scroll_to("bottom")
+            </button>
+            <button type="button" onclick="runTool('scroll_to', {target:'top'})" 
+                    class="w-full text-left px-4 py-2 bg-orange-50 hover:bg-orange-100 rounded border border-orange-200 text-sm font-medium text-orange-800">
+              scroll_to("top")
+            </button>
+            <button type="button" onclick="runTool('click_element', {selector:'#test-submit'})" 
+                    class="w-full text-left px-4 py-2 bg-orange-50 hover:bg-orange-100 rounded border border-orange-200 text-sm font-medium text-orange-800">
+              click_element("#test-submit")
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-4">
+          <h2 class="text-lg font-semibold mb-3">Communication</h2>
+          <button type="button" onclick="runTool('write_observation', {summary: 'Test harness analysis'})" 
+                  class="w-full text-left px-4 py-2 bg-teal-50 hover:bg-teal-100 rounded border border-teal-200 text-sm font-medium text-teal-800">
+            write_observation — Write to localStorage
+          </button>
+        </div>
+      </div>
+      
+      <!-- Right: Output -->
+      <div class="space-y-4">
+        <div class="bg-white rounded-lg shadow p-4">
+          <div class="flex justify-between items-center mb-3">
+            <h2 class="text-lg font-semibold">Tool Output</h2>
+            <span id="timing" class="text-xs text-gray-500"></span>
+          </div>
+          <div id="output" class="tool-output bg-gray-900 text-green-400 p-4 rounded font-mono text-xs">
+            <pre>Click a tool to see results...</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Test Content: Intentionally has accessibility issues for the analyzer to find -->
+    <div class="mt-12 border-t-4 border-dashed border-gray-300 pt-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Test Content (Analyze This)</h2>
+      <p class="text-gray-600 mb-6">This section has intentional accessibility and design issues for the vision agent to detect.</p>
+      
+      <nav class="mb-6">
+        <a href="#" class="nav-link text-blue-600 mr-4">Home</a>
+        <a href="#" class="nav-link text-blue-600 mr-4">About</a>
+        <a href="#" class="nav-link text-blue-600 mr-4">Contact</a>
+        <a href="#" class="nav-link"></a> <!-- Empty link - accessibility issue -->
+      </nav>
+      
+      <!-- Low contrast text - accessibility issue -->
+      <div class="mb-6" style="background-color: #ffffff;">
+        <p style="color: #aaaaaa; font-size: 14px;">This text has low contrast against the white background. The analyzer should flag this.</p>
+      </div>
+      
+      <!-- Image without alt - accessibility issue -->
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='100'%3E%3Crect width='200' height='100' fill='%23ddd'/%3E%3Ctext x='50%25' y='50%25' font-size='14' text-anchor='middle' dy='.3em'%3ENo Alt Text%3C/text%3E%3C/svg%3E" 
+           class="mb-6" />
+      
+      <!-- Image with alt -->
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='100'%3E%3Crect width='200' height='100' fill='%23bde0fe'/%3E%3Ctext x='50%25' y='50%25' font-size='14' text-anchor='middle' dy='.3em'%3EHas Alt%3C/text%3E%3C/svg%3E" 
+           alt="A properly labeled test image" class="mb-6" />
+      
+      <!-- Heading skip - accessibility issue (h2 to h4) -->
+      <h4 class="text-lg font-semibold mb-2">Skipped Heading Level</h4>
+      
+      <!-- Form with accessibility issues -->
+      <form id="test-form" class="bg-white p-6 rounded-lg shadow mb-6 max-w-md">
+        <h3 class="text-lg font-semibold mb-4">Test Form</h3>
+        
+        <!-- Input without label - accessibility issue -->
+        <input type="text" placeholder="Name (no label)" class="w-full px-3 py-2 border rounded mb-3" />
+        
+        <!-- Input with proper label -->
+        <label for="test-email" class="block text-sm font-medium mb-1">Email Address</label>
+        <input type="email" id="test-email" placeholder="you@example.com" class="w-full px-3 py-2 border rounded mb-3" />
+        
+        <!-- Input with aria-label -->
+        <input type="tel" aria-label="Phone number" placeholder="Phone (aria-label)" class="w-full px-3 py-2 border rounded mb-3" />
+        
+        <button type="submit" id="test-submit" class="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+          Submit
+        </button>
+      </form>
+      
+      <!-- Flex layout for CSS detection -->
+      <div class="flex gap-4 mb-6">
+        <div class="flex-1 bg-blue-100 p-4 rounded">Flex item 1</div>
+        <div class="flex-1 bg-blue-100 p-4 rounded">Flex item 2</div>
+        <div class="flex-1 bg-blue-100 p-4 rounded">Flex item 3</div>
+      </div>
+      
+      <!-- Grid layout for CSS detection -->
+      <div class="grid grid-cols-3 gap-4 mb-6">
+        <div class="bg-purple-100 p-4 rounded">Grid cell 1</div>
+        <div class="bg-purple-100 p-4 rounded">Grid cell 2</div>
+        <div class="bg-purple-100 p-4 rounded">Grid cell 3</div>
+      </div>
+
+      <!-- Button with no text - accessibility issue -->
+      <button type="button" class="p-2 border rounded mb-6" id="empty-button"></button>
+      
+      <footer class="mt-8 pt-4 border-t text-gray-500 text-sm">
+        <p>Test footer content. &copy; 2024 RAGBOT Vision Agent</p>
+      </footer>
+    </div>
+  </div>
+  
+  <script type="module">
+    import { executeToolCall } from './services/visionEngine.ts';
+    
+    // Make it globally available
+    window.runTool = async function(name, args) {
+      const outputEl = document.getElementById('output');
+      const timingEl = document.getElementById('timing');
+      
+      outputEl.innerHTML = '<pre>Running ' + name + '...</pre>';
+      
+      const start = performance.now();
+      try {
+        const result = await executeToolCall(name, args);
+        const elapsed = Math.round(performance.now() - start);
+        timingEl.textContent = `${elapsed}ms`;
+        
+        const json = JSON.stringify(result, null, 2);
+        outputEl.innerHTML = '<pre>' + syntaxHighlight(json) + '</pre>';
+      } catch (err) {
+        const elapsed = Math.round(performance.now() - start);
+        timingEl.textContent = `${elapsed}ms (error)`;
+        outputEl.innerHTML = '<pre style="color: #ef4444;">' + err.message + '\n' + err.stack + '</pre>';
+      }
+    };
+    
+    function syntaxHighlight(json) {
+      return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+        let cls = 'text-yellow-400'; // number
+        if (/^"/.test(match)) {
+          if (/:$/.test(match)) {
+            cls = 'text-blue-400'; // key
+          } else {
+            cls = 'text-green-400'; // string
+            // Highlight issues
+            if (match.includes('MISSING') || match.includes('error') || match.includes('issue')) {
+              cls = 'text-red-400 font-bold';
+            }
+          }
+        } else if (/true|false/.test(match)) {
+          cls = 'text-purple-400'; // boolean
+        } else if (/null/.test(match)) {
+          cls = 'text-gray-500'; // null
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+      });
+    }
+  </script>
+</body>
+</html>

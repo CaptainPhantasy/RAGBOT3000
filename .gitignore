@@ -26,3 +26,6 @@ dist-ssr
 # Internal (not for commit)
 internal/
 docs/_internal/
+.env
+.env.local
+.env.production
