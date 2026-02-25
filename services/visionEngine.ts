@@ -570,11 +570,24 @@ function checkContrastSnapshot(selector?: string) {
     const s = getComputedStyle(el);
     const fg = parseColor(s.color);
     const bg = parseColor(s.backgroundColor);
-    if (!fg || !bg) return;
-    // Skip transparent backgrounds
-    if (s.backgroundColor === 'rgba(0, 0, 0, 0)') return;
+    if (!fg) return;
+    
+    // Walk up the DOM tree to find effective background color
+    let bgColor: number[] | null = null;
+    let current: Element | null = el;
+    while (current) {
+      const currentStyle = getComputedStyle(current);
+      const currentBg = currentStyle.backgroundColor;
+      if (currentBg && currentBg !== 'rgba(0, 0, 0, 0)' && currentBg !== 'transparent') {
+        bgColor = parseColor(currentBg);
+        break;
+      }
+      current = current.parentElement;
+    }
+    // Default to white if no background found
+    if (!bgColor) bgColor = [255, 255, 255];
 
-    const ratio = getContrastRatio(fg, bg);
+    const ratio = getContrastRatio(fg, bgColor);
     const fontSize = parseFloat(s.fontSize);
     const isBold = parseInt(s.fontWeight) >= 700;
     const isLargeText = fontSize >= 24 || (fontSize >= 18.66 && isBold);
@@ -585,7 +598,7 @@ function checkContrastSnapshot(selector?: string) {
         element: selectorOf(el),
         text: el.textContent?.trim()?.slice(0, 40),
         foreground: s.color,
-        background: s.backgroundColor,
+        background: `rgb(${bgColor.join(', ')})`,
         ratio: Math.round(ratio * 100) / 100,
         required: isLargeText ? 3 : 4.5,
         fix: `Increase contrast ratio from ${ratio.toFixed(1)}:1 to at least ${isLargeText ? 3 : 4.5}:1`,
