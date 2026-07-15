@@ -6,7 +6,7 @@
  * chrome.storage.local to persist critical state across restarts.
  */
 
-import type { ExtensionStatus } from './types';
+import type { ExtensionStatus } from "./types";
 
 declare const chrome: any;
 
@@ -14,13 +14,13 @@ declare const chrome: any;
 // Constants
 // ---------------------------------------------------------------------------
 
-const KEEPALIVE_ALARM = 'tom-keepalive';
+const KEEPALIVE_ALARM = "tom-keepalive";
 const KEEPALIVE_INTERVAL_MINUTES = 1;
 
 const STORAGE_KEYS = {
-  tomTabId: 'tomTabId',
-  controlledTabs: 'controlledTabs',
-  extensionStatus: 'extensionStatus',
+	tomTabId: "tomTabId",
+	controlledTabs: "controlledTabs",
+	extensionStatus: "extensionStatus",
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -28,15 +28,15 @@ const STORAGE_KEYS = {
 // ---------------------------------------------------------------------------
 
 export interface PersistedState {
-  tomTabId: number | null;
-  controlledTabs: number[];
-  extensionStatus: ExtensionStatus;
+	tomTabId: number | null;
+	controlledTabs: number[];
+	extensionStatus: ExtensionStatus;
 }
 
 const DEFAULT_STATE: PersistedState = {
-  tomTabId: null,
-  controlledTabs: [],
-  extensionStatus: 'ready',
+	tomTabId: null,
+	controlledTabs: [],
+	extensionStatus: "ready",
 };
 
 // ---------------------------------------------------------------------------
@@ -44,28 +44,30 @@ const DEFAULT_STATE: PersistedState = {
 // ---------------------------------------------------------------------------
 
 /** Save a partial state update to chrome.storage.local. */
-export async function saveState(partial: Partial<PersistedState>): Promise<void> {
-  await chrome.storage.local.set(partial);
+export async function saveState(
+	partial: Partial<PersistedState>,
+): Promise<void> {
+	await chrome.storage.local.set(partial);
 }
 
 /** Load the full persisted state, falling back to defaults for missing keys. */
 export async function loadState(): Promise<PersistedState> {
-  const keys = Object.values(STORAGE_KEYS);
-  const stored: Record<string, unknown> = await chrome.storage.local.get(keys);
+	const keys = Object.values(STORAGE_KEYS);
+	const stored: Record<string, unknown> = await chrome.storage.local.get(keys);
 
-  return {
-    tomTabId:
-      typeof stored[STORAGE_KEYS.tomTabId] === 'number'
-        ? (stored[STORAGE_KEYS.tomTabId] as number)
-        : DEFAULT_STATE.tomTabId,
-    controlledTabs: Array.isArray(stored[STORAGE_KEYS.controlledTabs])
-      ? (stored[STORAGE_KEYS.controlledTabs] as number[])
-      : DEFAULT_STATE.controlledTabs,
-    extensionStatus:
-      typeof stored[STORAGE_KEYS.extensionStatus] === 'string'
-        ? (stored[STORAGE_KEYS.extensionStatus] as ExtensionStatus)
-        : DEFAULT_STATE.extensionStatus,
-  };
+	return {
+		tomTabId:
+			typeof stored[STORAGE_KEYS.tomTabId] === "number"
+				? (stored[STORAGE_KEYS.tomTabId] as number)
+				: DEFAULT_STATE.tomTabId,
+		controlledTabs: Array.isArray(stored[STORAGE_KEYS.controlledTabs])
+			? (stored[STORAGE_KEYS.controlledTabs] as number[])
+			: DEFAULT_STATE.controlledTabs,
+		extensionStatus:
+			typeof stored[STORAGE_KEYS.extensionStatus] === "string"
+				? (stored[STORAGE_KEYS.extensionStatus] as ExtensionStatus)
+				: DEFAULT_STATE.extensionStatus,
+	};
 }
 
 // ---------------------------------------------------------------------------
@@ -74,14 +76,14 @@ export async function loadState(): Promise<PersistedState> {
 
 /** Create (or re-create) the keepalive alarm. */
 async function ensureKeepaliveAlarm(): Promise<void> {
-  const existing = await chrome.alarms.get(KEEPALIVE_ALARM);
-  if (existing) {
-    return;
-  }
+	const existing = await chrome.alarms.get(KEEPALIVE_ALARM);
+	if (existing) {
+		return;
+	}
 
-  await chrome.alarms.create(KEEPALIVE_ALARM, {
-    periodInMinutes: KEEPALIVE_INTERVAL_MINUTES,
-  });
+	await chrome.alarms.create(KEEPALIVE_ALARM, {
+		periodInMinutes: KEEPALIVE_INTERVAL_MINUTES,
+	});
 }
 
 /**
@@ -89,34 +91,34 @@ async function ensureKeepaliveAlarm(): Promise<void> {
  * Reads from chrome.storage.local to keep the service worker event loop busy.
  */
 async function onKeepaliveAlarm(): Promise<void> {
-  // Touch storage to keep the service worker alive
-  const state = await loadState();
+	// Touch storage to keep the service worker alive
+	const state = await loadState();
 
-  // Validate that persisted tabs still exist
-  if (state.tomTabId !== null) {
-    try {
-      await chrome.tabs.get(state.tomTabId);
-    } catch {
-      // Tab no longer exists — clear stale reference
-      await saveState({ tomTabId: null });
-    }
-  }
+	// Validate that persisted tabs still exist
+	if (state.tomTabId !== null) {
+		try {
+			await chrome.tabs.get(state.tomTabId);
+		} catch {
+			// Tab no longer exists — clear stale reference
+			await saveState({ tomTabId: null });
+		}
+	}
 
-  if (state.controlledTabs.length > 0) {
-    const validTabs: number[] = [];
-    for (const tabId of state.controlledTabs) {
-      try {
-        await chrome.tabs.get(tabId);
-        validTabs.push(tabId);
-      } catch {
-        // Tab gone — skip
-      }
-    }
+	if (state.controlledTabs.length > 0) {
+		const validTabs: number[] = [];
+		for (const tabId of state.controlledTabs) {
+			try {
+				await chrome.tabs.get(tabId);
+				validTabs.push(tabId);
+			} catch {
+				// Tab gone — skip
+			}
+		}
 
-    if (validTabs.length !== state.controlledTabs.length) {
-      await saveState({ controlledTabs: validTabs });
-    }
-  }
+		if (validTabs.length !== state.controlledTabs.length) {
+			await saveState({ controlledTabs: validTabs });
+		}
+	}
 }
 
 // ---------------------------------------------------------------------------
@@ -128,33 +130,33 @@ async function onKeepaliveAlarm(): Promise<void> {
  * Reads persisted state and validates it against live browser state.
  */
 async function recoverState(): Promise<PersistedState> {
-  const state = await loadState();
+	const state = await loadState();
 
-  // Validate tomTabId
-  if (state.tomTabId !== null) {
-    try {
-      await chrome.tabs.get(state.tomTabId);
-    } catch {
-      state.tomTabId = null;
-    }
-  }
+	// Validate tomTabId
+	if (state.tomTabId !== null) {
+		try {
+			await chrome.tabs.get(state.tomTabId);
+		} catch {
+			state.tomTabId = null;
+		}
+	}
 
-  // Validate controlled tabs
-  const validTabs: number[] = [];
-  for (const tabId of state.controlledTabs) {
-    try {
-      await chrome.tabs.get(tabId);
-      validTabs.push(tabId);
-    } catch {
-      // Tab no longer exists
-    }
-  }
-  state.controlledTabs = validTabs;
+	// Validate controlled tabs
+	const validTabs: number[] = [];
+	for (const tabId of state.controlledTabs) {
+		try {
+			await chrome.tabs.get(tabId);
+			validTabs.push(tabId);
+		} catch {
+			// Tab no longer exists
+		}
+	}
+	state.controlledTabs = validTabs;
 
-  // Persist the cleaned-up state
-  await saveState(state);
+	// Persist the cleaned-up state
+	await saveState(state);
 
-  return state;
+	return state;
 }
 
 // ---------------------------------------------------------------------------
@@ -162,30 +164,30 @@ async function recoverState(): Promise<PersistedState> {
 // ---------------------------------------------------------------------------
 
 function registerAlarmListener(): void {
-  chrome.alarms.onAlarm.addListener((alarm: { name: string }) => {
-    if (alarm.name === KEEPALIVE_ALARM) {
-      void onKeepaliveAlarm();
-    }
-  });
+	chrome.alarms.onAlarm.addListener((alarm: { name: string }) => {
+		if (alarm.name === KEEPALIVE_ALARM) {
+			void onKeepaliveAlarm();
+		}
+	});
 }
 
 function registerStartupHandler(): void {
-  chrome.runtime.onStartup.addListener(() => {
-    void (async () => {
-      await ensureKeepaliveAlarm();
-      await recoverState();
-    })();
-  });
+	chrome.runtime.onStartup.addListener(() => {
+		void (async () => {
+			await ensureKeepaliveAlarm();
+			await recoverState();
+		})();
+	});
 }
 
 function registerInstalledHandler(): void {
-  chrome.runtime.onInstalled.addListener(() => {
-    void (async () => {
-      // Initialize default state on fresh install or update
-      await saveState(DEFAULT_STATE);
-      await ensureKeepaliveAlarm();
-    })();
-  });
+	chrome.runtime.onInstalled.addListener(() => {
+		void (async () => {
+			// Initialize default state on fresh install or update
+			await saveState(DEFAULT_STATE);
+			await ensureKeepaliveAlarm();
+		})();
+	});
 }
 
 // ---------------------------------------------------------------------------
@@ -202,11 +204,11 @@ function registerInstalledHandler(): void {
  * @returns The recovered persisted state
  */
 export async function initKeepalive(): Promise<PersistedState> {
-  registerAlarmListener();
-  registerStartupHandler();
-  registerInstalledHandler();
+	registerAlarmListener();
+	registerStartupHandler();
+	registerInstalledHandler();
 
-  await ensureKeepaliveAlarm();
+	await ensureKeepaliveAlarm();
 
-  return recoverState();
+	return recoverState();
 }

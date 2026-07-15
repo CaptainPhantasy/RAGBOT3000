@@ -189,6 +189,14 @@ npm install
 npm run dev
 ```
 
+The application starts the Vite UI and its local Node API together. Copy `.env.example` to `.env` and set `GEMINI_API_KEY`. The filesystem bridge at `/api/commands` and `/api/observations` is available only to loopback clients in explicit local-development mode.
+
+Build the Chromium extension separately with `npm --prefix extension install && npm --prefix extension run build`, then load the `extension` directory as an unpacked extension. The extension accepts only the production app origin and explicit localhost origins; Railway preview wildcards are intentionally rejected.
+
+The complete repository gate is `npm run check`. It runs formatting, lint, TypeScript, unit tests, both production builds, client-secret scanning, dependency audits, and Secretlint without modifying tracked files.
+
+Production deployments must set `APP_ACCESS_TOKEN`, `GEMINI_API_KEY`, and `ALLOWED_ORIGINS`. The browser receives only short-lived, single-use Gemini Live tokens.
+
 **Production URL:** [Available after deployment]
 
 ---
@@ -198,5 +206,9 @@ npm run dev
 RAGBOT Web Analyzer bridges the gap between human web accessibility and machine understanding. By providing comprehensive, structured observations, it enables LLMs to truly "see" and interact with web pages while giving humans the detailed insights they need to create better, more accessible web experiences.
 
 ---
+
+## Important Disclaimer
+
+RAGBOT Web Analyzer is an independent Legacy AI product. It is not affiliated with, endorsed by, sponsored by, or officially connected with Google or with any company, organization, or government agency whose public documentation may be analyzed. Generated analysis is educational and does not constitute legal, tax, medical, or other professional advice.
 
 *RAGBOT Web Analyzer - Vision for LLMs, Clarity for Humans*

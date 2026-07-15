@@ -1,20 +1,22 @@
 {
-  "name": "tom-the-peep-extension",
-  "version": "1.0.0",
-  "description": "Chrome extension for browser control",
-  "type": "module",
-  "scripts": {
-    "build": "vite build",
-    "dev": "vite build --watch",
-    "test": "vitest"
-  },
-  "dependencies": {
-    "puppeteer-core": "24.31.0"
-  },
-  "devDependencies": {
-    "@types/chrome": "^0.1.37",
-    "typescript": "^5.3.3",
-    "vite": "^5.0.0",
-    "vitest": "^1.0.0"
-  }
+	"name": "tom-the-peep-extension",
+	"version": "1.0.0",
+	"description": "Chrome extension for browser control",
+	"type": "module",
+	"scripts": {
+		"build": "vite build",
+		"dev": "vite build --watch",
+		"test": "vitest run",
+		"typecheck": "tsc --noEmit",
+		"check": "npm run typecheck && npm test && npm run build && npm audit --omit=dev --audit-level=moderate && npm audit --include=dev --audit-level=moderate"
+	},
+	"dependencies": {
+		"puppeteer-core": "24.31.0"
+	},
+	"devDependencies": {
+		"@types/chrome": "^0.1.37",
+		"typescript": "^5.8.2",
+		"vite": "^8.1.4",
+		"vitest": "^4.1.10"
+	}
 }

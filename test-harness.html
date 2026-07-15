@@ -195,6 +195,28 @@
   
   <script type="module">
     import { executeToolCall } from './services/visionEngine.ts';
+    import { extensionBridge } from './services/extensionBridge.ts';
+
+    extensionBridge.listenForExtension();
+
+    window.runExtensionProof = async function() {
+      const deadline = Date.now() + 5000;
+      while (!extensionBridge.isConnected() && Date.now() < deadline) {
+        await new Promise(resolve => setTimeout(resolve, 50));
+      }
+      if (!extensionBridge.isConnected()) throw new Error('Extension bridge did not connect');
+
+      const opened = await executeToolCall('open_tab', { url: `${location.origin}/proof-target.html` });
+      if (!opened.success || typeof opened.result?.tabId !== 'number') throw new Error('Controlled tab did not open');
+      const tabId = opened.result.tabId;
+      const analyzed = await executeToolCall('analyze_page', {});
+      const found = await executeToolCall('find_elements', { query: 'Proof Button', search_by: 'text' });
+      const state = await executeToolCall('get_tab_state', {});
+      const proof = { extensionId: document.querySelector('meta[name="tom-extension-id"]')?.content, tabId, analyzed, found, state };
+      document.body.dataset.extensionProof = 'pass';
+      document.getElementById('output').textContent = JSON.stringify(proof, null, 2);
+      return proof;
+    };
     
     // Make it globally available
     window.runTool = async function(name, args) {

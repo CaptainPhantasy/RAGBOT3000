@@ -1,202 +1,210 @@
-import { useEffect, useRef, useState } from 'react';
-import { createNoise3D } from 'simplex-noise';
-import { cn } from '../lib/utils';
+import { useEffect, useRef, useState } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
+import { createNoise3D } from "simplex-noise";
+import { cn } from "../lib/utils";
+
+const DEFAULT_WAVE_COLORS = [
+	"rgba(220, 38, 38, 0.4)",
+	"rgba(34, 211, 238, 0.4)",
+	"rgba(168, 85, 247, 0.4)",
+];
+
+interface WavyBackgroundProps
+	extends Omit<HTMLAttributes<HTMLDivElement>, "children"> {
+	children?: ReactNode;
+	containerClassName?: string;
+	colors?: string[];
+	waveWidth?: number;
+	backgroundFill?: string;
+	blur?: number;
+	speed?: "slow" | "fast";
+	waveOpacity?: number;
+	analyser?: AnalyserNode | null;
+}
+
+const calculateBandLevel = (
+	data: Uint8Array,
+	start: number,
+	end: number,
+): number => {
+	const boundedStart = Math.max(0, Math.min(start, data.length));
+	const boundedEnd = Math.max(boundedStart, Math.min(end, data.length));
+	if (boundedStart === boundedEnd) return 0;
+
+	let sum = 0;
+	for (let index = boundedStart; index < boundedEnd; index += 1) {
+		sum += data[index];
+	}
+	const average = sum / (boundedEnd - boundedStart) / 255;
+	return Math.max(0, average - 0.05) * 1.2;
+};
 
 export const WavyBackground = ({
-  children,
-  className,
-  containerClassName,
-  colors,
-  waveWidth,
-  backgroundFill,
-  blur = 5,
-  speed = 'fast',
-  waveOpacity = 0.8,
-  analyser,
-  ...props
-}: {
-  children?: any;
-  className?: string;
-  containerClassName?: string;
-  colors?: string[];
-  waveWidth?: number;
-  backgroundFill?: string;
-  blur?: number;
-  speed?: 'slow' | 'fast';
-  waveOpacity?: number;
-  analyser?: AnalyserNode | null;
-  [key: string]: any;
-}) => {
-  const noise = createNoise3D();
-  let w: number, h: number, nt: number, x: number, ctx: any, canvas: any;
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const bassLevelRef = useRef<number>(0);
-  const midLevelRef = useRef<number>(0);
-  const trebleLevelRef = useRef<number>(0);
-  const targetBassRef = useRef<number>(0);
-  const targetMidRef = useRef<number>(0);
-  const targetTrebleRef = useRef<number>(0);
-  const offsetRef = useRef<number>(0);
-  const animationIdRef = useRef<number>(0);
+	children,
+	className,
+	containerClassName,
+	colors,
+	waveWidth,
+	backgroundFill,
+	blur = 5,
+	speed = "fast",
+	waveOpacity = 0.8,
+	analyser,
+	...props
+}: WavyBackgroundProps) => {
+	const canvasRef = useRef<HTMLCanvasElement>(null);
+	const bassLevelRef = useRef(0);
+	const midLevelRef = useRef(0);
+	const trebleLevelRef = useRef(0);
+	const targetBassRef = useRef(0);
+	const targetMidRef = useRef(0);
+	const targetTrebleRef = useRef(0);
+	const offsetRef = useRef(0);
+	const [isSafari, setIsSafari] = useState(false);
 
-  const getSpeed = () => {
-    switch (speed) {
-      case 'slow':
-        return 0.000414;
-      case 'fast':
-        return 0.0069575;
-      default:
-        return 0.00069575;
-    }
-  };
+	useEffect(() => {
+		if (!analyser) {
+			targetBassRef.current = 0;
+			targetMidRef.current = 0;
+			targetTrebleRef.current = 0;
+			return;
+		}
 
-  // Use external analyser for audio levels (shared with LiveSession)
-  useEffect(() => {
-    if (!analyser) return;
+		const data = new Uint8Array(analyser.frequencyBinCount);
+		const sampleRate = analyser.context?.sampleRate ?? 44_100;
+		const binWidth = sampleRate / analyser.fftSize;
+		const bassStart = Math.floor(60 / binWidth);
+		const bassEnd = Math.floor(300 / binWidth);
+		const midEnd = Math.floor(2_000 / binWidth);
+		const trebleEnd = Math.floor(8_000 / binWidth);
+		let animationId = 0;
 
-    const bufferLength = analyser.frequencyBinCount;
-    const dataArray = new Uint8Array(bufferLength);
-    let rafId: number;
+		const updateAudioLevels = () => {
+			analyser.getByteFrequencyData(data);
+			targetBassRef.current =
+				calculateBandLevel(data, bassStart, bassEnd) * 1.5;
+			targetMidRef.current = calculateBandLevel(data, bassEnd, midEnd) * 1.3;
+			targetTrebleRef.current =
+				calculateBandLevel(data, midEnd, trebleEnd) * 1.8;
+			animationId = requestAnimationFrame(updateAudioLevels);
+		};
 
-    // Calculate frequency bin indices for voice-appropriate bands
-    const sampleRate = analyser.context?.sampleRate || 44100;
-    const binWidth = sampleRate / (analyser.fftSize || 512);
+		updateAudioLevels();
+		return () => cancelAnimationFrame(animationId);
+	}, [analyser]);
 
-    const bassStart = Math.floor(60 / binWidth);
-    const bassEnd = Math.floor(300 / binWidth);
-    const midEnd = Math.floor(2000 / binWidth);
-    const trebleEnd = Math.floor(8000 / binWidth);
+	useEffect(() => {
+		const canvas = canvasRef.current;
+		const context = canvas?.getContext("2d");
+		if (!canvas || !context) return;
 
-    const updateAudioLevel = () => {
-      analyser.getByteFrequencyData(dataArray);
+		const noise = createNoise3D();
+		const waveColors = colors ?? DEFAULT_WAVE_COLORS;
+		const timeStep = speed === "slow" ? 0.000414 : 0.0069575;
+		let width = 0;
+		let height = 0;
+		let noiseTime = 0;
+		let animationId = 0;
 
-      const bassData = dataArray.slice(bassStart, bassEnd);
-      const midData = dataArray.slice(bassEnd, midEnd);
-      const trebleData = dataArray.slice(midEnd, trebleEnd);
+		const resize = () => {
+			width = window.innerWidth;
+			height = window.innerHeight;
+			canvas.width = width;
+			canvas.height = height;
+			context.filter = `blur(${blur}px)`;
+		};
 
-      const calcLevel = (data: Uint8Array) => {
-        if (data.length === 0) return 0;
-        const sum = data.reduce((a, b) => a + b, 0);
-        const avg = sum / data.length / 255;
-        return Math.max(0, avg - 0.05) * 1.2;
-      };
+		const drawWave = (
+			level: number,
+			rate: number,
+			yOffset: number,
+			color: string,
+		) => {
+			const voiceMultiplier = analyser ? 1 + level * 4 : 1;
+			context.beginPath();
+			context.lineWidth = waveWidth ?? 50;
+			context.strokeStyle = color;
+			for (let x = 0; x < width; x += 5) {
+				const y =
+					noise(
+						(x + offsetRef.current * rate) / 800,
+						yOffset,
+						noiseTime * rate,
+					) *
+					100 *
+					voiceMultiplier;
+				context.lineTo(x, y + height * 0.5);
+			}
+			context.stroke();
+			context.closePath();
+		};
 
-      targetBassRef.current = calcLevel(bassData) * 1.5;
-      targetMidRef.current = calcLevel(midData) * 1.3;
-      targetTrebleRef.current = calcLevel(trebleData) * 1.8;
+		const render = () => {
+			bassLevelRef.current +=
+				(targetBassRef.current - bassLevelRef.current) * 0.15;
+			midLevelRef.current +=
+				(targetMidRef.current - midLevelRef.current) * 0.15;
+			trebleLevelRef.current +=
+				(targetTrebleRef.current - trebleLevelRef.current) * 0.15;
+			noiseTime += timeStep;
+			offsetRef.current += 2.5;
 
-      rafId = requestAnimationFrame(updateAudioLevel);
-    };
+			context.fillStyle = backgroundFill ?? "black";
+			context.globalAlpha = waveOpacity;
+			context.fillRect(0, 0, width, height);
+			drawWave(
+				bassLevelRef.current,
+				1,
+				0,
+				waveColors[0] ?? DEFAULT_WAVE_COLORS[0],
+			);
+			drawWave(
+				midLevelRef.current,
+				1.3,
+				0.5,
+				waveColors[1] ?? DEFAULT_WAVE_COLORS[1],
+			);
+			drawWave(
+				trebleLevelRef.current,
+				1.7,
+				1.4,
+				waveColors[2] ?? DEFAULT_WAVE_COLORS[2],
+			);
+			animationId = requestAnimationFrame(render);
+		};
 
-    updateAudioLevel();
+		resize();
+		window.addEventListener("resize", resize);
+		render();
+		return () => {
+			cancelAnimationFrame(animationId);
+			window.removeEventListener("resize", resize);
+		};
+	}, [analyser, backgroundFill, blur, colors, speed, waveOpacity, waveWidth]);
 
-    return () => {
-      cancelAnimationFrame(rafId);
-    };
-  }, [analyser]);
+	useEffect(() => {
+		setIsSafari(
+			navigator.userAgent.includes("Safari") &&
+				!navigator.userAgent.includes("Chrome"),
+		);
+	}, []);
 
-  const waveColors = colors ?? [
-    'rgba(220, 38, 38, 0.4)', // Red for bass
-    'rgba(34, 211, 238, 0.4)', // Cyan for mid
-    'rgba(168, 85, 247, 0.4)', // Purple for treble
-  ];
-
-  const drawWave = () => {
-    // Smooth interpolation
-    bassLevelRef.current += (targetBassRef.current - bassLevelRef.current) * 0.15;
-    midLevelRef.current += (targetMidRef.current - midLevelRef.current) * 0.15;
-    trebleLevelRef.current += (targetTrebleRef.current - trebleLevelRef.current) * 0.15;
-
-    nt += getSpeed();
-    offsetRef.current += 2.5;
-
-    const waves = [
-      { level: bassLevelRef.current, speed: 1.0, yOffset: 0.3, color: waveColors[0] },
-      { level: midLevelRef.current, speed: 1.3, yOffset: 0.5, color: waveColors[1] },
-      { level: trebleLevelRef.current, speed: 1.7, yOffset: 0.7, color: waveColors[2] },
-    ];
-
-    waves.forEach((wave, i) => {
-      const voiceMultiplier = analyser ? 1 + wave.level * 4 : 1;
-
-      ctx.beginPath();
-      ctx.lineWidth = waveWidth || 50;
-      ctx.strokeStyle = wave.color;
-
-      for (x = 0; x < w; x += 5) {
-        const y =
-          noise((x + offsetRef.current * wave.speed) / 800, wave.yOffset * i, nt * wave.speed) * 100 * voiceMultiplier;
-        ctx.lineTo(x, y + h * 0.5);
-      }
-
-      ctx.stroke();
-      ctx.closePath();
-    });
-  };
-
-  const init = () => {
-    canvas = canvasRef.current;
-    if (!canvas) return;
-    ctx = canvas.getContext('2d');
-    w = ctx.canvas.width = window.innerWidth;
-    h = ctx.canvas.height = window.innerHeight;
-    ctx.filter = `blur(${blur}px)`;
-    nt = 0;
-
-    const handleResize = () => {
-      if (!ctx) return;
-      w = ctx.canvas.width = window.innerWidth;
-      h = ctx.canvas.height = window.innerHeight;
-      ctx.filter = `blur(${blur}px)`;
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    const render = () => {
-      if (!ctx) return;
-      ctx.fillStyle = backgroundFill || 'transparent';
-      ctx.globalAlpha = waveOpacity || 0.3;
-      ctx.fillRect(0, 0, w, h);
-      drawWave();
-      animationIdRef.current = requestAnimationFrame(render);
-    };
-
-    render();
-
-    return () => {
-      cancelAnimationFrame(animationIdRef.current);
-      window.removeEventListener('resize', handleResize);
-    };
-  };
-
-  useEffect(() => {
-    const cleanup = init();
-    return cleanup;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const [isSafari, setIsSafari] = useState(false);
-  useEffect(() => {
-    setIsSafari(
-      typeof window !== 'undefined' &&
-        navigator.userAgent.includes('Safari') &&
-        !navigator.userAgent.includes('Chrome'),
-    );
-  }, []);
-
-  return (
-    <div className={cn('h-screen w-full relative overflow-hidden', containerClassName)}>
-      <canvas
-        className="absolute inset-0 z-0"
-        ref={canvasRef}
-        id="canvas"
-        style={{
-          ...(isSafari ? { filter: `blur(${blur}px)` } : {}),
-        }}
-      ></canvas>
-      <div className={cn('absolute inset-0 z-10', className)} {...props}>
-        {children}
-      </div>
-    </div>
-  );
+	return (
+		<div
+			className={cn(
+				"h-screen w-full relative overflow-hidden",
+				containerClassName,
+			)}
+		>
+			<canvas
+				className="absolute inset-0 z-0"
+				ref={canvasRef}
+				id="canvas"
+				style={isSafari ? { filter: `blur(${blur}px)` } : undefined}
+			/>
+			<div className={cn("absolute inset-0 z-10", className)} {...props}>
+				{children}
+			</div>
+		</div>
+	);
 };

@@ -1,37 +1,23 @@
 {
-  "compilerOptions": {
-    "target": "ES2022",
-    "experimentalDecorators": true,
-    "useDefineForClassFields": false,
-    "module": "ESNext",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "skipLibCheck": true,
-    "types": ["node"],
-    "moduleResolution": "bundler",
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "allowJs": true,
-    "jsx": "react-jsx",
-    "resolveJsonModule": true,
-    "paths": {
-      "@/*": ["./*"]
-    },
-    "allowImportingTsExtensions": true,
-    "noEmit": true
-  },
-  "exclude": [
-    "node_modules",
-    "extension",
-    "services/communication.ts",
-    "services/llmInterface.ts",
-    "services/webAnalyzer.ts",
-    "services/cssAnalyzer.ts",
-    "services/markdownCommunication.ts",
-    "components/DualModeInterface.tsx",
-    "AppWebAnalyzer.tsx",
-    "AppAnalyzer.tsx",
-    "memory/types.ts",
-    "memory/memoryManager.ts",
-    "audio/pcm-processor.worklet.ts"
-  ]
+	"compilerOptions": {
+		"target": "ES2022",
+		"experimentalDecorators": true,
+		"useDefineForClassFields": false,
+		"module": "ESNext",
+		"lib": ["ES2022", "DOM", "DOM.Iterable"],
+		"skipLibCheck": true,
+		"types": ["node"],
+		"moduleResolution": "bundler",
+		"isolatedModules": true,
+		"moduleDetection": "force",
+		"allowJs": true,
+		"jsx": "react-jsx",
+		"resolveJsonModule": true,
+		"paths": {
+			"@/*": ["./*"]
+		},
+		"allowImportingTsExtensions": true,
+		"noEmit": true
+	},
+	"exclude": ["extension", "node_modules", "dist"]
 }
