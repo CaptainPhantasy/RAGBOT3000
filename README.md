@@ -139,3 +139,10 @@ Information regarding tax law, workplace rights, education rights, healthcare re
 ---
 
 *RAGBOT3000 — Expert guidance for everyone.*
+# RAGBOT3000
+
+## Local development
+
+Copy `.env.example` to `.env`, set `GEMINI_API_KEY`, and run `npm run dev`. The paired Vite and Node server uses a local-only development bypass. Production deployments must set `APP_ACCESS_TOKEN`, `GEMINI_API_KEY`, and `ALLOWED_ORIGINS`; the browser receives only short-lived, single-use Gemini Live tokens.
+
+The repository gate is `npm run check`. It runs formatting, lint, TypeScript, tests, the production build, the client-bundle secret scan, both dependency audits, and Secretlint without modifying the working tree.
