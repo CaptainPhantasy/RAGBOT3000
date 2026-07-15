@@ -29,3 +29,7 @@ docs/_internal/
 .env
 .env.local
 .env.production
+
+# Local vision-agent bridge state
+RAGBOT_COMMANDS.md
+RAGBOT_OBSERVATIONS.md
