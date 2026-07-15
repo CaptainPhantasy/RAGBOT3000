@@ -203,7 +203,7 @@ Keep answers concise and helpful.`;
 
       // Connect to Gemini Live
       const sessionPromise = genAI.live.connect({
-        model: 'gemini-2.5-flash-native-audio-preview-09-2025',
+        model: 'gemini-2.5-flash-native-audio-preview-12-2025',
         config: {
           responseModalities: [Modality.AUDIO],
           speechConfig: {
@@ -580,7 +580,7 @@ Keep answers concise and helpful.`;
     const ctx = this.canvasElement.getContext('2d');
     if (!ctx) return;
 
-    // Send a frame every 500ms (2 FPS)
+    // Send a frame every 333ms (~3 FPS)
     this.videoInterval = window.setInterval(async () => {
       if (!this.videoElement || !this.canvasElement || !ctx || this.state !== 'connected') return;
 
@@ -589,7 +589,7 @@ Keep answers concise and helpful.`;
         this.canvasElement.height = this.videoElement.videoHeight;
         ctx.drawImage(this.videoElement, 0, 0);
 
-        const base64Data = this.canvasElement.toDataURL('image/jpeg', 0.7).split(',')[1];
+        const base64Data = this.canvasElement.toDataURL('image/jpeg', 0.85).split(',')[1];
 
         this.activeSession
           .then((session) => {
@@ -611,7 +611,7 @@ Keep answers concise and helpful.`;
           })
           .catch(() => {});
       }
-    }, 500);
+    }, 333);
   }
 
   public stopVideoStream() {
