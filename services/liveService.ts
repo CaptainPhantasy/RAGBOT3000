@@ -2,6 +2,8 @@ import { GoogleGenAI, type LiveServerMessage, Modality } from "@google/genai";
 import { requestLiveToken } from "./apiClient";
 import { getLiveVoice } from "./geminiService";
 import { memoryManager } from "./memoryService";
+import { executeToolCall } from "./visionEngine";
+import { VISION_AGENT_TOOLS } from "./visionTools";
 
 type RealtimeInput = {
 	media: {
@@ -12,8 +14,23 @@ type RealtimeInput = {
 
 type GeminiLiveSession = {
 	sendRealtimeInput: (input: RealtimeInput) => void;
+	sendToolResponse: (input: {
+		functionResponses: ToolFunctionResponse[];
+	}) => void;
 	close?: () => void;
 	interrupt?: () => void;
+};
+
+type ToolFunctionCall = {
+	id?: string;
+	name: string;
+	args?: Record<string, unknown>;
+};
+
+type ToolFunctionResponse = {
+	id?: string;
+	name: string;
+	response: { result?: string; error?: string };
 };
 
 // State machine for session lifecycle
@@ -231,6 +248,7 @@ Keep answers concise and helpful.`;
 						voiceConfig: { prebuiltVoiceConfig: { voiceName: getLiveVoice() } },
 					},
 					systemInstruction: finalInstruction,
+					tools: [VISION_AGENT_TOOLS],
 				},
 				callbacks: {
 					onopen: () => {
@@ -255,6 +273,43 @@ Keep answers concise and helpful.`;
 					},
 					onmessage: async (message: LiveServerMessage) => {
 						if (signal.aborted || this.state !== "connected") return;
+
+						const toolCall = (
+							message as LiveServerMessage & {
+								toolCall?: { functionCalls?: ToolFunctionCall[] };
+							}
+						).toolCall;
+						if (toolCall?.functionCalls?.length) {
+							const functionResponses: ToolFunctionResponse[] = [];
+							for (const call of toolCall.functionCalls) {
+								try {
+									const result = await executeToolCall(
+										call.name,
+										call.args ?? {},
+									);
+									functionResponses.push({
+										id: call.id,
+										name: call.name,
+										response: { result: JSON.stringify(result) },
+									});
+									this.onMessage(`[Tool: ${call.name}] complete`);
+								} catch (error) {
+									const message =
+										error instanceof Error ? error.message : String(error);
+									functionResponses.push({
+										id: call.id,
+										name: call.name,
+										response: { error: message },
+									});
+								}
+							}
+
+							const session = await sessionPromise;
+							if (!signal.aborted && this.state === "connected") {
+								session.sendToolResponse({ functionResponses });
+							}
+							return;
+						}
 
 						// Handle Audio Output
 						const base64Audio =

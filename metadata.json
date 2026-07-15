@@ -1,5 +1,5 @@
 {
-	"name": "Legacy RAG Teammate",
-	"description": "A white-labeled AI teammate that retrieves documentation, teaches concepts, guides through tasks, and troubleshoots friction using a RAG architecture.",
-	"requestFramePermissions": ["microphone"]
+	"name": "Tom the Peep - Floyd Vision Agent",
+	"description": "An AI-powered web accessibility and visual analysis tool with voice, vision, and structured DOM analysis by Legacy AI.",
+	"requestFramePermissions": ["microphone", "camera", "screenCapture"]
 }

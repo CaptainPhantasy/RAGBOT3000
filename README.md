@@ -1,148 +1,214 @@
-# RAGBOT3000
+# RAGBOT Web Analyzer
 
-**Your Expert Knowledge Assistant**
+**The Ultimate Vision and Accessibility Analyzer for LLM Integration**
 
 <div align="center">
-  <img src="icon-192.jpeg" alt="RAGBOT3000" width="400" />
+  <img src="icon-192.jpeg" alt="RAGBOT Web Analyzer" width="400" />
 </div>
 
 ---
 
-## Finally, an AI That Actually Knows What It's Talking About
+## Finally, an AI That Truly Sees and Understands Web Pages
 
-We've all been there. You need help with something important—taxes, healthcare decisions, business software, legal questions—and you get an AI that confidently tells you... completely wrong information.
-
-**RAGBOT3000 is different.**
-
-Every answer is grounded in verified documentation. When you ask a question, you get real guidance from real sources—not guesswork, not hallucinations, not "I think maybe..."
-
-Just help. The kind you'd get from a trusted expert who actually read the manual.
+RAGBOT Web Analyzer is a comprehensive web analysis tool designed to provide detailed visual, accessibility, and technical observations. It serves as a "vision" system for LLMs, enabling them to navigate and interact with web pages through detailed, structured observations.
 
 ---
 
-## What Can RAGBOT3000 Help You With?
+## Core Capabilities
 
-### 💼 Business & Finance
-Get clear guidance on accounting workflows, invoicing, payroll, financial reporting, and business operations. Stop second-guessing yourself on important financial decisions.
+### 🔍 **Ultimate Vision Analysis**
+- **Complete CSS Extraction** - Every style rule, computed value, and specificity analysis
+- **Layout System Detection** - Flexbox, Grid, and responsive behavior analysis
+- **Visual Hierarchy Mapping** - Element relationships, positioning, and visual weight
+- **Animation & Transition Tracking** - All motion effects documented with timing
 
-### ⚖️ Legal & Compliance
-Navigate complex regulations with confidence. From tax law and workplace rights to privacy compliance and family matters—get answers grounded in actual legal documentation.
+### ♿ **Comprehensive Accessibility Audit**
+- **WCAG 2.1 Compliance** - Full AA/AAA level analysis with axe-core integration
+- **Screen Reader Compatibility** - ARIA labels, landmarks, and reading order
+- **Keyboard Navigation** - Tab order, focus indicators, and skip links
+- **Color Contrast** - Real-time ratio calculations with WCAG level compliance
 
-### 🏥 Healthcare & Advocacy
-Find your way through healthcare systems, Medicare questions, elder care decisions, and patient rights. When you or your loved ones need help, get answers that matter.
+### 🐛 **Technical Issue Detection**
+- **HTML Validation** - Semantic errors and best practice violations
+- **Performance Analysis** - Resource sizes, load times, and optimization opportunities
+- **Security Assessment** - HTTPS status, mixed content, and security headers
+- **JavaScript Error Capture** - Runtime errors and console warnings
 
-### 🛠️ Software & Platforms
-Master the tools you use every day. Whether it's field service management, CRM systems, e-commerce platforms, or productivity software—learn faster and work smarter.
+### 🎯 **Dual-Mode Interface**
 
-### 📚 Education & Public Services
-Understand your rights as a student, parent, or citizen. Navigate financial aid, special education requirements, disaster assistance, and public health resources.
+#### For Human Reviewers
+- **Natural Language Queries** - "What accessibility issues exist?" or "Analyze the navigation"
+- **Visual Score Cards** - Overall scoring with prioritized fix recommendations
+- **Issue Prioritization** - Critical, high, medium, and low severity classification
+
+#### For LLM Integration
+- **Structured JSON API** - All observations in parseable, detailed format
+- **Navigation Guidance** - Element selectors, coordinates, and interaction methods
+- **Command Execution** - Click, navigate, extract text, and manipulate elements
+- **Memory Persistence** - Continuous observation stream for context-aware assistance
 
 ---
 
 ## How It Works
 
-**1. Ask your question** — in plain English, just like you'd ask a colleague.
+### 1. **Page Analysis**
+Automatically scans the current page for:
+- Visual structure and layout patterns
+- Accessibility compliance issues
+- Technical errors and warnings
+- User experience problems
 
-**2. Get grounded answers** — every response is backed by verified documentation.
+### 2. **Verbose Observation Generation**
+Creates detailed reports including:
+- Complete CSS property extraction
+- Element relationships and hierarchies
+- Accessibility violation details
+- Performance bottlenecks
 
-**3. Follow clear steps** — no jargon, no essays. Just actionable guidance.
+### 3. **Dual Interface Communication**
+- **Human Mode**: Conversational queries about page issues
+- **LLM Mode**: Command-driven interaction and data extraction
+- **Dual Mode**: Simultaneous human and LLM interaction
 
-**4. Verify as you go** — check your work at each step so you never feel lost.
-
-**5. Troubleshoot when needed** — when something goes wrong, get real solutions.
-
----
-
-## Talk, Type, or Show
-
-### 🎤 Voice Conversations
-Just talk. RAGBOT3000 listens and responds naturally—like having an expert on call whenever you need one. Interrupt anytime. Ask follow-up questions. Have a real conversation.
-
-### 👁️ Show What You're Working On
-Sometimes it's easier to show than explain. Share your screen or point your camera at what you're struggling with. "See this? Why isn't it working?" Problem understood. Solution delivered.
-
-### 🌍 Your Language, Your Way
-Speak Spanish, French, German, or dozens of other languages. RAGBOT3000 responds in kind—no translation apps, no awkward misunderstandings.
-
-### 📱 Works Everywhere
-Desktop, tablet, phone—install it like an app and get help wherever you are. Fullscreen, no clutter, always ready.
-
----
-
-## Why People Trust RAGBOT3000
-
-✅ **Honest answers** — if it doesn't know something, it tells you. No making things up.
-
-✅ **Privacy-first** — your conversations aren't stored forever. What you share stays between us.
-
-✅ **No judgment** — ask "basic" questions without feeling embarrassed. That's what we're here for.
-
-✅ **Always learning** — our knowledge base grows constantly, covering more topics and staying current.
+### 4. **Persistent Memory**
+- Maintains observation history
+- Tracks navigation patterns
+- Stores analysis results
+- Provides context for follow-up queries
 
 ---
 
-## One Assistant, Infinite Expertise
+## API Endpoints for LLM Integration
 
-RAGBOT3000 adapts to what you need. Ask about tax deductions in the morning and software troubleshooting in the afternoon. The same trusted assistant, with the right expertise for every question.
+### Get Observations
+```
+GET /observations?verbosity=verbose
+```
+Returns complete page analysis in structured JSON format
 
-Whether you're a small business owner wearing every hat, a caregiver making important decisions, or someone just trying to understand your rights—RAGBOT3000 is the expert friend everyone deserves.
+### Execute Commands
+```
+POST /command
+{
+  "command": "click_element",
+  "parameters": {
+    "selector": "#submit-button"
+  }
+}
+```
+Available commands:
+- `click_element(selector)`
+- `navigate(url)`
+- `extract_text(selector)`
+- `get_element_property(selector, property)`
+- `wait_for_element(selector, timeout)`
+- `scroll_to_element(selector)`
+- `analyze_element(selector)`
+
+### Memory Access
+```
+GET /memory
+```
+Full session history and observations
+
+### Status Check
+```
+GET /status
+```
+Current page info and analysis state
+
+---
+
+## Example LLM Integration
+
+```javascript
+// Get detailed page observations
+const observations = await fetch('/observations?verbosity=verbose')
+  .then(r => r.json());
+
+// Navigate to a specific element
+await fetch('/command', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    command: 'click_element',
+    parameters: { selector: '.main-menu' }
+  })
+});
+
+// Extract form data
+const formData = await fetch('/command', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    command: 'extract_text',
+    parameters: { selector: 'form input' }
+  })
+});
+```
+
+---
+
+## Why RAGBOT Web Analyzer?
+
+### For LLMs
+✅ **True Vision Capability** - See and understand web pages beyond text extraction
+✅ **Navigation Assistance** - Guide users through complex interfaces
+✅ **Context Awareness** - Understand page structure and user flows
+✅ **Interaction Capability** - Click, scroll, and manipulate elements
+
+### For Humans
+✅ **Comprehensive Analysis** - Every aspect of web quality evaluated
+✅ **Actionable Insights** - Clear, prioritized recommendations
+✅ **Educational Value** - Learn about web accessibility and best practices
+✅ **Continuous Monitoring** - Track improvements over time
+
+---
+
+## Features at a Glance
+
+| Feature | Description |
+|---------|-------------|
+| **CSS Analysis** | Complete style extraction with specificity and inheritance tracking |
+| **Layout Detection** | Flexbox, Grid, and responsive behavior analysis |
+| **WCAG Compliance** | Full accessibility audit with axe-core integration |
+| **Performance Metrics** | Load times, resource optimization, and bottlenecks |
+| **Security Scan** | HTTPS, mixed content, and security header analysis |
+| **LLM Integration** | Structured data and command execution APIs |
+| **Human Interface** | Natural language queries and visual reports |
+| **Memory System** | Persistent observation storage and session history |
 
 ---
 
 ## Try It Now
 
-**Live Demo:** [ragbot3000-production.up.railway.app](https://ragbot3000-production.up.railway.app)
+**Development Mode:**
+```bash
+cd RAGBOT3000-WEBANALYZER
+npm install
+npm run dev
+```
 
-### On Your Phone
-1. Open the link in Safari (iPhone) or Chrome (Android)
-2. Tap **Share** → **Add to Home Screen**
-3. Open your new app and start talking
+The application starts the Vite UI and its local Node API together. Copy `.env.example` to `.env` and set `GEMINI_API_KEY`. The filesystem bridge at `/api/commands` and `/api/observations` is available only to loopback clients in explicit local-development mode.
 
-### On Desktop
-1. Visit the link
-2. Choose **Voice** to talk, **Screen** to share what you're working on, or **Live** to use your camera
-3. Allow microphone access and start your conversation
+Build the Chromium extension separately with `npm --prefix extension install && npm --prefix extension run build`, then load the `extension` directory as an unpacked extension. The extension accepts only the production app origin and explicit localhost origins; Railway preview wildcards are intentionally rejected.
+
+The complete repository gate is `npm run check`. It runs formatting, lint, TypeScript, unit tests, both production builds, client-secret scanning, dependency audits, and Secretlint without modifying tracked files.
+
+Production deployments must set `APP_ACCESS_TOKEN`, `GEMINI_API_KEY`, and `ALLOWED_ORIGINS`. The browser receives only short-lived, single-use Gemini Live tokens.
+
+**Production URL:** [Available after deployment]
 
 ---
 
-## Built by Legacy AI
+## Built for the Future of Web Interaction
 
-We believe everyone deserves access to expert guidance—not just those who can afford consultants or know the right people. RAGBOT3000 is our answer to that belief.
-
-Questions? Feedback? We'd love to hear from you.
+RAGBOT Web Analyzer bridges the gap between human web accessibility and machine understanding. By providing comprehensive, structured observations, it enables LLMs to truly "see" and interact with web pages while giving humans the detailed insights they need to create better, more accessible web experiences.
 
 ---
 
 ## Important Disclaimer
 
-**RAGBOT3000 is an independent product created by Legacy AI.** We are not affiliated with, endorsed by, sponsored by, or officially connected with any of the companies, organizations, or government agencies whose documentation may be referenced in our knowledge base.
+RAGBOT Web Analyzer is an independent Legacy AI product. It is not affiliated with, endorsed by, sponsored by, or officially connected with Google or with any company, organization, or government agency whose public documentation may be analyzed. Generated analysis is educational and does not constitute legal, tax, medical, or other professional advice.
 
-### Corporate Trademarks
-The following are trademarks of their respective owners:
-- **QuickBooks®** is a registered trademark of Intuit Inc.
-- **ServiceTitan®** is a registered trademark of ServiceTitan, Inc.
-- **Stripe®** is a registered trademark of Stripe, Inc.
-- **Google®**, **Google Workspace®**, and **Google Ads®** are registered trademarks of Google LLC
-- **HubSpot®** is a registered trademark of HubSpot, Inc.
-- **Shopify®** is a registered trademark of Shopify Inc.
-- **Twilio®** is a registered trademark of Twilio Inc.
-- **Supabase®** is a trademark of Supabase, Inc.
-- **Airtable®** is a registered trademark of Formagrid Inc.
-- **Microsoft®**, **Power Automate®**, and **Office 365®** are registered trademarks of Microsoft Corporation
-- **Notion®** is a trademark of Notion Labs, Inc.
-
-### Government & Public Information
-Information regarding tax law, workplace rights, education rights, healthcare regulations, elder care, disaster assistance, and other public matters is derived from publicly available government resources. This information is provided for educational purposes only and does not constitute legal, tax, medical, or professional advice.
-
-**Always consult qualified professionals for decisions affecting your legal rights, finances, health, or safety.**
-
----
-
-*RAGBOT3000 — Expert guidance for everyone.*
-# RAGBOT3000
-
-## Local development
-
-Copy `.env.example` to `.env`, set `GEMINI_API_KEY`, and run `npm run dev`. The paired Vite and Node server uses a local-only development bypass. Production deployments must set `APP_ACCESS_TOKEN`, `GEMINI_API_KEY`, and `ALLOWED_ORIGINS`; the browser receives only short-lived, single-use Gemini Live tokens.
-
-The repository gate is `npm run check`. It runs formatting, lint, TypeScript, tests, the production build, the client-bundle secret scan, both dependency audits, and Secretlint without modifying the working tree.
+*RAGBOT Web Analyzer - Vision for LLMs, Clarity for Humans*

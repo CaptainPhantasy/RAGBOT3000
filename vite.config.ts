@@ -19,6 +19,10 @@ export default defineConfig({
 	},
 	build: {
 		rollupOptions: {
+			input: {
+				main: path.resolve(__dirname, "index.html"),
+				"test-harness": path.resolve(__dirname, "test-harness.html"),
+			},
 			output: {
 				assetFileNames: (assetInfo) => {
 					if (assetInfo.name?.endsWith(".worklet.js")) {

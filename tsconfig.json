@@ -18,5 +18,6 @@
 		},
 		"allowImportingTsExtensions": true,
 		"noEmit": true
-	}
+	},
+	"exclude": ["extension", "node_modules", "dist"]
 }

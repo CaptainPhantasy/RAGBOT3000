@@ -1,4 +1,11 @@
-import { createReadStream, existsSync, statSync } from "node:fs";
+import {
+	createReadStream,
+	existsSync,
+	mkdirSync,
+	readFileSync,
+	statSync,
+	writeFileSync,
+} from "node:fs";
 import { createServer } from "node:http";
 import { timingSafeEqual } from "node:crypto";
 import { extname, join, normalize, resolve } from "node:path";
@@ -7,6 +14,7 @@ import { GoogleGenAI, Modality, Type } from "@google/genai";
 
 const DEFAULT_PORT = 3000;
 const MAX_BODY_BYTES = 10 * 1024 * 1024;
+const MAX_BRIDGE_BODY_BYTES = 1024 * 1024;
 const LIVE_MODEL = "gemini-2.5-flash-native-audio-preview-12-2025";
 const RATE_WINDOW_MS = 60_000;
 
@@ -70,13 +78,13 @@ function json(res, status, payload) {
 	res.end(body);
 }
 
-function readJson(req) {
+function readJson(req, maximumBytes = MAX_BODY_BYTES) {
 	return new Promise((resolveBody, reject) => {
 		let size = 0;
 		const chunks = [];
 		req.on("data", (chunk) => {
 			size += chunk.length;
-			if (size > MAX_BODY_BYTES) {
+			if (size > maximumBytes) {
 				reject(
 					Object.assign(new Error("Request body is too large."), {
 						statusCode: 413,
@@ -309,6 +317,9 @@ export function createAppServer(options = {}) {
 	const allowedOrigins = buildAllowedOrigins(env);
 	const clients = createGeminiClients(apiKey);
 	const rateLimit = makeRateLimiter();
+	const bridgeDirectory = resolve(env.RAGBOT_BRIDGE_DIR || process.cwd());
+	const observationsFile = join(bridgeDirectory, "RAGBOT_OBSERVATIONS.md");
+	const commandsFile = join(bridgeDirectory, "RAGBOT_COMMANDS.md");
 
 	return createServer(async (req, res) => {
 		setSecurityHeaders(res);
@@ -320,6 +331,42 @@ export function createAppServer(options = {}) {
 				apiConfigured: Boolean(clients),
 				accessControlConfigured: Boolean(accessToken) || localDevelopment,
 			});
+		}
+
+		if (
+			url.pathname === "/api/commands" ||
+			url.pathname === "/api/observations"
+		) {
+			const address = clientAddress(req);
+			if (!localDevelopment || !isLoopback(address)) {
+				return json(res, 404, { error: "API route not found." });
+			}
+			if (!requestOriginAllowed(req, allowedOrigins, localDevelopment)) {
+				return json(res, 403, { error: "Origin is not allowed." });
+			}
+			if (req.method === "GET") {
+				const file =
+					url.pathname === "/api/commands" ? commandsFile : observationsFile;
+				return json(res, 200, {
+					content: existsSync(file) ? readFileSync(file, "utf8") : "",
+				});
+			}
+			if (url.pathname !== "/api/observations" || req.method !== "POST") {
+				return json(res, 405, { error: "Method not allowed." });
+			}
+			try {
+				const body = await readJson(req, MAX_BRIDGE_BODY_BYTES);
+				if (typeof body.content !== "string") {
+					return json(res, 400, { error: "content must be a string." });
+				}
+				mkdirSync(bridgeDirectory, { recursive: true });
+				writeFileSync(observationsFile, body.content, "utf8");
+				return json(res, 200, { written: true });
+			} catch (error) {
+				return json(res, Number(error?.statusCode) || 400, {
+					error: error.message || "Invalid request.",
+				});
+			}
 		}
 
 		if (url.pathname.startsWith("/api/")) {

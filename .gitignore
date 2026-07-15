@@ -16,6 +16,7 @@ dist-ssr
 !.env.example
 .railway/
 coverage/
+artifacts/
 
 # Editor directories and files
 .vscode/*
@@ -31,3 +32,10 @@ coverage/
 # Internal (not for commit)
 internal/
 docs/_internal/
+.env
+.env.local
+.env.production
+
+# Local vision-agent bridge state
+RAGBOT_COMMANDS.md
+RAGBOT_OBSERVATIONS.md

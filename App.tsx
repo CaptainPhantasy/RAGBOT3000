@@ -7,6 +7,7 @@ import { useDragAndResize } from "./hooks/useDragAndResize";
 import { useMediaStream } from "./hooks/useMediaStream";
 import { isIOS } from "./lib/deviceDetection";
 import { buildUnifiedSystemPrompt } from "./services/geminiService";
+import { extensionBridge } from "./services/extensionBridge";
 import { LiveSession, type LiveSessionError } from "./services/liveService";
 import { type DocChunk, Mode, type TaskFrame } from "./types";
 
@@ -51,6 +52,11 @@ const App = () => {
 		handleResizeStart,
 		getResizeCursor,
 	} = useDragAndResize();
+
+	useEffect(() => {
+		extensionBridge.listenForExtension();
+		return () => extensionBridge.stopListeningForExtension();
+	}, []);
 
 	const handleSessionError = useCallback((error: LiveSessionError) => {
 		let msg = "";
@@ -240,10 +246,7 @@ const App = () => {
 	}, [analyser]);
 
 	return (
-		<div className="h-screen w-full bg-black flex flex-col items-center justify-center overflow-hidden">
-			<h1 className="md:text-7xl text-3xl lg:text-9xl font-bold text-center text-white relative z-20">
-				RAGBot3000
-			</h1>
+		<div className="h-screen w-full bg-transparent flex flex-col items-center justify-center overflow-hidden">
 			<div className="w-[40rem] h-40 relative">
 				{/* Gradients */}
 				<div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
@@ -262,7 +265,7 @@ const App = () => {
 				/>
 
 				{/* Radial Gradient to prevent sharp edges */}
-				<div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+				<div className="absolute inset-0 w-full h-full bg-transparent [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
 			</div>
 			<div className="absolute inset-0 z-10">
 				<VisionPreview
