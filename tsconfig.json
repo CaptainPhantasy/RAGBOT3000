@@ -21,6 +21,7 @@
   },
   "exclude": [
     "node_modules",
+    "extension",
     "services/communication.ts",
     "services/llmInterface.ts",
     "services/webAnalyzer.ts",

@@ -5,8 +5,19 @@ import { memoryManager } from './memoryService';
 import { VISION_AGENT_TOOLS } from './visionTools';
 import { executeToolCall } from './visionEngine';
 
-// Initialize Gemini
-const genAI = new GoogleGenAI({ apiKey: process.env.API_KEY });
+let _genAI: GoogleGenAI | null = null;
+
+function getGenAI(): GoogleGenAI {
+  if (_genAI) return _genAI;
+  const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    throw new Error(
+      'Missing Gemini API key. Set the API_KEY or GEMINI_API_KEY environment variable before calling Gemini services.',
+    );
+  }
+  _genAI = new GoogleGenAI({ apiKey });
+  return _genAI;
+}
 
 type RealtimeInput = {
   media: {
@@ -194,9 +205,9 @@ export class LiveSession {
       if (signal.aborted) return;
 
       // Final fallback for system instruction if not provided
-      const finalInstruction =
-        systemInstruction ||
-        `You are Legacy, a helpful RAG teammate.
+       const finalInstruction =
+         systemInstruction ||
+         `You are Tom the Peep, a web browsing and accessibility expert.
 
 ## Session Memory (Grounding)
 ${memoryContext}
@@ -204,7 +215,7 @@ ${memoryContext}
 Keep answers concise and helpful.`;
 
       // Connect to Gemini Live
-      const sessionPromise = genAI.live.connect({
+      const sessionPromise = getGenAI().live.connect({
         model: 'gemini-2.5-flash-native-audio-preview-09-2025',
         config: {
           responseModalities: [Modality.AUDIO],

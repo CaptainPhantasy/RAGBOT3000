@@ -8,6 +8,7 @@ import { useMediaStream } from './hooks/useMediaStream';
 import { isIOS, isScreenSharingSupported } from './lib/deviceDetection';
 import { buildUnifiedSystemPrompt } from './services/geminiService';
 import { LiveSession, type LiveSessionError } from './services/liveService';
+import { extensionBridge } from './services/extensionBridge';
 import { type DocChunk, Mode, type TaskFrame } from './types';
 
 const App = () => {
@@ -41,6 +42,10 @@ const App = () => {
     handleResizeStart,
     getResizeCursor,
   } = useDragAndResize();
+
+  useEffect(() => {
+    extensionBridge.listenForExtension();
+  }, []);
 
   const handleSessionError = useCallback((error: LiveSessionError) => {
     let msg = '';

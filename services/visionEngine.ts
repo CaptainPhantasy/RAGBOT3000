@@ -7,6 +7,8 @@
  * This is the bridge between Gemini's intent and the actual DOM.
  */
 
+import { extensionBridge } from './extensionBridge';
+
 // Snapshot for change detection
 let lastSnapshot: string | null = null;
 
@@ -467,8 +469,81 @@ export async function scrollTo(args: { target: string }) {
 
 export async function navigateTo(args: { url: string }) {
   if (!args.url) return { error: 'URL is required' };
+  if (extensionBridge.isConnected()) {
+    return extensionBridge.execute('open_tab', { url: args.url });
+  }
   window.location.href = args.url;
   return { navigating_to: args.url };
+}
+
+async function openTab(args: Record<string, any>): Promise<any> {
+  if (!extensionBridge.isConnected()) {
+    return { error: 'Browser extension not installed. Install the Tom The Peep extension for multi-tab control.' };
+  }
+  return extensionBridge.execute('open_tab', args);
+}
+
+async function closeTab(args: Record<string, any>): Promise<any> {
+  if (!extensionBridge.isConnected()) {
+    return { error: 'Browser extension not installed. Install the Tom The Peep extension for multi-tab control.' };
+  }
+  return extensionBridge.execute('close_tab', args);
+}
+
+async function switchTab(args: Record<string, any>): Promise<any> {
+  if (!extensionBridge.isConnected()) {
+    return { error: 'Browser extension not installed. Install the Tom The Peep extension for multi-tab control.' };
+  }
+  return extensionBridge.execute('switch_tab', args);
+}
+
+async function listTabs(): Promise<any> {
+  if (!extensionBridge.isConnected()) {
+    return { error: 'Browser extension not installed. Install the Tom The Peep extension for multi-tab control.' };
+  }
+  return extensionBridge.execute('list_tabs', {});
+}
+
+async function typeText(args: Record<string, any>): Promise<any> {
+  if (!extensionBridge.isConnected()) {
+    return { error: 'Browser extension not installed. Install the Tom The Peep extension for multi-tab control.' };
+  }
+  return extensionBridge.execute('type_text', args);
+}
+
+async function fillForm(args: Record<string, any>): Promise<any> {
+  if (!extensionBridge.isConnected()) {
+    return { error: 'Browser extension not installed. Install the Tom The Peep extension for multi-tab control.' };
+  }
+  return extensionBridge.execute('fill_form', args);
+}
+
+async function selectOption(args: Record<string, any>): Promise<any> {
+  if (!extensionBridge.isConnected()) {
+    return { error: 'Browser extension not installed. Install the Tom The Peep extension for multi-tab control.' };
+  }
+  return extensionBridge.execute('select_option', args);
+}
+
+async function takeScreenshot(args: Record<string, any>): Promise<any> {
+  if (!extensionBridge.isConnected()) {
+    return { error: 'Browser extension not installed. Install the Tom The Peep extension for multi-tab control.' };
+  }
+  return extensionBridge.execute('take_screenshot', args);
+}
+
+async function waitForElement(args: Record<string, any>): Promise<any> {
+  if (!extensionBridge.isConnected()) {
+    return { error: 'Browser extension not installed. Install the Tom The Peep extension for multi-tab control.' };
+  }
+  return extensionBridge.execute('wait_for_element', args);
+}
+
+async function getTabState(args: Record<string, any>): Promise<any> {
+  if (!extensionBridge.isConnected()) {
+    return { error: 'Browser extension not installed. Install the Tom The Peep extension for multi-tab control.' };
+  }
+  return extensionBridge.execute('get_tab_state', args);
 }
 
 export async function extractText(args: { selector: string }) {
@@ -672,6 +747,16 @@ export async function executeToolCall(name: string, args: any): Promise<any> {
     case 'navigate_to': return navigateTo(args);
     case 'extract_text': return extractText(args);
     case 'get_page_state': return getPageState();
+    case 'open_tab': return openTab(args);
+    case 'close_tab': return closeTab(args);
+    case 'switch_tab': return switchTab(args);
+    case 'list_tabs': return listTabs();
+    case 'type_text': return typeText(args);
+    case 'fill_form': return fillForm(args);
+    case 'select_option': return selectOption(args);
+    case 'take_screenshot': return takeScreenshot(args);
+    case 'wait_for_element': return waitForElement(args);
+    case 'get_tab_state': return getTabState(args);
     case 'write_observation': return writeObservation(args);
     case 'read_commands': return readCommands();
     default: return { error: `Unknown tool: ${name}` };

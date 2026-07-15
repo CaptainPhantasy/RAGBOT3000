@@ -7,9 +7,20 @@ import visionAgentPrompt from '../persona/vision-agent.md?raw';
 import voiceConfig from '../persona/voice.json';
 import { type DocChunk, type MessageImage, Mode, type TaskFrame } from '../types';
 
-// NOTE: In a real app, this should be initialized securely.
-// We are using process.env.API_KEY as per instructions.
-const genAI = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Lazy-initialized singleton – avoids hard crash when API key is missing at import time.
+let _genAI: GoogleGenAI | null = null;
+
+function getGenAI(): GoogleGenAI {
+  if (_genAI) return _genAI;
+  const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    throw new Error(
+      'Missing Gemini API key. Set the API_KEY or GEMINI_API_KEY environment variable before calling Gemini services.',
+    );
+  }
+  _genAI = new GoogleGenAI({ apiKey });
+  return _genAI;
+}
 
 /**
  * Get greeting message from voice config
@@ -69,7 +80,7 @@ export const analyzeIntent = async (
   `;
 
   try {
-    const response = await genAI.models.generateContent({
+    const response = await getGenAI().models.generateContent({
       model,
       contents: prompt,
       config: {
@@ -308,7 +319,7 @@ export const generateTeammateResponse = async (
   }
 
   try {
-    const response = await genAI.models.generateContent({
+    const response = await getGenAI().models.generateContent({
       model,
       contents: [{ role: 'user', parts: parts }],
       config: {
@@ -334,7 +345,7 @@ export const generateSpeech = async (text: string): Promise<string | undefined> 
   const voice = getTTSVoice();
 
   try {
-    const response = await genAI.models.generateContent({
+    const response = await getGenAI().models.generateContent({
       model,
       contents: [{ parts: [{ text }] }],
       config: {
@@ -413,7 +424,7 @@ Return JSON only.
   `;
 
   try {
-    const response = await genAI.models.generateContent({
+    const response = await getGenAI().models.generateContent({
       model,
       contents: prompt,
       config: {

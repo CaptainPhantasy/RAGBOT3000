@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Tom the Peep",
+  "version": "1.0.0",
+  "description": "Browser control extension for RAGBOT3000",
+  "permissions": [
+    "tabs",
+    "scripting",
+    "activeTab",
+    "debugger",
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "dist/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://ragbot3000gsev1beta-vision-agent.up.railway.app/*",
+        "http://localhost:3000/*",
+        "http://localhost/*"
+      ],
+      "js": ["dist/contentScript.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "externally_connectable": {
+    "matches": [
+      "https://ragbot3000gsev1beta-vision-agent.up.railway.app/*",
+      "http://localhost:3000/*",
+      "http://localhost/*",
+      "*://*.up.railway.app/*"
+    ]
+  },
+  "action": {
+    "default_title": "Tom the Peep"
+  }
+}

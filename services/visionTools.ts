@@ -201,6 +201,168 @@ export const VISION_AGENT_TOOLS = {
         properties: {},
       },
     },
+    {
+      name: 'open_tab',
+      description: 'Open a new browser tab with the specified URL. Use this when you need to navigate to a new page without replacing the current one.',
+      parameters: {
+        type: Type.OBJECT,
+        properties: {
+          url: {
+            type: Type.STRING,
+            description: 'The URL to open in the new tab.',
+          },
+        },
+        required: ['url'],
+      },
+    },
+    {
+      name: 'close_tab',
+      description: 'Close a specific browser tab by its ID. Use this to clean up tabs or remove unwanted pages.',
+      parameters: {
+        type: Type.OBJECT,
+        properties: {
+          tab_id: {
+            type: Type.NUMBER,
+            description: 'The ID of the tab to close.',
+          },
+        },
+        required: ['tab_id'],
+      },
+    },
+    {
+      name: 'switch_tab',
+      description: 'Switch focus to a different browser tab. Use this to move between open tabs.',
+      parameters: {
+        type: Type.OBJECT,
+        properties: {
+          tab_id: {
+            type: Type.NUMBER,
+            description: 'The ID of the tab to switch to.',
+          },
+        },
+        required: ['tab_id'],
+      },
+    },
+    {
+      name: 'list_tabs',
+      description: 'List all open browser tabs with their IDs, URLs, and titles. Use this to see what tabs are currently open.',
+      parameters: {
+        type: Type.OBJECT,
+        properties: {},
+      },
+    },
+    {
+      name: 'type_text',
+      description: 'Type text into a form input field. Use this to fill text inputs, search boxes, or text areas.',
+      parameters: {
+        type: Type.OBJECT,
+        properties: {
+          selector: {
+            type: Type.STRING,
+            description: 'CSS selector for the input element.',
+          },
+          text: {
+            type: Type.STRING,
+            description: 'The text to type into the input.',
+          },
+          clear_first: {
+            type: Type.BOOLEAN,
+            description: 'Clear the input before typing. Default false.',
+          },
+        },
+        required: ['selector', 'text'],
+      },
+    },
+    {
+      name: 'fill_form',
+      description: 'Fill multiple form fields at once. Use this to populate entire forms efficiently.',
+      parameters: {
+        type: Type.OBJECT,
+        properties: {
+          fields: {
+            type: Type.ARRAY,
+            items: {
+              type: Type.OBJECT,
+              properties: {
+                selector: {
+                  type: Type.STRING,
+                  description: 'CSS selector for the form field.',
+                },
+                value: {
+                  type: Type.STRING,
+                  description: 'The value to set in the field.',
+                },
+              },
+              required: ['selector', 'value'],
+            },
+            description: 'Array of {selector, value} objects to fill.',
+          },
+        },
+        required: ['fields'],
+      },
+    },
+    {
+      name: 'select_option',
+      description: 'Select an option from a dropdown or select element. Use this to choose from predefined options.',
+      parameters: {
+        type: Type.OBJECT,
+        properties: {
+          selector: {
+            type: Type.STRING,
+            description: 'CSS selector for the select element.',
+          },
+          value: {
+            type: Type.STRING,
+            description: 'The value or text of the option to select.',
+          },
+        },
+        required: ['selector', 'value'],
+      },
+    },
+    {
+      name: 'take_screenshot',
+      description: 'Capture a screenshot of the current page. Use this to visually document the page state.',
+      parameters: {
+        type: Type.OBJECT,
+        properties: {
+          full_page: {
+            type: Type.BOOLEAN,
+            description: 'Capture the entire page including below-fold content. Default false.',
+          },
+        },
+      },
+    },
+    {
+      name: 'wait_for_element',
+      description: 'Wait for an element to appear on the page. Use this when content loads asynchronously.',
+      parameters: {
+        type: Type.OBJECT,
+        properties: {
+          selector: {
+            type: Type.STRING,
+            description: 'CSS selector for the element to wait for.',
+          },
+          timeout: {
+            type: Type.NUMBER,
+            description: 'Maximum time to wait in milliseconds. Default 5000.',
+          },
+        },
+        required: ['selector'],
+      },
+    },
+    {
+      name: 'get_tab_state',
+      description: 'Get the current state of a tab including its URL, title, and ready state. Use this to check tab information.',
+      parameters: {
+        type: Type.OBJECT,
+        properties: {
+          tab_id: {
+            type: Type.NUMBER,
+            description: 'The ID of the tab to get state for. Omit for current tab.',
+          },
+        },
+      },
+    },
   ],
 };
 
