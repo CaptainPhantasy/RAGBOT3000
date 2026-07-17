@@ -11,7 +11,8 @@
 		"format:write": "biome format --write --files-ignore-unknown=true .",
 		"lint": "oxlint .",
 		"typecheck": "tsc --noEmit",
-		"test": "node --test tests/*.test.mjs",
+		"test": "node --test tests/*.test.mjs && vitest run",
+		"test:watch": "vitest",
 		"build": "vite build",
 		"bundle:check": "node scripts/assert-no-client-secrets.mjs",
 		"browser:proof": "node scripts/verify-extension-browser.mjs",
@@ -41,11 +42,13 @@
 		"@types/node": "^22.14.0",
 		"@vitejs/plugin-react": "^5.2.0",
 		"autoprefixer": "^10.5.3",
+		"jsdom": "^25.0.1",
 		"oxlint": "^1.33.0",
 		"postcss": "^8.5.19",
 		"secretlint": "^11.2.5",
 		"tailwindcss": "^3.4.19",
 		"typescript": "~5.8.2",
-		"vite": "^6.4.3"
+		"vite": "^6.4.3",
+		"vitest": "^3.2.7"
 	}
 }
