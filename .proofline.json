@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "gates": [
+    {
+      "name": "clean-install",
+      "command": ["sh", "-lc", "npm ci --include=dev --ignore-scripts && npm --prefix extension ci --include=dev --ignore-scripts"],
+      "required": true
+    },
+    {
+      "name": "repository-check",
+      "command": ["npm", "run", "check"],
+      "required": true
+    },
+    {
+      "name": "production-smoke",
+      "command": ["sh", "-lc", "ALLOW_INSECURE_LOCAL_DEV=1 PORT=31342 npm start >/tmp/ragbot-proofline-server.log 2>&1 & pid=$!; trap 'kill $pid 2>/dev/null || true' EXIT; i=0; until curl -fsS http://127.0.0.1:31342/health >/tmp/ragbot-proofline-health.json && curl -fsS http://127.0.0.1:31342/ >/tmp/ragbot-proofline-home.html; do i=$((i+1)); test $i -lt 30 || { cat /tmp/ragbot-proofline-server.log; exit 1; }; sleep 1; done; jq -e '.ok == true and .accessControlConfigured == true' /tmp/ragbot-proofline-health.json >/dev/null; rg -q '<title>Tom the Peep - Floyd Vision Agent</title>' /tmp/ragbot-proofline-home.html"],
+      "required": true
+    },
+    {
+      "name": "diff-check",
+      "command": ["sh", "-lc", "git diff --check && git diff --check d88b79c99505fad8b34d3f3dd3300f50c91972d6...HEAD"],
+      "required": true
+    },
+    {
+      "name": "sensitive-data-scan",
+      "command": ["bash", "scripts/scan-sensitive-data.sh"],
+      "required": true
+    }
+  ],
+  "include": [
+    ".proofline.json",
+    "package-lock.json",
+    "package.json",
+    "scripts/scan-sensitive-data.sh",
+    "tests/deviceDetection.test.ts",
+    "tests/geminiService.config.test.ts",
+    "tests/knowledgeBase.test.ts",
+    "tests/memoryService.test.ts",
+    "tests/setup.ts",
+    "vitest.config.ts"
+  ],
+  "deny": [
+    ".env",
+    ".env.*",
+    "*.pem",
+    "*.key",
+    "*.p12",
+    "node_modules/**",
+    "extension/node_modules/**",
+    "dist/**",
+    "extension/dist/**",
+    ".git/**",
+    ".claude/**",
+    ".codex/**",
+    ".planning/**"
+  ],
+  "baseBranch": "main",
+  "publish": true,
+  "allowLocalRemote": false
+}
